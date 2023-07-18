@@ -6,7 +6,8 @@ public class PlayerTest : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform firePoint;
-    public GameObject projectile;
+    public GameObject[] projectile;
+    public int projectileIndex;
     public bool canShoot;
     [SerializeField]
     private float arrowCooldown;
@@ -32,7 +33,7 @@ public class PlayerTest : MonoBehaviour
         }
         if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && canShoot)
         {
-            Shoot();
+            StartCoroutine(InstantiateProjectiles());
             GetComponent<move>().SetAnimation("Magic", 0.25f, true);
         }
         if (!canShoot)
@@ -47,9 +48,19 @@ public class PlayerTest : MonoBehaviour
         }
 
     }
-    void Shoot()
+
+    IEnumerator InstantiateProjectiles()
     {
-        Instantiate(projectile, firePoint.position, Quaternion.Euler(new Vector3(0,0, player.angle)));
-        canShoot = false;
+        for (int i = 0; i < projectile.Length; i++)
+        {
+            if (i + 1 == projectileIndex)
+            {
+                GameObject instantiatedObject = Instantiate(projectile[i]);
+                instantiatedObject.transform.position = this.transform.position;
+                instantiatedObject.transform.rotation = Quaternion.identity;
+                canShoot = false;
+            }
+        }
+        yield return null;
     }
 }

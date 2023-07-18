@@ -264,10 +264,14 @@ MonoBehaviour:
   cookingPage: {fileID: 0}
   statsToggleButtonText: {fileID: 0}
   pausedUI: {fileID: 0}
+  gameIsPaused: 0
   boarTrotterText: {fileID: 0}
   boarTrotterCount: 0
   shroomText: {fileID: 0}
   shroomCount: 0
+  isMelee: 0
+  fryingPan: {fileID: 0}
+  kitchenGun: {fileID: 0}
 --- !u!50 &4248948148176905323
 Rigidbody2D:
   serializedVersion: 4
@@ -390,7 +394,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 554075239}
-  projectile: {fileID: 1457549573367568210, guid: 3af590a6e30a72c40af9ee35e1b765f9, type: 3}
+  projectile:
+  - {fileID: 1457549573367568210, guid: 3af590a6e30a72c40af9ee35e1b765f9, type: 3}
+  - {fileID: 1457549573367568210, guid: 34b2e415a414fda468d38169ffc14597, type: 3}
+  - {fileID: 1457549573367568210, guid: 5db3acd66f6bb8946a400540a3468ce3, type: 3}
+  - {fileID: 1457549573367568210, guid: 5d99dd52e952c284f9b2495ddf7ca6a7, type: 3}
+  projectileIndex: 0
   canShoot: 0
   arrowCooldown: 2
   arrowCooldownMultiplier: 0

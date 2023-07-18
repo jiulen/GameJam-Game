@@ -273,3 +273,4 @@ MonoBehaviour:
   endGame: 0
   experienceToGive: 3
   winScreen: {fileID: 0}
+  explosionPrefab: {fileID: 124728817819768249, guid: 13074dc49ba7a4a4082e74f6f9cedaa6, type: 3}

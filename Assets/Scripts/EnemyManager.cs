@@ -25,9 +25,16 @@ public class EnemyManager : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public GameObject winScreen;
 
+    bool fireArrowHit;
+    EnemyControl enemyControl;
+    FollowEnemy followEnemy;
+    public GameObject explosionPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
+        fireArrowHit = false;
+
         stunned = false;
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -131,4 +138,40 @@ public class EnemyManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "PlayerProjectileFire(Clone)" && fireArrowHit == false)
+        {
+            fireArrowHit = true;
+        }
+        else if (other.gameObject.name == "PlayerProjectileFire(Clone)" && fireArrowHit == true)
+        {
+            fireArrowHit = false;
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+        if (other.gameObject.name == "PlayerProjectilePoison(Clone)")
+        {
+            StartCoroutine(PoisonDamage());
+        }
+    }
+    IEnumerator PoisonDamage()
+    {
+        float timer = 0f;
+        float duration = 3f;
+        float tickInterval = 1f;
+        int damagePerTick = 2;
+        while (timer < duration)
+        {
+            yield return new WaitForSeconds(tickInterval);
+            Damage(damagePerTick);
+            timer += tickInterval;
+        }
+    }
+
+    IEnumerator DelayFunction(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
 }
