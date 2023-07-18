@@ -15,7 +15,8 @@ public class PlayerTest : MonoBehaviour
     private float currentTimer;
     private PlayerManager player;
     move playerMove;
-   void Start()
+
+    void Start()
    {
         player = GetComponent<PlayerManager>();
         playerMove = GetComponent<move>();
