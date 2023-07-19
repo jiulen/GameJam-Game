@@ -87,7 +87,8 @@ public class BunnyManager : MonoBehaviour
                 {
                     isAttacking = true;              
                     rb.velocity = Vector2.zero;    
-                    cooldownTimer = 0;  
+                    cooldownTimer = 0;
+                    manager.TriggerInvincibility();
                 }
             }
             else
@@ -111,6 +112,7 @@ public class BunnyManager : MonoBehaviour
                     slashObj.SetActive(false);
                     animator.Play("BunnyWalkAnimation", sr.sortingLayerID, 0);
                     attackTimer = 0;
+                    manager.StopInvincibility();
                 }
             }
         }
