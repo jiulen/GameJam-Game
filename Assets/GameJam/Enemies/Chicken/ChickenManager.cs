@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BunnyManager : MonoBehaviour
+public class ChickenManager : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
@@ -11,25 +11,23 @@ public class BunnyManager : MonoBehaviour
     [SerializeField]
     private float speed = 0f;
     [SerializeField]
-    private float attackRange = 0f; 
-    [SerializeField]
     private float minRange = 0f;
     SpriteRenderer sr;
 
     //For attack
     bool isAttacking = false;
     [SerializeField]
-    private GameObject slashObj;
-    private Animator slashAnimator;
+    private GameObject eggPrefab;
 
     private float attackTimer;
     [SerializeField]
-    private float slashTime;
+    private float shootTime;
     [SerializeField]
     private float attackTime;
     private float cooldownTimer;
     [SerializeField]
     private float attackCooldown;
+    bool shotEgg = false;
 
 
     // Start is called before the first frame update
@@ -39,8 +37,6 @@ public class BunnyManager : MonoBehaviour
         animator = GetComponent<Animator>();
         manager = GetComponent<EnemyManager>();
         sr = GetComponent<SpriteRenderer>();
-
-        slashAnimator = slashObj.GetComponent<Animator>();
     }
 
     // If player is within range then the enemy will follow the player
@@ -80,39 +76,35 @@ public class BunnyManager : MonoBehaviour
 
             if (!isAttacking)
             {
-                animator.Play("BunnyWalkAnimation");
+                //animator.Play("BunnyWalkAnimation");
                 cooldownTimer += Time.deltaTime;
 
-                if (distToPlayer < attackRange && cooldownTimer > attackCooldown)
+                if (cooldownTimer > attackCooldown)
                 {
                     isAttacking = true;              
                     rb.velocity = Vector2.zero;    
                     cooldownTimer = 0;
-                    manager.TriggerInvincibility();
                 }
             }
             else
             {
                 attackTimer += Time.deltaTime;
-                animator.Play("BunnyKickAnimation");
+                //animator.Play("BunnyKickAnimation");
                 
-                if (attackTimer > slashTime)
+                if (attackTimer > shootTime)
                 {
-                    if (!slashObj.activeSelf)
+                    if (!shotEgg)
                     {
-                        slashObj.SetActive(true);
+                        shotEgg = true;
                     }
-
-                    slashAnimator.Play("Slash3");
                 }
 
                 if (attackTimer > attackTime)
                 {
                     isAttacking = false;
-                    slashObj.SetActive(false);
-                    animator.Play("BunnyWalkAnimation", sr.sortingLayerID, 0);
+                    shotEgg = false;
+                    //animator.Play("BunnyWalkAnimation", sr.sortingLayerID, 0);
                     attackTimer = 0;
-                    manager.StopInvincibility();
                 }
             }
         }

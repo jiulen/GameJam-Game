@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyContactDamage : MonoBehaviour
+public class EnemyContactDamageOnce : EnemyContactDamage
 {
-    [SerializeField]
-    protected float stunTime = 0.25f;
-    [SerializeField]
-    protected int contactDamage = 4;
-
+    bool hit = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !hit)
         {
+            hit = true;
             collision.gameObject.GetComponent<HealthManager>().damage(contactDamage, stunTime);
         }
     }
