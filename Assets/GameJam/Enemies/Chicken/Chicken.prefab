@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 983599470995280853}
   - component: {fileID: -3346308202217411138}
   - component: {fileID: 8506504882616809559}
+  - component: {fileID: 9035406267107131361}
   m_Layer: 6
   m_Name: Chicken
   m_TagString: Enemy
@@ -165,6 +166,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0.05, y: -0.25}
   m_Size: {x: 1, y: 0.5}
   m_Direction: 1
+--- !u!114 &9035406267107131361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983599470995280849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd200bad77e53e34aba481298931f5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  minRange: 0
+  eggPrefab: {fileID: 281943951592021741, guid: ab0d97d8667d81d46b6656b821e0971d, type: 3}
+  shootTime: 0
+  attackTime: 0
+  attackCooldown: 0
 --- !u!1 &2420397977532919345
 GameObject:
   m_ObjectHideFlags: 0

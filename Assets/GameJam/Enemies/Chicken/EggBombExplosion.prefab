@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5354919456532519734}
   - component: {fileID: 1003171848474323232}
   - component: {fileID: 7736163510733673389}
+  - component: {fileID: 421281650772076685}
   m_Layer: 7
   m_Name: EggBombExplosion
   m_TagString: Projectile
@@ -58,12 +59,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.165}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.14
 --- !u!95 &1003171848474323232
 Animator:
   serializedVersion: 3
@@ -74,7 +75,7 @@ Animator:
   m_GameObject: {fileID: 250945704442077505}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af1f9034b6606114fa01eb219eb18993, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -123,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: fa363ff89f0c2a0438ee4515dbd38d5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,6 +132,18 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &421281650772076685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250945704442077505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27024440be56e534dbd21d9cbb2e849d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
