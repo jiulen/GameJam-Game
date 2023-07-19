@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1041996991
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d33dfc9620b0bde43b3413278c47a3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,12 +178,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e70b0d0e61ba7643810104ebd4b9f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 4
   attackRange: 1
-  minRange: 0.25
+  minRange: 0.9
   slashObj: {fileID: 2415495780021783420}
   slashTime: 0.3
   attackTime: 0.667
+  attackCooldown: 2
 --- !u!1 &2415495780021783420
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +313,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.01, y: 0.025}

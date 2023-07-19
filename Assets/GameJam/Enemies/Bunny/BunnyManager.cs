@@ -27,6 +27,10 @@ public class BunnyManager : MonoBehaviour
     private float slashTime;
     [SerializeField]
     private float attackTime;
+    private float cooldownTimer;
+    [SerializeField]
+    private float attackCooldown;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,12 +57,16 @@ public class BunnyManager : MonoBehaviour
 
                 if (dir.x > 0)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = new Vector3(1, 1, 1);
                 }
                 else if (dir.x < 0)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = new Vector3(-1, 1, 1);
                 }
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
             }
         }
     }
@@ -73,10 +81,13 @@ public class BunnyManager : MonoBehaviour
             if (!isAttacking)
             {
                 animator.Play("BunnyWalkAnimation");
+                cooldownTimer += Time.deltaTime;
 
-                if (distToPlayer < attackRange)
+                if (distToPlayer < attackRange && cooldownTimer > attackCooldown)
                 {
-                    isAttacking = true;                    
+                    isAttacking = true;              
+                    rb.velocity = Vector2.zero;    
+                    cooldownTimer = 0;  
                 }
             }
             else
@@ -97,7 +108,9 @@ public class BunnyManager : MonoBehaviour
                 if (attackTimer > attackTime)
                 {
                     isAttacking = false;
+                    slashObj.SetActive(false);
                     animator.Play("BunnyWalkAnimation", sr.sortingLayerID, 0);
+                    attackTimer = 0;
                 }
             }
         }
