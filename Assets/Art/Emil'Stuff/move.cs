@@ -41,9 +41,31 @@ public class move : MonoBehaviour
     public int boarTrotterCount;
     public Text shroomText;
     public int shroomCount;
+    public Text broccoliText;
+    public int broccoliCount;
+    public Text chickenFeetText;
+    public int chickenFeetCount;
+    public Text rabbitLegText;
+    public int rabbitLegCount;
+    public Text shellText;
+    public int shellCount;
+    public Text wingText;
+    public int wingCount;
+    public Text yolkText;
+    public int yolkCount;
+
     public bool isMelee;
     public GameObject fryingPan;
     public GameObject kitchenGun;
+
+    private GameObject weaponArea;
+    public Sprite gunSprite;
+    public Sprite gunBuffSprite;
+    public Sprite panSprite;
+    public Sprite panBuffSprite;
+    public Image weapon;
+    public Image weaponBuff;
+    private Text weaponName;
 
     public string Direction {
         get { return direction; }
@@ -61,8 +83,23 @@ public class move : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        boarTrotterCount = 0;
-        shroomCount = 0;
+        weaponArea = GameObject.Find("WeaponArea");
+        weaponName = weaponArea.transform.Find("WeaponName").GetComponent<Text>();
+        weapon = weaponArea.transform.Find("Weapon").GetComponent<Image>();
+        weaponBuff = weaponArea.transform.Find("WeaponBuff").GetComponent<Image>();
+
+        weaponName.text = "Frying Pan";
+        weapon.sprite = panSprite;
+        weaponBuff.sprite = panBuffSprite;
+
+        boarTrotterCount = 2;
+        shroomCount = 2;
+        broccoliCount = 2;
+        chickenFeetCount = 2;
+        rabbitLegCount = 2;
+        shellCount = 2;
+        wingCount = 2;
+        yolkCount = 2;
     }
 
     public void SetAnimation( string mode, float cooldown, bool stop = true) {
@@ -332,12 +369,18 @@ public class move : MonoBehaviour
     {
         if (isMelee == true)
         {
+            weaponName.text = "Kitchen Gun";
+            weapon.sprite = gunSprite;
+            weaponBuff.sprite = gunBuffSprite;
             fryingPan.SetActive(false);
             kitchenGun.SetActive(true);
             isMelee = false;
         }
         else
         {
+            weaponName.text = "Frying Pan";
+            weapon.sprite = panSprite;
+            weaponBuff.sprite = panBuffSprite;
             fryingPan.SetActive(true);
             kitchenGun.SetActive(false);
             isMelee = true;
@@ -551,6 +594,42 @@ public class move : MonoBehaviour
         {
             shroomCount += 1;
             shroomText.text = "Shroom: " + shroomCount;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "Broccoli")
+        {
+            broccoliCount += 1;
+            broccoliText.text = "Broccoli: " + broccoliCount;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "ChickenFeet")
+        {
+            chickenFeetCount += 1;
+            chickenFeetText.text = "ChickenFeet: " + chickenFeetCount;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "Rabbit Leg")
+        {
+            rabbitLegCount += 1;
+            rabbitLegText.text = "Rabbit Leg: " + rabbitLegCount;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "Shell")
+        {
+            shellCount += 1;
+            shellText.text = "Shell: " + shellCount;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "Wing")
+        {
+            wingCount += 1;
+            wingText.text = "Wing: " + wingCount;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "Yolk")
+        {
+            yolkCount += 1;
+            yolkText.text = "Yolk: " + yolkCount;
             Destroy(collision.gameObject);
         }
     }

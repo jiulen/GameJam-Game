@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BakKutTeh SO
   m_EditorClassIdentifier: 
   ingredientsList:
-  - {fileID: 11400000, guid: 054ae5ffd39c91b44b0aed0e0cb50d38, type: 2}
+  - {fileID: 11400000, guid: c5df119fae6764139b3b2a9eb2fcaaf6, type: 2}
   - {fileID: 11400000, guid: 470ce05c29dbe2643a64446006abd13a, type: 2}
   outputDishName: BakKutTeh
   outputDishSprite: {fileID: 21300000, guid: 13a2788283e15438b981e933b3dac17b, type: 3}
