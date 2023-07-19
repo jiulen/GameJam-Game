@@ -52,16 +52,10 @@ public class PlayerTest : MonoBehaviour
 
     IEnumerator InstantiateProjectiles()
     {
-        for (int i = 0; i < projectile.Length; i++)
-        {
-            if (i + 1 == projectileIndex)
-            {
-                GameObject instantiatedObject = Instantiate(projectile[i]);
-                instantiatedObject.transform.position = this.transform.position;
-                instantiatedObject.transform.rotation = Quaternion.identity;
-                canShoot = false;
-            }
-        }
+        GameObject instantiatedObject = Instantiate(projectile[0]);
+        instantiatedObject.transform.position = this.transform.position;
+        instantiatedObject.transform.rotation = Quaternion.identity;
+        canShoot = false;
         yield return null;
     }
 }

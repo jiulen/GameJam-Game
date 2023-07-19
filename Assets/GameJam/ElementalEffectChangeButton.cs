@@ -6,9 +6,13 @@ public class ElementalEffectChangeButton : MonoBehaviour
 {
     public PlayerTest playerTest;
     public float projectileSlotNumber;
+    public GameObject projectileChooser;
+    bool isProjectileChooserActive;
+    public move playerMove;
     // Start is called before the first frame update
     void Start()
     {
+        isProjectileChooserActive = false;
     }
 
     // Update is called once per frame
@@ -16,10 +20,24 @@ public class ElementalEffectChangeButton : MonoBehaviour
     {
         
     }
-    public void changeProjectileType()
+    public void ChangeProjectileType()
     {
         int index = (int)projectileSlotNumber;
         playerTest.projectile[0] = playerTest.projectile[index];
+    }
+
+    public void ToggleProjectileChooser()
+    {
+        if (isProjectileChooserActive == false)
+        {
+            projectileChooser.SetActive(true);
+            isProjectileChooserActive = true;
+        }
+        else
+        {
+            projectileChooser.SetActive(false);
+            isProjectileChooserActive = false;
+        }
     }
 
 }
