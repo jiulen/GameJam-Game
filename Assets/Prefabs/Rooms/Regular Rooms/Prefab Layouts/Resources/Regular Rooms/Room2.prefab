@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 3292361947464690612}
   - component: {fileID: 2821304724071769988}
   m_Layer: 0
-  m_Name: Room 2
+  m_Name: Room2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,6 +313,10 @@ PrefabInstance:
     - target: {fileID: 1943580285134537094, guid: e1e74d4e1893b3348a0245051c8040e7, type: 3}
       propertyPath: m_Name
       value: Layout Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943580285134537094, guid: e1e74d4e1893b3348a0245051c8040e7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1949167216676417185, guid: e1e74d4e1893b3348a0245051c8040e7, type: 3}
       propertyPath: m_Tiles.Array.size

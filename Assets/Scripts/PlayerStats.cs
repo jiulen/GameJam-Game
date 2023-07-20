@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
@@ -8,6 +9,17 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int atkDamage; //melee
     [SerializeField] private int dexDamage; //ranged
     [SerializeField] private int soulCount;
+    [SerializeField]
+    private GameObject poisonBall;
+    public RoomTemplates room;
+    private GameObject activeRoom;
+    private GameObject roomObject;
+    public TilemapCollider2D tilemapCollider2D;
+    private Collision wallCollision;
+    private GameObject playerObject;
+    private GameObject enemyObject;
+    private RoomTrigger roomTrigger;
+    public GameObject layoutWalls;
     private float playerSpeed;
     public int currentLevel;
     public int currentExperiencePoints;
@@ -15,6 +27,10 @@ public class PlayerStats : MonoBehaviour
     // Level Up Stats
     public int bonusATK = 0, bonusDEX = 0, bonusVIT = 0; //ATK for more melee dmg, DEX for more ranged dmg, VIT for more health
     public int unusedStatPoints = 0;
+    public string playerLayerName = "";
+    private int playerLayerNum;
+    public string wallsLayerName = "";
+    private int wallsLayerNum;
 
     private HealthManager healthManager;
     private move move;
@@ -31,6 +47,13 @@ public class PlayerStats : MonoBehaviour
     {
         healthManager = GetComponent<HealthManager>();
         move = GetComponent<move>();
+        room = FindObjectOfType<RoomTemplates>();
+        roomTrigger = FindObjectOfType<RoomTrigger>();
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        playerLayerNum = LayerMask.NameToLayer(playerLayerName);
+        wallsLayerNum = LayerMask.NameToLayer(wallsLayerName);
+        tilemapCollider2D = null;
         levelUpCost = 10 * currentLevel + 10;
         upgradeDescriptions = new List<(string, string)>();
     }
@@ -143,6 +166,7 @@ public class PlayerStats : MonoBehaviour
 
     public void AddBuffs(int buffType)
     {
+        GameObject obj;
         switch (buffType)
         {
             case 0:
@@ -160,9 +184,34 @@ public class PlayerStats : MonoBehaviour
                 break;
             case 3:
                 Debug.Log("Poisonous buff");
+                obj = Instantiate(poisonBall);
+                switch (gameObject.GetComponent<move>().Direction)
+                {
+                    case "Front":
+                        obj.transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y - 0.5f);
+                        obj.transform.localEulerAngles = new Vector3(0, 0, 270);
+                        break;
+                    case "Back":
+                        obj.transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y + 1.5f);
+                        obj.transform.localEulerAngles = new Vector3(0, 0, 90);
+                        break;
+                    default:
+                        if (transform.localScale.x < 0)
+                        {
+                            obj.transform.localPosition = new Vector2(transform.localPosition.x + 1, transform.localPosition.y + 1);
+                            obj.transform.localEulerAngles = new Vector3(0, 0, 0);
+                        }
+                        else
+                        {
+                            obj.transform.localPosition = new Vector2(transform.localPosition.x - 1, transform.localPosition.y + 1);
+                            obj.transform.localEulerAngles = new Vector3(0, 0, 180);
+                        }
+                        break;
+                }
                 break;
             case 4:
                 Debug.Log("No block buff");
+                Physics2D.IgnoreLayerCollision(playerLayerNum, wallsLayerNum);
                 break;
             default:
                 break;
@@ -190,6 +239,7 @@ public class PlayerStats : MonoBehaviour
                 break;
             case 4:
                 Debug.Log("Remove No block buff");
+                Physics2D.IgnoreLayerCollision(playerLayerNum, wallsLayerNum, false);
                 break;
             default:
                 break;

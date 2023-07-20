@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//public enum Buff
-//{
-//    MELEEATK,
-//    RANGEDATK,
-//    HEALING,
-//    SPEED
-//}
 
 public class Buffs : MonoBehaviour
 {

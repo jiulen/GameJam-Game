@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 
 public class RoomTrigger : MonoBehaviour
 {
@@ -22,7 +24,6 @@ public class RoomTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,7 +43,6 @@ public class RoomTrigger : MonoBehaviour
             room.setPlayerInside(true);
             door.setClosed(true);
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
