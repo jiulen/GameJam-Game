@@ -12,7 +12,11 @@ public class ChickenManager : MonoBehaviour
     private float speed = 0f;
     [SerializeField]
     private float minRange = 0f;
+    [SerializeField]
+    private float maxRange = 0f;
     SpriteRenderer sr;
+    [SerializeField] float fowardsPercentage = 0.5f;
+    int strafeDir = 1;
 
     //For attack
     bool isAttacking = false;
@@ -32,6 +36,9 @@ public class ChickenManager : MonoBehaviour
     bool shotEgg = false;
     [SerializeField] float shootSpeed;
 
+    private float strafeTimer;
+    [SerializeField] float strafeMinTime, strafeMaxTime, strafeCurTime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,32 +47,60 @@ public class ChickenManager : MonoBehaviour
         animator = GetComponent<Animator>();
         manager = GetComponent<EnemyManager>();
         sr = GetComponent<SpriteRenderer>();
+
+        strafeCurTime = Random.Range(strafeMinTime, strafeMaxTime);
     }
 
-    // If player is within range then the enemy will follow the player
+    // Keep dist from player, circle around
     void FixedUpdate()
     {
         if (!manager.stunned && !isAttacking)
         {
+            Vector2 dir = (manager.target.position - firingPoint.position).normalized;
+
             float distToPlayer = Vector2.Distance(manager.target.position, transform.position);
 
-            if (distToPlayer > minRange)
-            {
-                Vector2 dir = (manager.target.position - transform.position).normalized;
-                rb.velocity = dir * speed;
+            //Forward/backward movement
+            Vector2 forwardVelo = Vector2.zero;
 
-                if (dir.x > 0)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-                else if (dir.x < 0)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
+            if (distToPlayer < minRange) //too close, away from player
+            {
+                forwardVelo = -dir * fowardsPercentage;
+            }
+            else if (distToPlayer > maxRange) //too far, closer to player
+            {
+                forwardVelo = dir * fowardsPercentage;
             }
             else
             {
-                rb.velocity = Vector2.zero;
+                forwardVelo = Vector2.zero;
+            }
+
+            //Sideways movement
+            Vector2 sidewaysDir = new Vector2(-dir.y, dir.x);
+            Vector2 sidewaysVelo = Vector2.zero;
+
+            strafeTimer += Time.fixedDeltaTime;
+            
+            if (strafeTimer > strafeCurTime)
+            {
+                strafeTimer = 0;
+                strafeCurTime = Random.Range(strafeMinTime, strafeMaxTime);
+                strafeDir *= -1;
+            }
+
+            sidewaysVelo = sidewaysDir * strafeDir * (1 - fowardsPercentage);
+
+            Vector2 totalVelo = (forwardVelo + sidewaysVelo).normalized * speed;
+            rb.velocity = totalVelo;
+
+            if (dir.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (dir.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
             }
         }
     }
@@ -127,5 +162,5 @@ public class ChickenManager : MonoBehaviour
         egg.GetComponent<Rigidbody2D>().velocity = dir * shootSpeed;
     }
 
-    
+
 }

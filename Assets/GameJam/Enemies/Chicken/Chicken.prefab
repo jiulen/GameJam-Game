@@ -178,14 +178,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd200bad77e53e34aba481298931f5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  minRange: 10
+  speed: 6
+  minRange: 4
+  maxRange: 6
+  fowardsPercentage: 0.5
   eggPrefab: {fileID: 281943951592021741, guid: ab0d97d8667d81d46b6656b821e0971d, type: 3}
   firingPoint: {fileID: 4336346774134562856}
   shootTime: 0.5
   attackTime: 1
   attackCooldown: 3
-  shootSpeed: 20
+  shootSpeed: 35
+  strafeMinTime: 1
+  strafeMaxTime: 3
+  strafeCurTime: 0
 --- !u!1 &2420397977532919345
 GameObject:
   m_ObjectHideFlags: 0
