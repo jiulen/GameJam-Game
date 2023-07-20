@@ -34,7 +34,7 @@ public class PlayerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        lookDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
@@ -47,7 +47,7 @@ public class PlayerTest : MonoBehaviour
             GameObject instantiatedObject = Instantiate(projectile[0]);
             instantiatedObject.transform.position = firePoint.transform.position;
             instantiatedObject.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
-            instantiatedObject.GetComponent<Rigidbody2D>().velocity = (lookDirection - (Vector2)transform.position).normalized * bulletSpeed;
+            instantiatedObject.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
             canShoot = false;
             GetComponent<move>().SetAnimation("Magic", 0.25f, true);
         }
