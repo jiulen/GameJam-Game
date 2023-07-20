@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EggplosionBehaviour : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+{    
+    public float totalDuration;
+    float currentDuration = 0;
 
     // Update is called once per frame
     void Update()
     {
+        currentDuration += Time.deltaTime;
         
+        if (currentDuration >= totalDuration)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
