@@ -47,7 +47,7 @@ public class PlayerTest : MonoBehaviour
             GameObject instantiatedObject = Instantiate(projectile[0]);
             instantiatedObject.transform.position = firePoint.transform.position;
             instantiatedObject.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
-            instantiatedObject.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
+            instantiatedObject.GetComponent<Rigidbody2D>().velocity = (lookDirection - (Vector2)transform.position).normalized * bulletSpeed;
             canShoot = false;
             GetComponent<move>().SetAnimation("Magic", 0.25f, true);
         }
