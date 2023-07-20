@@ -66,6 +66,8 @@ public class move : MonoBehaviour
     public Image weapon;
     public Image weaponBuff;
     private Text weaponName;
+    public ElementalEffectChangeButton projectileElementChanger;
+    public PlayerTest playerTest;
 
     public string Direction {
         get { return direction; }
@@ -233,6 +235,29 @@ public class move : MonoBehaviour
                 mode = "Idle";
             }
             return;
+        }
+
+        if (gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            projectileElementChanger.ToggleProjectileChooser();
+        }
+
+        if (gameIsPaused == false && projectileElementChanger.isProjectileChooserActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                playerTest.projectile[0] = playerTest.projectile[1];
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                playerTest.projectile[0] = playerTest.projectile[2];
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                playerTest.projectile[0] = playerTest.projectile[3];
+            }
         }
 
         if (gameIsPaused == false && Input.GetKeyDown(KeyCode.Tab))

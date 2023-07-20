@@ -7,7 +7,7 @@ public class ElementalEffectChangeButton : MonoBehaviour
     public PlayerTest playerTest;
     public float projectileSlotNumber;
     public GameObject projectileChooser;
-    bool isProjectileChooserActive;
+    public bool isProjectileChooserActive;
     public move playerMove;
     // Start is called before the first frame update
     void Start()

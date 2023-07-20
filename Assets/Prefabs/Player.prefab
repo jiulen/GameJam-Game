@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554075238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.574, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4248948148176905316}
@@ -269,9 +269,29 @@ MonoBehaviour:
   boarTrotterCount: 0
   shroomText: {fileID: 0}
   shroomCount: 0
+  broccoliText: {fileID: 0}
+  broccoliCount: 0
+  chickenFeetText: {fileID: 0}
+  chickenFeetCount: 0
+  rabbitLegText: {fileID: 0}
+  rabbitLegCount: 0
+  shellText: {fileID: 0}
+  shellCount: 0
+  wingText: {fileID: 0}
+  wingCount: 0
+  yolkText: {fileID: 0}
+  yolkCount: 0
   isMelee: 0
   fryingPan: {fileID: 0}
   kitchenGun: {fileID: 0}
+  gunSprite: {fileID: 0}
+  gunBuffSprite: {fileID: 0}
+  panSprite: {fileID: 0}
+  panBuffSprite: {fileID: 0}
+  weapon: {fileID: 0}
+  weaponBuff: {fileID: 0}
+  projectileElementChanger: {fileID: 0}
+  playerTest: {fileID: 0}
 --- !u!50 &4248948148176905323
 Rigidbody2D:
   serializedVersion: 4
@@ -361,10 +381,11 @@ MonoBehaviour:
   fireShot: {fileID: 566825752524962294, guid: 2d7fe3cdb2a6fd448b2323b226b6b1dd, type: 3}
   sparkField: {fileID: 8172162938023691911, guid: 03ec0185b3a716d4ea240b3ca3764e41, type: 3}
   sandBall: {fileID: 6420454179449576900, guid: 5eac39ce8ba28194fa8bd7fea4eb66db, type: 3}
-  meleeAtkBuff: {fileID: 0}
-  rangedAtkBuff: {fileID: 0}
-  healBuff: {fileID: 0}
+  atkBuff: {fileID: 0}
+  evasionBuff: {fileID: 0}
   speedBuff: {fileID: 0}
+  poisonousBuff: {fileID: 0}
+  noBlockBuff: {fileID: 0}
   buffDuration: 10
   playerBuff: {fileID: 1231618917}
 --- !u!114 &2080022336
@@ -472,6 +493,7 @@ MonoBehaviour:
   bonusVIT: 0
   unusedStatPoints: 0
   atkBuff: 10
+  speedBuff: 10
 --- !u!114 &1231618917
 MonoBehaviour:
   m_ObjectHideFlags: 0

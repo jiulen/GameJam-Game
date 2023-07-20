@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerTest : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Transform firePoint;
     public GameObject[] projectile;
     public int projectileIndex;
     public bool canShoot;
@@ -15,6 +14,13 @@ public class PlayerTest : MonoBehaviour
     private float currentTimer;
     private PlayerManager player;
     move playerMove;
+
+    public Transform firePoint;
+    public GameObject bullet;
+    public float bulletSpeed = 50;
+    Vector2 lookDirection;
+    float lookAngle;
+
 
     void Start()
    {
@@ -28,13 +34,21 @@ public class PlayerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
+
         if (GetComponent<move>().Mode == "Dead")
         { 
             return; 
         }
         if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && canShoot)
         {
-            StartCoroutine(InstantiateProjectiles());
+            GameObject instantiatedObject = Instantiate(projectile[0]);
+            instantiatedObject.transform.position = firePoint.transform.position;
+            instantiatedObject.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+            instantiatedObject.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
+            canShoot = false;
             GetComponent<move>().SetAnimation("Magic", 0.25f, true);
         }
         if (!canShoot)
@@ -47,15 +61,5 @@ public class PlayerTest : MonoBehaviour
                 currentTimer = 0;
             }
         }
-
-    }
-
-    IEnumerator InstantiateProjectiles()
-    {
-        GameObject instantiatedObject = Instantiate(projectile[0]);
-        instantiatedObject.transform.position = this.transform.position;
-        instantiatedObject.transform.rotation = Quaternion.identity;
-        canShoot = false;
-        yield return null;
     }
 }
