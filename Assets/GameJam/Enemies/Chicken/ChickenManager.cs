@@ -18,6 +18,8 @@ public class ChickenManager : MonoBehaviour
     bool isAttacking = false;
     [SerializeField]
     private GameObject eggPrefab;
+    [SerializeField]
+    private Transform firingPoint;
 
     private float attackTimer;
     [SerializeField]
@@ -28,6 +30,7 @@ public class ChickenManager : MonoBehaviour
     [SerializeField]
     private float attackCooldown;
     bool shotEgg = false;
+    [SerializeField] float shootSpeed;
 
 
     // Start is called before the first frame update
@@ -72,8 +75,6 @@ public class ChickenManager : MonoBehaviour
     {
         if (!manager.stunned)
         {
-            float distToPlayer = Vector2.Distance(manager.target.position, transform.position);
-
             if (!isAttacking)
             {
                 //animator.Play("BunnyWalkAnimation");
@@ -96,6 +97,14 @@ public class ChickenManager : MonoBehaviour
                     if (!shotEgg)
                     {
                         shotEgg = true;
+                        Shoot();
+                    }
+                }
+                else
+                {
+                    if (!shotEgg)
+                    {
+                        //Aim
                     }
                 }
 
@@ -109,4 +118,14 @@ public class ChickenManager : MonoBehaviour
             }
         }
     }
+
+    void Shoot()
+    {
+        Vector2 dir = (manager.target.position - firingPoint.position).normalized;
+
+        GameObject egg = Instantiate(eggPrefab, firingPoint.position, Quaternion.identity);
+        egg.GetComponent<Rigidbody2D>().velocity = dir * shootSpeed;
+    }
+
+    
 }
