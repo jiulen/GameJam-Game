@@ -20,7 +20,6 @@ public class PlayerStats : MonoBehaviour
     private GameObject enemyObject;
     private RoomTrigger roomTrigger;
     public GameObject layoutWalls;
-    public bool noBlockBuff;
     private float playerSpeed;
     public int currentLevel;
     public int currentExperiencePoints;
@@ -55,7 +54,6 @@ public class PlayerStats : MonoBehaviour
         playerLayerNum = LayerMask.NameToLayer(playerLayerName);
         wallsLayerNum = LayerMask.NameToLayer(wallsLayerName);
         tilemapCollider2D = null;
-        noBlockBuff = false;
         levelUpCost = 10 * currentLevel + 10;
         upgradeDescriptions = new List<(string, string)>();
     }
@@ -213,96 +211,12 @@ public class PlayerStats : MonoBehaviour
                 break;
             case 4:
                 Debug.Log("No block buff");
-                //roomTrigger.noBlockBuff = true;
-                noBlockBuff = true;
-                activeRoom = room.getActiveRoom();
-                enemyObject = GameObject.FindGameObjectWithTag("Enemy");
-                Debug.Log("---------");
-                Debug.Log(activeRoom);
-
-                // Iterate through the parent's children to find the desired child GameObjects
-                for (int i = 0; i < activeRoom.transform.childCount; i++)
-                {
-                    Transform childTransform = activeRoom.transform.GetChild(i);
-
-                    // Check if the childTransform matches the desired name pattern
-                    if (childTransform.name.StartsWith("Room") && childTransform.name.EndsWith("(Clone)"))
-                    {
-                        // Access and use the childTransform.gameObject as needed
-                        roomObject = childTransform.gameObject;
-                        Debug.Log(roomObject);
-                        break; // Break the loop once the desired child GameObject is found
-                    }
-                }
-
-                GameObject layoutGrid = roomObject.transform.Find("Layout Grid").gameObject;
-                Debug.Log(layoutGrid);
-
-                layoutWalls = layoutGrid.transform.Find("Layout Walls").gameObject;
-                Debug.Log(layoutWalls);
-                tilemapCollider2D = layoutWalls.GetComponentInChildren<TilemapCollider2D>();
-                Debug.Log("player and walls----- " + playerLayerNum + " " + wallsLayerNum);
                 Physics2D.IgnoreLayerCollision(playerLayerNum, wallsLayerNum);
-                //roomTrigger.tilemapCollider2D = tilemapCollider2D;
-                //roomTrigger.setBuffActive(tilemapCollider2D);
-
                 break;
             default:
                 break;
         }
     }
-
-
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log("cOLLIED");
-    //    Debug.Log(noBlockBuff);
-
-    //    if (noBlockBuff)
-    //    {
-    //        //Collider2D collider = collision.collider;
-    //        Collider2D otherCollider = collision.otherCollider;
-    //        //Debug.Log(collider); // walls
-    //        //Debug.Log(otherCollider); // player
-
-    //        // Access the game objects associated with the colliders
-    //        //GameObject gameObjectA = collider.gameObject;
-    //        GameObject gameObjectB = otherCollider.gameObject;
-
-    //        // Perform actions based on the collided game objects
-    //        if (layoutWalls && gameObjectB.CompareTag("Player"))
-    //        {
-    //            Debug.Log("Player collided with: " + gameObjectB.name);
-    //            // Perform actions specific to player colliding with gameObjectB
-    //            tilemapCollider2D.enabled = false;
-    //        }
-    //    }
-    //}
-
-    //// This function is called when a 2D collider exits the trigger collider of the TilemapCollider2D (wall)
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (noBlockBuff)
-    //    {
-    //        Debug.Log("cOLLIED - exit");
-    //        //Collider2D collider = collision.collider; // walls
-    //        Collider2D otherCollider = collision.otherCollider; // player
-    //                                                            //Debug.Log(collider); // walls
-    //                                                            //Debug.Log(otherCollider); // player
-
-    //        GameObject gameObjectB = otherCollider.gameObject;
-
-    //        // Check if the collider is the player or enemy
-    //        if (layoutWalls && gameObjectB.CompareTag("Player"))
-    //        {
-    //            // Handle collision exit between player and wall
-    //            // For example, enable the TilemapCollider2D for the player
-    //            tilemapCollider2D.enabled = true;
-    //        }
-    //    }
-    //}
-
 
     public void RemoveBuffs(int buffType)
     {
@@ -325,39 +239,10 @@ public class PlayerStats : MonoBehaviour
                 break;
             case 4:
                 Debug.Log("Remove No block buff");
-                //roomTrigger.noBlockBuff = false;
-                //roomTrigger.tilemapCollider2D = null;
-                noBlockBuff = false;
-                //roomTrigger.setBuffActive(null);
-                //tilemapCollider2D.enabled = true;
                 Physics2D.IgnoreLayerCollision(playerLayerNum, wallsLayerNum, false);
-                Debug.Log("walls enabled????");
-                //Debug.Log(tilemapCollider2D.enabled);
                 break;
             default:
                 break;
         }
-    }
-
-    public bool getNoBlockBuff()
-    {
-        return noBlockBuff;
-    }
-
-    public GameObject getLayoutWalls()
-    {
-        return layoutWalls;
-    }
-
-    public TilemapCollider2D getTilemapCollider2D()
-    {
-        return tilemapCollider2D;
-    }
-
-    public void setTilemapCollider2D(bool ifEnabled)
-    {
-        Debug.Log("I am called func" + ifEnabled);
-        this.tilemapCollider2D.enabled = ifEnabled;
-        Debug.Log("I am called func result" + this.tilemapCollider2D.enabled);
     }
 }
