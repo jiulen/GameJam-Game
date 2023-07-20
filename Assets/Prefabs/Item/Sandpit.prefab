@@ -70,6 +70,7 @@ MonoBehaviour:
   stuntime: 0.5
   travelSpeed: 0
   destroyOnHit: 0
+  isPlayerAttack: 0
 --- !u!50 &1112276298814558640
 Rigidbody2D:
   serializedVersion: 4
@@ -152,7 +153,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -16
   m_Sprite: {fileID: 2012296075420703856, guid: 58a4db89f16bab44e9bffe112c02be3e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35916716, g: 0, b: 0.6226415, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1949167216676417185}
   - component: {fileID: 3807974048414784342}
   - component: {fileID: 5068065812076973434}
+  - component: {fileID: 8271926910430674938}
   m_Layer: 0
   m_Name: Layout Walls
   m_TagString: Wall
@@ -1899,3 +1900,15 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &8271926910430674938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943580285134537094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c36c459582a445788626d4432b9e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
