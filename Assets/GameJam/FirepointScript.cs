@@ -24,7 +24,7 @@ public class FirepointScript : MonoBehaviour
             animator.Play("GunAnimation");
         }
 
-        if (playerMove.isMelee == true && Input.GetMouseButtonDown(0) && (playerMove.setTime <= (0.267f / 8.0f * 4.0f)) && playerMove.mode != "Hurt")
+        if (playerMove.gameIsPaused == false && playerMove.isMelee == true && Input.GetMouseButtonDown(0))
         {
             animator.Play("WeaponAnimation");
         }
