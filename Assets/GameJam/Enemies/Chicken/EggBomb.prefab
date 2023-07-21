@@ -54,6 +54,11 @@ MonoBehaviour:
   explosionPrefab: {fileID: 250945704442077505, guid: f241e060002994540b7a7cdd40051e6d, type: 3}
   explosionTransform: {fileID: 4982548935007696301}
   explosionOffset: {x: 0, y: 1.65, z: 0}
+  scaleTime: 0.75
+  minScale: {x: 0.05, y: 0.05, z: 1}
+  maxScale: {x: 0.5, y: 0.5, z: 1}
+  futureVelo: {x: 0, y: 0}
+  chickenManager: {fileID: 0}
 --- !u!212 &2566565140245619716
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93,8 +98,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -3730380577369647845, guid: 9c41d6b2f76882d4097ec945e70dd28c, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: b6c4240e221fd7e49ab3d003a56fef48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,8 +124,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
+  m_Size: {x: 1.14, y: 0.55}
+  m_Direction: 1
 --- !u!50 &6837905795600749693
 Rigidbody2D:
   serializedVersion: 4

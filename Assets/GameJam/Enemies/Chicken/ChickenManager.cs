@@ -22,6 +22,7 @@ public class ChickenManager : MonoBehaviour
     bool isAttacking = false;
     [SerializeField]
     private GameObject eggPrefab;
+    GameObject eggObj;
     [SerializeField]
     private Transform firingPoint;
 
@@ -43,6 +44,7 @@ public class ChickenManager : MonoBehaviour
     [SerializeField] Transform lineTarget;
     [SerializeField] SpriteRenderer targetRenderer;
 
+    bool launched = false;
 
     // Start is called before the first frame update
     void Start()
@@ -118,25 +120,22 @@ public class ChickenManager : MonoBehaviour
         {
             if (!isAttacking)
             {
-                //animator.Play("BunnyWalkAnimation");
+                animator.Play("Chicken_Run");
                 cooldownTimer += Time.deltaTime;
 
                 if (cooldownTimer > attackCooldown)
                 {
                     isAttacking = true;              
-                    rb.velocity = Vector2.zero;    
+                    rb.velocity = Vector2.zero;
                     cooldownTimer = 0;
-                    
-                    lineRenderer.enabled = true;
-                    targetRenderer.enabled = true;
 
-                    Aim();
+                    animator.Play("Chicken_Attack", sr.sortingLayerID, 0);
                 }
             }
             else
             {
                 attackTimer += Time.deltaTime;
-                //animator.Play("BunnyKickAnimation");
+                animator.Play("Chicken_Attack");
                 
                 if (attackTimer > shootTime)
                 {
@@ -144,17 +143,10 @@ public class ChickenManager : MonoBehaviour
                     {
                         shotEgg = true;
                         Shoot();
-
-                        lineRenderer.enabled = false;
-                        targetRenderer.enabled = false;
                     }
-                }
-                else
-                {
-                    if (!shotEgg)
+                    else
                     {
-                        //Aim
-                        Aim();
+                        if (!launched) Aim();
                     }
                 }
 
@@ -162,7 +154,7 @@ public class ChickenManager : MonoBehaviour
                 {
                     isAttacking = false;
                     shotEgg = false;
-                    //animator.Play("BunnyWalkAnimation", sr.sortingLayerID, 0);
+                    animator.Play("Chicken_Run", sr.sortingLayerID, 0);
                     attackTimer = 0;
                 }
             }
@@ -172,9 +164,26 @@ public class ChickenManager : MonoBehaviour
     void Shoot()
     {
         Vector2 dir = (manager.target.position - firingPoint.position).normalized;
+        eggObj = Instantiate(eggPrefab, firingPoint.position, Quaternion.identity);
+        eggObj.GetComponent<ExplodingProjectile>().chickenManager = this;
 
-        GameObject egg = Instantiate(eggPrefab, firingPoint.position, Quaternion.identity);
-        egg.GetComponent<Rigidbody2D>().velocity = dir * shootSpeed;
+        eggObj.GetComponent<ExplodingProjectile>().futureVelo = dir * shootSpeed;
+
+        lineRenderer.enabled = true;
+        targetRenderer.enabled = true;
+
+        launched = false;
+    }
+
+    public void Launch()
+    {
+        Vector2 dir = (manager.target.position - firingPoint.position).normalized;
+        eggObj.GetComponent<ExplodingProjectile>().futureVelo = dir * shootSpeed;
+
+        lineRenderer.enabled = false;
+        targetRenderer.enabled = false;
+
+        launched = true;
     }
 
     void Aim()
@@ -189,5 +198,7 @@ public class ChickenManager : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, firingPoint.position);
         lineRenderer.SetPosition(1, lineTarget.transform.position);
+
+        eggObj.GetComponent<ExplodingProjectile>().futureVelo = dir * shootSpeed;
     }
 }
