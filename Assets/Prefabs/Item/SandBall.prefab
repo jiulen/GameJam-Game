@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1891092931068418233, guid: a8e8d17533eb35e4e84bae3755e83b50, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.36078432, g: 0, b: 0.62352943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   stuntime: 1
   travelSpeed: 3
   destroyOnHit: 0
+  isPlayerAttack: 0
   createOnDestroy: 1
   destroyOnCreate: 1
   createOnHit: 1

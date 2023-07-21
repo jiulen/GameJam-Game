@@ -18,6 +18,7 @@ TagManager:
   - EnemySpawner
   - Crystal
   - Chest
+  - Totem
   layers:
   - Default
   - TransparentFX

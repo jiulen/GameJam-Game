@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject sparkField;
     [SerializeField]
-    private GameObject sandBall;
+    private GameObject poisonBall;
     [SerializeField]
     private GameObject atkBuff;
     [SerializeField]
@@ -144,7 +144,7 @@ public class Inventory : MonoBehaviour
             case ITEM.EARTH:
                 gameObject.GetComponent<move>().SetAnimation("Magic", animTime);
                 yield return new WaitForSeconds(magicTime);
-                obj = Instantiate(sandBall);
+                obj = Instantiate(poisonBall);
                 switch (gameObject.GetComponent<move>().Direction)
                 {
                     case "Front":
@@ -219,18 +219,28 @@ public class Inventory : MonoBehaviour
                 GetComponent<PlayerStats>().AddBuffs(2);
                 // Add the buff icon to the container list
                 playerBuff.AddBuffIcon(evasionBuff, buffDuration);
+
+                yield return new WaitForSeconds(buffDuration);
+
+                GetComponent<PlayerStats>().RemoveBuffs(2);
                 break;
             case ITEM.shellBroccoli:
                 // Poisonous Vomit
                 Debug.Log("Used  sb");
+                gameObject.GetComponent<move>().SetAnimation("Magic", animTime);
                 GetComponent<PlayerStats>().AddBuffs(3);
-                playerBuff.AddBuffIcon(poisonousBuff, buffDuration);
+                playerBuff.AddBuffIcon(poisonousBuff, buffDuration - 3f); // the travel speed for the poison ball is 3s
+                yield return new WaitForSeconds(buffDuration);
+
+                GetComponent<PlayerStats>().RemoveBuffs(3);
                 break;
             case ITEM.feetWingBucket:
                 // Walk over walls
                 Debug.Log("Used  fwb");
                 GetComponent<PlayerStats>().AddBuffs(4);
                 playerBuff.AddBuffIcon(noBlockBuff, buffDuration);
+                yield return new WaitForSeconds(buffDuration);
+                GetComponent<PlayerStats>().RemoveBuffs(4);
                 break;
         }
     }

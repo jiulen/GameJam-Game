@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -104,6 +105,29 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void heal(int currentHp, int startHp, int healValue)
+    {
+        if (currentHp < startHp && startHp != 500) // check if got damaged, and except heal for boss
+        {
+            Debug.Log("I am healing up the enemies");
+            Debug.Log(currentHp + "current hp before heal");
+
+            int afterHealHp = currentHp + healValue;
+            if (afterHealHp > startHp)
+            {
+                hp = startHp;
+            }
+            else
+            {
+                hp = afterHealHp;
+            }
+
+            Debug.Log(hp + "current hp after heal");
+
+        }
+    }
+
+    
     public bool IsInvincible() 
     {
         return isInvincible;
@@ -131,4 +155,9 @@ public class EnemyManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
     }
+
+
+    public int getHp() { return hp; }
+
+    public int getStartHp() { return startHp; }
 }

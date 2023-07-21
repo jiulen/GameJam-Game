@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 
 public class RoomTrigger : MonoBehaviour
 {
@@ -10,19 +12,21 @@ public class RoomTrigger : MonoBehaviour
     bool enteredBefore;
     public GameObject[] enemyPrefabs;
     public Transform[] enemySpawnPoints;
+    [SerializeField]
+    private TotemController totemController;
     PlayerStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
         room = GetComponentInParent<RoomManager>();
         door = GetComponentInParent<DoorManager>();
+        
         enteredBefore = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,8 +45,12 @@ public class RoomTrigger : MonoBehaviour
             }
             room.setPlayerInside(true);
             door.setClosed(true);
+            if(totemController != null)
+            {
+                totemController.startTotemHeal();
+            }
+            
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -50,6 +58,10 @@ public class RoomTrigger : MonoBehaviour
         if(collision.tag == "Player")
         {
             room.setPlayerInside(false);
+            if (totemController != null)
+            {
+                totemController.startTotemHeal();
+            }
         }
         
     }
