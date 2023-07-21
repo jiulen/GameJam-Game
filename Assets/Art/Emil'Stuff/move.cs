@@ -15,8 +15,8 @@ public class move : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite;
     private string direction = "Front";
-    private string mode = "Idle";
-    private float setTime = 0.0f; //Cooldown
+    public string mode = "Idle";
+    public float setTime = 0.0f; //Cooldown
     private bool rollStart = false;
 
     private float x = 0, y = 0;
@@ -66,6 +66,11 @@ public class move : MonoBehaviour
     public Image weapon;
     public Image weaponBuff;
     private Text weaponName;
+    public ElementalEffectChangeButton projectileElementChanger;
+    public PlayerTest playerTest;
+    public ElementalEffectChangeButton fireProjectileHolder;
+    public ElementalEffectChangeButton iceProjectileHolder;
+    public ElementalEffectChangeButton poisonProjectileHolder;
 
     public string Direction {
         get { return direction; }
@@ -233,6 +238,29 @@ public class move : MonoBehaviour
                 mode = "Idle";
             }
             return;
+        }
+
+        if (gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            projectileElementChanger.ToggleProjectileChooser();
+        }
+
+        if (gameIsPaused == false && projectileElementChanger.isProjectileChooserActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Q) && fireProjectileHolder.isUnlocked == true)
+            {
+                playerTest.projectile[0] = playerTest.projectile[1];
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && iceProjectileHolder.isUnlocked == true)
+            {
+                playerTest.projectile[0] = playerTest.projectile[2];
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && poisonProjectileHolder.isUnlocked == true)
+            {
+                playerTest.projectile[0] = playerTest.projectile[3];
+            }
         }
 
         if (gameIsPaused == false && Input.GetKeyDown(KeyCode.Tab))
