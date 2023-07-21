@@ -6,6 +6,7 @@ public class ExplodingProjectile : Projectile
 {
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] Transform explosionTransform;
+    [SerializeField] Vector3 explosionOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class ExplodingProjectile : Projectile
         if(hitInfo.tag == "Player" || hitInfo.name == "Walls" || hitInfo.name == "Layout Walls")
         {
             //Spawn explosion
-            Instantiate(explosionPrefab, explosionTransform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, explosionTransform.position + explosionOffset, Quaternion.identity);
 
             Destroy(gameObject);
         }
