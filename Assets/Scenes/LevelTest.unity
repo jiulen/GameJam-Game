@@ -296,6 +296,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2034200294}
     - target: {fileID: 1930627374204079261, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: poisonBall
+      value: 
+      objectReference: {fileID: 6420454179449576900, guid: 5eac39ce8ba28194fa8bd7fea4eb66db, type: 3}
+    - target: {fileID: 1930627374204079261, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: evasionBuff
       value: 
       objectReference: {fileID: 2034200293}
@@ -314,6 +318,18 @@ PrefabInstance:
     - target: {fileID: 1930627374204079261, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: rangedAtkBuff
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591526707943114682, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: poisonBall
+      value: 
+      objectReference: {fileID: 6420454179449576900, guid: 5eac39ce8ba28194fa8bd7fea4eb66db, type: 3}
+    - target: {fileID: 3591526707943114682, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: wallsLayerName
+      value: Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591526707943114682, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: playerLayerName
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3815957944581728681, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: m_LocalScale.x
