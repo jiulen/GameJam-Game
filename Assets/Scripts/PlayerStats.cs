@@ -11,16 +11,6 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int soulCount;
     [SerializeField]
     private GameObject poisonBall;
-    public RoomTemplates room;
-    private GameObject activeRoom;
-    private GameObject roomObject;
-    public TilemapCollider2D tilemapCollider2D;
-    private Collision wallCollision;
-    private GameObject playerObject;
-    private GameObject enemyObject;
-    private RoomTrigger roomTrigger;
-    public GameObject layoutWalls;
-    private float playerSpeed;
     public int currentLevel;
     public int currentExperiencePoints;
     public int levelUpCost;
@@ -47,13 +37,8 @@ public class PlayerStats : MonoBehaviour
     {
         healthManager = GetComponent<HealthManager>();
         move = GetComponent<move>();
-        room = FindObjectOfType<RoomTemplates>();
-        roomTrigger = FindObjectOfType<RoomTrigger>();
-        playerObject = GameObject.FindGameObjectWithTag("Player");
-        enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         playerLayerNum = LayerMask.NameToLayer(playerLayerName);
         wallsLayerNum = LayerMask.NameToLayer(wallsLayerName);
-        tilemapCollider2D = null;
         levelUpCost = 10 * currentLevel + 10;
         upgradeDescriptions = new List<(string, string)>();
     }
