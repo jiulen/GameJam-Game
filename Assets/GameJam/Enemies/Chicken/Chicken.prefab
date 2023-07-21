@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 983599470995280855}
   - component: {fileID: 983599470995280842}
   - component: {fileID: 983599470995280853}
-  - component: {fileID: -3346308202217411138}
+  - component: {fileID: 1937458875656843512}
   - component: {fileID: 8506504882616809559}
   - component: {fileID: 9035406267107131361}
   m_Layer: 6
@@ -117,6 +117,7 @@ Transform:
   m_Children:
   - {fileID: 4336346774134562856}
   - {fileID: 4004493697048049453}
+  - {fileID: 4015417862309734723}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,7 +212,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-3346308202217411138
+--- !u!114 &1937458875656843512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,7 +221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 983599470995280849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778ae93f3a03f4148a0d290178836d0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 16efb63572dff8f4d9481a79ae22c94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stunTime: 0
@@ -229,10 +230,12 @@ MonoBehaviour:
   hp: 0
   startHp: 15
   target: {fileID: 0}
-  lootItem: {fileID: 172013033003219771, guid: 20591aa41e26f491c8a332b905fa7a43, type: 3}
+  lootItem: {fileID: 0}
   endGame: 0
   experienceToGive: 3
   winScreen: {fileID: 0}
+  enemySpawn: {fileID: 4015417862309734723}
+  enemyToSpawnPrefab: {fileID: 3780085809115867532, guid: a7d7da824b572884fb03ad6deae6fc92, type: 3}
 --- !u!70 &8506504882616809559
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -406,3 +409,33 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &7788137268496957909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4015417862309734723}
+  m_Layer: 6
+  m_Name: EggSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4015417862309734723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788137268496957909}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 983599470995280852}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
