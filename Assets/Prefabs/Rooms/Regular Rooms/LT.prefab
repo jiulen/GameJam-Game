@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4736862671481185491}
   - component: {fileID: 4669306422691067891}
   - component: {fileID: 3183222619498536989}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2101,6 +2101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Block (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8920941908928781401, guid: 93d349d8d92193040ad6da9705025c53, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93d349d8d92193040ad6da9705025c53, type: 3}
 --- !u!4 &7895015620410387034 stripped
@@ -2162,6 +2166,10 @@ PrefabInstance:
     - target: {fileID: 8920941908928781401, guid: 93d349d8d92193040ad6da9705025c53, type: 3}
       propertyPath: m_Name
       value: Door Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920941908928781401, guid: 93d349d8d92193040ad6da9705025c53, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93d349d8d92193040ad6da9705025c53, type: 3}

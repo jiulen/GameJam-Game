@@ -38,6 +38,9 @@ public class ChickenManager : MonoBehaviour
 
     private float strafeTimer;
     [SerializeField] float strafeMinTime, strafeMaxTime, strafeCurTime;
+    
+    [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] Transform lineTarget;
 
 
     // Start is called before the first frame update
@@ -49,6 +52,7 @@ public class ChickenManager : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         strafeCurTime = Random.Range(strafeMinTime, strafeMaxTime);
+        lineRenderer.enabled = false;
     }
 
     // Keep dist from player, circle around
@@ -120,6 +124,10 @@ public class ChickenManager : MonoBehaviour
                     isAttacking = true;              
                     rb.velocity = Vector2.zero;    
                     cooldownTimer = 0;
+                    
+                    lineRenderer.enabled = true;
+
+                    Aim();
                 }
             }
             else
@@ -133,6 +141,8 @@ public class ChickenManager : MonoBehaviour
                     {
                         shotEgg = true;
                         Shoot();
+
+                        lineRenderer.enabled = false;
                     }
                 }
                 else
@@ -140,6 +150,7 @@ public class ChickenManager : MonoBehaviour
                     if (!shotEgg)
                     {
                         //Aim
+                        Aim();
                     }
                 }
 
@@ -162,5 +173,18 @@ public class ChickenManager : MonoBehaviour
         egg.GetComponent<Rigidbody2D>().velocity = dir * shootSpeed;
     }
 
+    void Aim()
+    {
+        Vector2 dir = (manager.target.position - firingPoint.position).normalized;
 
+        int layerMask = LayerMask.GetMask("Player", "Walls", "Layout Walls");
+        Physics2D.Raycast(firingPoint.position, dir);
+
+
+        lineTarget.transform.position = Vector3.zero;
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, firingPoint.position);
+        lineRenderer.SetPosition(1, lineTarget.transform.position);
+    }
 }
