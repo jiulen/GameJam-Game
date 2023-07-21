@@ -23,9 +23,9 @@ public class EggManager : MonoBehaviour
 
     bool isAttacking = false;
     [SerializeField] float spawnImmuneTime;
-    float spawnImmuneTimer;
+    float spawnImmuneTimer = 0;
     [SerializeField] float attackTime;
-    float attackTimer;
+    float attackTimer = 0;
 
     [SerializeField] float atkLaunchMultiplier = 1;
 
