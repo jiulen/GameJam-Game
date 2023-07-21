@@ -53,7 +53,7 @@ MonoBehaviour:
   target: {fileID: 0}
   explosionPrefab: {fileID: 250945704442077505, guid: f241e060002994540b7a7cdd40051e6d, type: 3}
   explosionTransform: {fileID: 4982548935007696301}
-  explosionOffset: {x: 0, y: 0.165, z: 0}
+  explosionOffset: {x: 0, y: 1.65, z: 0}
 --- !u!212 &2566565140245619716
 SpriteRenderer:
   m_ObjectHideFlags: 0

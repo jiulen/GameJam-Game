@@ -27,6 +27,8 @@ public class EggManager : MonoBehaviour
     [SerializeField] float attackTime;
     float attackTimer;
 
+    [SerializeField] float atkLaunchMultiplier = 1;
+
     bool spawnImmune = true;
 
     void Awake()
@@ -97,7 +99,7 @@ public class EggManager : MonoBehaviour
                     if (distToPlayer <= attackRange)
                     {
                         isAttacking = true; 
-                        //rb.velocity = Vector2.zero;
+                        rb.velocity *= atkLaunchMultiplier;
                     }
                 }
                 else
