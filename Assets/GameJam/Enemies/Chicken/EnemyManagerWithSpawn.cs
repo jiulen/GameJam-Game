@@ -11,7 +11,7 @@ public class EnemyManagerWithSpawn : EnemyManager
     [SerializeField]
     Vector3 enemySpawnOffset;
 
-    public void Damage(int p)
+    override public void Damage(int p)
     {
         if (!isInvincible)
         {
@@ -34,6 +34,7 @@ public class EnemyManagerWithSpawn : EnemyManager
                     Instantiate(enemyToSpawnPrefab, enemySpawn.position + enemySpawnOffset, Quaternion.identity);
                     Destroy(gameObject);
                     playerStats.GainExperience(experienceToGive);
+                    Debug.Log("SUS");
                 }
                 
             }

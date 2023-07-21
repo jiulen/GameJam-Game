@@ -230,12 +230,13 @@ MonoBehaviour:
   hp: 0
   startHp: 15
   target: {fileID: 0}
-  lootItem: {fileID: 0}
+  lootItem: {fileID: 172013033003219771, guid: 20591aa41e26f491c8a332b905fa7a43, type: 3}
   endGame: 0
   experienceToGive: 3
   winScreen: {fileID: 0}
   enemySpawn: {fileID: 4015417862309734723}
   enemyToSpawnPrefab: {fileID: 3780085809115867532, guid: a7d7da824b572884fb03ad6deae6fc92, type: 3}
+  enemySpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!70 &8506504882616809559
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

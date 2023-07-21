@@ -63,7 +63,7 @@ public class EnemyManager : MonoBehaviour
             stunned = false;
     }
 
-    public void Damage(int p)
+    virtual public void Damage(int p)
     {
         if (!isInvincible)
         {
