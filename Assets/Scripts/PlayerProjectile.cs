@@ -32,12 +32,12 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
 
         t = FindObjectOfType<PlayerManager>();
 
-        angle = t.angle;
+        // angle = t.angle;
         
 
-        v = new Vector2(Mathf.Cos(angle * Mathf.PI/180),Mathf.Sin(angle* Mathf.PI/180));
+        // v = new Vector2(Mathf.Cos(angle * Mathf.PI/180),Mathf.Sin(angle* Mathf.PI/180));
 
-        rb.velocity = speed * v; 
+        // rb.velocity = speed * v; 
         
     }
 

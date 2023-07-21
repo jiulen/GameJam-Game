@@ -17,10 +17,12 @@ public class FollowEnemy : MonoBehaviour
     public float attackDistance;                            //Modified
     public float stoppingDistance;                          //Modified      To stop the enemy from continously moving into the player when in attcking range
     private bool attacking;                                 //Modified
+    bool isSlowed;
 
     // Start is called before the first frame update
     void Start()
     {
+        isSlowed = false;
         rb = this.GetComponent<Rigidbody2D>();
         player = FindObjectOfType<HealthManager>().gameObject.transform;
         anim = GetComponent<Animator>();                    //Modified
@@ -41,11 +43,15 @@ public class FollowEnemy : MonoBehaviour
         anim.SetBool("Attacking", attacking);               //Sets "Attacking" parameter based on distance between player and enemy. Remember to loop animation
 #endregion
 
-
-        if (attacking)
+        if (isSlowed)
+        {
+            moveSpeed = 1f;
+        }
+        else if (attacking)
         {
             moveSpeed = fasterSpeed;
-        } else
+        }
+        else
         {
             moveSpeed = normalSpeed;
         }
@@ -79,6 +85,20 @@ public class FollowEnemy : MonoBehaviour
     private void OnDrawGizmos() {                   //Blue gizmos for enemy stop radius
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, stoppingDistance);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "PlayerProjectileIce(Clone)")
+        {
+            StartCoroutine(SlowEnemy());
+        }
+    }
+
+    IEnumerator SlowEnemy()
+    {
+        isSlowed = true;
+        yield return new WaitForSeconds(3f);
+        isSlowed = false;
     }
 
 }

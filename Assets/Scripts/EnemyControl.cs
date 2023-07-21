@@ -12,12 +12,12 @@ public class EnemyControl : MonoBehaviour
 
     private const float BUFFER = 0.001f;
 
-    [SerializeField]
-    private float speed = 0f;
+    public float speed = 0f;
     [SerializeField]
     private float maxRange = 0f; 
     [SerializeField]
     private float minRange = 0f;
+    bool isSlowed;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,15 @@ public class EnemyControl : MonoBehaviour
     // If player is within range then the enemy will follow the player
     void FixedUpdate()
     {
+        if (isSlowed)
+        {
+            speed = 1f;
+        }
+        else
+        {
+            speed = 3.5f;
+        }
+
         if (!manager.stunned)
         {
             float distToPlayer = DistanceTo2D(manager.target.position);
@@ -96,4 +105,20 @@ public class EnemyControl : MonoBehaviour
         myAnim.SetFloat("moveX", (direction.x));
         myAnim.SetFloat("moveY", (direction.y));
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "PlayerProjectileIce(Clone)")
+        {
+            StartCoroutine(SlowEnemy());
+        }
+    }
+
+    IEnumerator SlowEnemy()
+    {
+        isSlowed = true;
+        yield return new WaitForSeconds(3f);
+        isSlowed = false;
+    }
+
 }
