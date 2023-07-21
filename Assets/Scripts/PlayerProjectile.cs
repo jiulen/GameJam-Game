@@ -44,7 +44,7 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
 
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
-        if(hitInfo.tag == "Enemy" || hitInfo.name == "Walls" || hitInfo.tag == "Door" || hitInfo.name == "Layout Walls" || hitInfo.name == "Chest") // test wall collider 
+        if(hitInfo.tag == "Enemy" || hitInfo.name == "Walls" || hitInfo.tag == "Door" || hitInfo.name == "Layout Walls" || hitInfo.name == "Chest" || hitInfo.name == "Totem") // test wall collider 
         {
             if (!hit)
             {
@@ -59,6 +59,11 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
 
                 if (hitInfo.tag == "Chest") {
                     hitInfo.GetComponent<ChestManager>().Damage();
+                }
+
+                if (hitInfo.tag == "Totem")
+                {
+                    hitInfo.GetComponent<TotemController>().Damage(power);
                 }
             }
         }

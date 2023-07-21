@@ -7,7 +7,7 @@ public class move : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]
-    private float speed = 6.5f;
+    private float speed = 6.5f; 
     [SerializeField]
     private float rollSpeed = 24.0f;
     [SerializeField]

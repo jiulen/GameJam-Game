@@ -73,5 +73,13 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
                 Destroy(gameObject);
             }
         }
+        if (collision.name == "Totem")
+        {
+            collision.GetComponent<TotemController>().Damage(damage);
+            if (destroyOnHit)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

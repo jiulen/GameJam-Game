@@ -20,11 +20,7 @@ public class RoomManager : MonoBehaviour
     // If the player enters a room, that room is set as the active room
     //This is used for camera control and spawning enemies
     void Update()
-    {
-        if (playerInside)
-        {
-            all.setActiveRoom(this.gameObject);
-        }
+    { 
     }
 
     public bool getIsCleared()
@@ -45,5 +41,9 @@ public class RoomManager : MonoBehaviour
     public void setPlayerInside(bool playerInside)
     {
         this.playerInside = playerInside;
+        if (this.playerInside)
+        {
+            all.setActiveRoom(this.gameObject);
+        }
     }
 }
