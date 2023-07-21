@@ -34,7 +34,6 @@ public class EnemyManagerWithSpawn : EnemyManager
                     Instantiate(enemyToSpawnPrefab, enemySpawn.position + enemySpawnOffset, Quaternion.identity);
                     Destroy(gameObject);
                     playerStats.GainExperience(experienceToGive);
-                    Debug.Log("SUS");
                 }
                 
             }
