@@ -41,6 +41,7 @@ public class ChickenManager : MonoBehaviour
     
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] Transform lineTarget;
+    [SerializeField] SpriteRenderer targetRenderer;
 
 
     // Start is called before the first frame update
@@ -53,6 +54,7 @@ public class ChickenManager : MonoBehaviour
 
         strafeCurTime = Random.Range(strafeMinTime, strafeMaxTime);
         lineRenderer.enabled = false;
+        targetRenderer.enabled = false;
     }
 
     // Keep dist from player, circle around
@@ -126,6 +128,7 @@ public class ChickenManager : MonoBehaviour
                     cooldownTimer = 0;
                     
                     lineRenderer.enabled = true;
+                    targetRenderer.enabled = true;
 
                     Aim();
                 }
@@ -143,6 +146,7 @@ public class ChickenManager : MonoBehaviour
                         Shoot();
 
                         lineRenderer.enabled = false;
+                        targetRenderer.enabled = false;
                     }
                 }
                 else
@@ -177,11 +181,10 @@ public class ChickenManager : MonoBehaviour
     {
         Vector2 dir = (manager.target.position - firingPoint.position).normalized;
 
-        int layerMask = LayerMask.GetMask("Player", "Walls", "Layout Walls");
-        Physics2D.Raycast(firingPoint.position, dir);
-
-
-        lineTarget.transform.position = Vector3.zero;
+        int layerMask = LayerMask.GetMask("Player", "Walls", "OuterWalls", "Door");
+        RaycastHit2D rayHit = Physics2D.Raycast(firingPoint.position, dir, Mathf.Infinity, layerMask);
+        
+        lineTarget.transform.position = rayHit.point;
 
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, firingPoint.position);
