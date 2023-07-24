@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Transform[] spawnLocations;
+    public Transform firePoint;
     public GameObject projectile;
     public EnemyManager test;
     public Transform target;
@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     private float timer = 0;
     float bulletSpeed = 10f;
     Animator enemyAnim;
+    [SerializeField] int bulletNum;
    void Start()
    {
         enemyAnim = GetComponent<Animator>();
@@ -26,8 +27,6 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         if (Vector2.Distance(target.position, transform.position) < minRange && fireRate <= timer && !test.stunned)
-        // for player Input.GetButtonDown();
-        // if(Input.GetButtonDown())
         {
             Shoot();
             timer = 0;
@@ -40,9 +39,21 @@ public class Weapon : MonoBehaviour
     {
         enemyAnim.Play("EnemyAttack");
         StartCoroutine(DelayShooting());
-        foreach (Transform location in spawnLocations)
+        for (int i = 0; i < bulletNum; ++i)
         {
-            Instantiate(projectile, location.position, location.rotation);
+            Debug.Log("Bullet " + i);
+            float randRotation = Random.Range(0f, 360f);
+
+            GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.Euler(0, 0, randRotation));
+
+            float randScale = Random.Range(1f, 1.5f);
+            bullet.transform.localScale = new Vector3(randScale, randScale, 1);
+
+            Projectile bulletScript = bullet.GetComponent<Projectile>();
+
+            float randSpeed = Random.Range(1f, 3f);
+            bulletScript.speed = randSpeed;
+            bulletScript.bulletDir = bullet.transform.right;
         }
     }
     IEnumerator DelayShooting()

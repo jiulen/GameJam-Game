@@ -7,8 +7,15 @@ public class HomingProjectile : Projectile
     public float maxSpeed;
     public float homingForce;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").transform; 
+        rb.velocity = speed * transform.up;
+    }
+
     // Update is called once per frame
-    void Update()
+    override protected void Update()
     {
         //Push missile towards player
         rb.AddForce(homingForce * (Vector2)(target.transform.position-transform.position).normalized);
