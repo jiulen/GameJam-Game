@@ -5,10 +5,10 @@ using UnityEngine;
 public class RangedEnemyAggro : MonoBehaviour
 {
     public Animator enemyAnim;
+    [SerializeField] EnemyControl enemyControl;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
     // Update is called once per frame
     void Update()
@@ -19,7 +19,11 @@ public class RangedEnemyAggro : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            enemyAnim.Play("Run");
+            if (!enemyControl.isAttacking) 
+            {
+                enemyAnim.Play("Run");
+                Debug.Log("Run");
+            }
         }
     }
 }

@@ -19,6 +19,8 @@ public class EnemyControl : MonoBehaviour
     private float minRange = 0f;
     bool isSlowed;
 
+    public bool isAttacking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,15 +44,23 @@ public class EnemyControl : MonoBehaviour
 
         if (!manager.stunned)
         {
-            float distToPlayer = DistanceTo2D(manager.target.position);
+            if (!isAttacking)
+            {
+                float distToPlayer = DistanceTo2D(manager.target.position);
 
-            if (distToPlayer > maxRange + BUFFER)
-            {
-                FollowPlayer();
-            }
-            else if (distToPlayer < minRange - BUFFER)
-            {
-                RunFromPlayer();
+                if (distToPlayer > maxRange + BUFFER)
+                {
+                    FollowPlayer();
+                }
+                else if (distToPlayer < minRange - BUFFER)
+                {
+                    RunFromPlayer();
+                }
+                else
+                {
+                    rb.velocity = Vector2.zero;
+                    StopMoveAnimation(DirectionTowards2D(manager.target.position));
+                }
             }
             else
             {
@@ -58,7 +68,6 @@ public class EnemyControl : MonoBehaviour
                 StopMoveAnimation(DirectionTowards2D(manager.target.position));
             }
         }
-
     }
 
     private Vector2 DirectionTowards2D(Vector2 targetPos)

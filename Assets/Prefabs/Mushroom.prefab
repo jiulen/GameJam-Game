@@ -153,6 +153,7 @@ MonoBehaviour:
   speed: 3.5
   maxRange: 5
   minRange: 2.5
+  isAttacking: 0
 --- !u!114 &3325913109804699684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   minRange: 5
   fireRate: 3
   bulletNum: 12
+  attackTime: 2
 --- !u!95 &3325913109804699694
 Animator:
   serializedVersion: 3
@@ -275,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 3325913109804699694}
+  enemyControl: {fileID: 3325913109804699683}
 --- !u!1 &5512260948028067790
 GameObject:
   m_ObjectHideFlags: 0

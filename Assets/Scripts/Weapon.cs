@@ -15,12 +15,19 @@ public class Weapon : MonoBehaviour
     float bulletSpeed = 10f;
     Animator enemyAnim;
     [SerializeField] int bulletNum;
+    SpriteRenderer sr;
+    EnemyControl enemyControl;
+
+    float attackTimer = 0;
+    [SerializeField] float attackTime;
    void Start()
    {
         enemyAnim = GetComponent<Animator>();
         test = GetComponent<EnemyManager>();
         target = test.target;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        sr = GetComponent<SpriteRenderer>();
+        enemyControl = GetComponent<EnemyControl>();
    }
 
     // Update is called once per frame
@@ -33,12 +40,27 @@ public class Weapon : MonoBehaviour
         }
         timer += Time.deltaTime;
 
+        if (enemyControl.isAttacking)
+        {
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackTime)
+            {
+                enemyControl.isAttacking = false;
+                attackTimer = 0;
+            }
+        }
     }
 
     void Shoot()
     {
-        enemyAnim.Play("EnemyAttack");
+        enemyControl.isAttacking = true;
+        enemyAnim.Play("EnemyAttack", sr.sortingLayerID, 0);
         StartCoroutine(DelayShooting());
+    }
+    IEnumerator DelayShooting()
+    {
+        yield return new WaitForSeconds(0.7f);
+        
         for (int i = 0; i < bulletNum; ++i)
         {
             Debug.Log("Bullet " + i);
@@ -54,11 +76,9 @@ public class Weapon : MonoBehaviour
             float randSpeed = Random.Range(1f, 3f);
             bulletScript.speed = randSpeed;
             bulletScript.bulletDir = bullet.transform.right;
+
+            yield return new WaitForSeconds(0.1f);
         }
-    }
-    IEnumerator DelayShooting()
-    {
-        yield return new WaitForSeconds(2.5f);
     }
 }
 
