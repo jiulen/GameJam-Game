@@ -34,7 +34,8 @@ public class EggManager : MonoBehaviour
     [SerializeField] Material[] materialsList; //first is default, second is white
     bool isFlashing = false;
     [SerializeField] float flashTime;
-    float flashTimer = 0; 
+    float flashTimer = 0;
+    [SerializeField] AnimationCurve spawnJumpCurve;
 
     void Awake()
     {
@@ -80,9 +81,12 @@ public class EggManager : MonoBehaviour
             spawnImmuneTimer += Time.deltaTime;
             if (spawnImmuneTimer >= spawnImmuneTime)
             {
+                spawnImmuneTimer = spawnImmuneTime;
                 manager.StopInvincibility();
                 spawnImmune = false;
             }
+
+            transform.position = new Vector3(transform.position.x, spawnJumpCurve.Evaluate((Time.time % spawnJumpCurve.length)), transform.position.z);
         }
         else
         {
@@ -117,7 +121,7 @@ public class EggManager : MonoBehaviour
                         if (isFlashing) 
                         {
                             sr.material = materialsList[0]; 
-                            //flashTime /= 2;
+                            flashTime /= 1.1f;
                         }
                         else sr.material = materialsList[1];
 
