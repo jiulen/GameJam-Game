@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyContactDamage : MonoBehaviour
 {
     [SerializeField]
-    private float stunTime = 0.25f;
+    protected float stunTime = 0.25f;
     [SerializeField]
-    private int contactDamage = 4;
+    protected int contactDamage = 4;
 
     private void OnTriggerStay2D(Collider2D collision)
     {

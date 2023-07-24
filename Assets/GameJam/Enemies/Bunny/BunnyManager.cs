@@ -6,7 +6,7 @@ public class BunnyManager : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    private EnemyManager manager;    
+    private EnemyManager manager;
 
     [SerializeField]
     private float speed = 0f;

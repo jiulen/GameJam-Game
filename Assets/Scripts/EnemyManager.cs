@@ -8,21 +8,21 @@ public class EnemyManager : MonoBehaviour
 {
     public float stunTime;
     public bool stunned = false;
-    private bool isInvincible = false;
+    protected bool isInvincible = false;
     [SerializeField]
-    private bool roomIndependent = false;
+    protected bool roomIndependent = false;
 
     public int hp, startHp = 3;
 
     public Transform target;
 
     private DoorManager doors = null;
-    private RoomTemplates room = null;
-    [SerializeField] private GameObject lootItem;
-    [SerializeField] private bool endGame = false;
+    protected RoomTemplates room = null;
+    [SerializeField] protected GameObject lootItem;
+    [SerializeField] protected bool endGame = false;
 
     public int experienceToGive;
-    PlayerStats playerStats;
+    protected PlayerStats playerStats;
     SpriteRenderer spriteRenderer;
     public GameObject winScreen;
 
@@ -71,7 +71,7 @@ public class EnemyManager : MonoBehaviour
             stunned = false;
     }
 
-    public void Damage(int p)
+    virtual public void Damage(int p)
     {
         if (!isInvincible)
         {
@@ -90,7 +90,7 @@ public class EnemyManager : MonoBehaviour
                     StartCoroutine(GameOver());
                 }
                 else {
-                    Instantiate(lootItem, transform.position, transform.rotation);
+                    Instantiate(lootItem, transform.position, Quaternion.identity);
                     Destroy(gameObject);
                     playerStats.GainExperience(experienceToGive);
                 }
