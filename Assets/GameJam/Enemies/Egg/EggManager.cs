@@ -61,10 +61,13 @@ public class EggManager : MonoBehaviour
     // If player is within range then the enemy will follow the player
     void FixedUpdate()
     {
+        FollowPlayer();
+    }
+
+    void FollowPlayer()
+    {
         if (!manager.stunned && !isAttacking && !spawnImmune)
         {
-            float distToPlayer = Vector2.Distance(manager.target.position, transform.position);
-
             Vector2 dir = (manager.target.position - transform.position).normalized;
             rb.velocity = dir * speed;
 
@@ -106,6 +109,8 @@ public class EggManager : MonoBehaviour
                 {
                     if (distToPlayer <= attackRange)
                     {
+                        FollowPlayer();
+
                         isAttacking = true; 
                         rb.velocity *= atkLaunchMultiplier;
                         animator.speed = 0;
@@ -156,7 +161,7 @@ public class EggManager : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") || collision.collider.name == "Walls" || collision.collider.name == "Layout Walls")
+        if (collision.collider.name == "Walls" || collision.collider.name == "Layout Walls")
         {
             if (isAttacking)
             {
