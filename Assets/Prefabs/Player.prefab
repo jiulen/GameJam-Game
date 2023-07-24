@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &271607258860823795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8872169059723915609}
+  - component: {fileID: 3432507774243571895}
+  m_Layer: 3
+  m_Name: TerrainHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8872169059723915609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271607258860823795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4248948148176905316}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3432507774243571895
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271607258860823795}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0775, y: -0.79}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.76, y: 0.69}
+  m_EdgeRadius: 0
 --- !u!1 &4248948148176905319
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +69,6 @@ GameObject:
   - component: {fileID: 4248948148176905317}
   - component: {fileID: 4248948148176905318}
   - component: {fileID: 4248948148176905323}
-  - component: {fileID: 4248948148176905322}
   - component: {fileID: 4248948148176905321}
   - component: {fileID: 4248948148176905320}
   - component: {fileID: 1930627374204079261}
@@ -37,10 +93,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4248948148176905319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2356996376945109953}
+  - {fileID: 8872169059723915609}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,7 +141,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 700ebe6fe0becf245924e71a3f58fcf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35f9263fafeb45446b61dea2f417fae7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,6 +167,8 @@ MonoBehaviour:
   speed: 6.5
   rollSpeed: 24
   dodgeSpeed: 24
+  mode: Idle
+  setTime: 0
   frontHitbox: {fileID: 6611221337914753609, guid: 78227aaa18f5a0c4ca46bd9cc9e507c0, type: 3}
   sideHitbox: {fileID: 8020891790107607891, guid: 5a1f148483b0299428cd91be11bc5ccb, type: 3}
   backHitbox: {fileID: 6226327759341696037, guid: 13cca96aa05659e42ac0c698b1ca60f7, type: 3}
@@ -120,32 +179,35 @@ MonoBehaviour:
   pausedUI: {fileID: 0}
   gameIsPaused: 0
   boarTrotterText: {fileID: 0}
-  boarTrotterCount: 0
+  boarTrotterCount: 1
   shroomText: {fileID: 0}
-  shroomCount: 0
+  shroomCount: 1
   broccoliText: {fileID: 0}
-  broccoliCount: 0
+  broccoliCount: 1
   chickenFeetText: {fileID: 0}
-  chickenFeetCount: 0
+  chickenFeetCount: 1
   rabbitLegText: {fileID: 0}
-  rabbitLegCount: 0
+  rabbitLegCount: 1
   shellText: {fileID: 0}
-  shellCount: 0
+  shellCount: 1
   wingText: {fileID: 0}
-  wingCount: 0
+  wingCount: 1
   yolkText: {fileID: 0}
-  yolkCount: 0
+  yolkCount: 1
   isMelee: 0
   fryingPan: {fileID: 0}
   kitchenGun: {fileID: 0}
-  gunSprite: {fileID: 0}
-  gunBuffSprite: {fileID: 0}
-  panSprite: {fileID: 0}
-  panBuffSprite: {fileID: 0}
+  gunSprite: {fileID: 21300000, guid: e6d6e56cb441a49da82812cfbf6687e5, type: 3}
+  gunBuffSprite: {fileID: 21300000, guid: cb22ec8efc08d49c7bddfe7e5df48e87, type: 3}
+  panSprite: {fileID: 21300000, guid: f55c94b3f907445489e81d7e1b761d32, type: 3}
+  panBuffSprite: {fileID: 21300000, guid: f55c94b3f907445489e81d7e1b761d32, type: 3}
   weapon: {fileID: 0}
   weaponBuff: {fileID: 0}
   projectileElementChanger: {fileID: 0}
-  playerTest: {fileID: 0}
+  playerTest: {fileID: -942483267051202488}
+  fireProjectileHolder: {fileID: 0}
+  iceProjectileHolder: {fileID: 0}
+  poisonProjectileHolder: {fileID: 0}
 --- !u!50 &4248948148176905323
 Rigidbody2D:
   serializedVersion: 4
@@ -167,22 +229,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &4248948148176905322
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4248948148176905319}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.75
 --- !u!70 &4248948148176905321
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -193,11 +239,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006747544, y: -0.060728073}
-  m_Size: {x: 0.4871856, y: 1.9325244}
+  m_Offset: {x: 0.075, y: -0.15}
+  m_Size: {x: 0.8, y: 1.7}
   m_Direction: 0
 --- !u!95 &4248948148176905320
 Animator:
@@ -234,7 +280,7 @@ MonoBehaviour:
   slotUsed: 0
   fireShot: {fileID: 566825752524962294, guid: 2d7fe3cdb2a6fd448b2323b226b6b1dd, type: 3}
   sparkField: {fileID: 8172162938023691911, guid: 03ec0185b3a716d4ea240b3ca3764e41, type: 3}
-  sandBall: {fileID: 6420454179449576900, guid: 5eac39ce8ba28194fa8bd7fea4eb66db, type: 3}
+  poisonBall: {fileID: 6420454179449576900, guid: 5eac39ce8ba28194fa8bd7fea4eb66db, type: 3}
   atkBuff: {fileID: 0}
   evasionBuff: {fileID: 0}
   speedBuff: {fileID: 0}
@@ -275,11 +321,14 @@ MonoBehaviour:
   - {fileID: 1457549573367568210, guid: 5d99dd52e952c284f9b2495ddf7ca6a7, type: 3}
   projectileIndex: 0
   canShoot: 0
-  arrowCooldown: 2
+  arrowCooldown: 1
   arrowCooldownMultiplier: 0
   firePoint: {fileID: 0}
   bullet: {fileID: 0}
   bulletSpeed: 50
+  fireImage: {fileID: 0}
+  iceImage: {fileID: 0}
+  poisonImage: {fileID: 0}
 --- !u!114 &97503018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +390,7 @@ MonoBehaviour:
   atkDamage: 3
   dexDamage: 3
   soulCount: 0
+  poisonBall: {fileID: 6420454179449576900, guid: 5eac39ce8ba28194fa8bd7fea4eb66db, type: 3}
   currentLevel: 0
   currentExperiencePoints: 0
   levelUpCost: 0
@@ -348,6 +398,8 @@ MonoBehaviour:
   bonusDEX: 0
   bonusVIT: 0
   unusedStatPoints: 0
+  playerLayerName: Player
+  wallsLayerName: Walls
   atkBuff: 10
   speedBuff: 10
 --- !u!114 &1231618917
@@ -388,7 +440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8355432138896989762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4248948148176905316}
@@ -407,6 +459,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000059604645, y: 0.4291507}
-  m_Size: {x: 0.65553415, y: 1.993933}
+  m_Offset: {x: 0.075, y: -0.15}
+  m_Size: {x: 0.8, y: 1.7}
   m_Direction: 0
