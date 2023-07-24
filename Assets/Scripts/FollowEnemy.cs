@@ -15,9 +15,14 @@ public class FollowEnemy : MonoBehaviour
 
     private Animator anim;                                  //Modified      Add an "Attacking" parameter to the enemy animator
     public float attackDistance;                            //Modified
-    public float stoppingDistance;                          //Modified      To stop the enemy from continously moving into the player when in attcking range
     private bool attacking;                                 //Modified
     bool isSlowed;
+
+    [SerializeField] float attackCooldown;
+    float cooldownTimer = 0;
+    [SerializeField] float attackTime;
+    float attackTimer = 0;
+    Vector2 chargeVelo;
 
     // Start is called before the first frame update
     void Start()
@@ -25,24 +30,13 @@ public class FollowEnemy : MonoBehaviour
         isSlowed = false;
         rb = this.GetComponent<Rigidbody2D>();
         player = FindObjectOfType<HealthManager>().gameObject.transform;
-        anim = GetComponent<Animator>();                    //Modified
+        anim = GetComponent<Animator>();
+        cooldownTimer = attackCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //rb.rotation = angle;
-        //direction.Normalize();
-        movement = direction;
-#region                                                     //Expand region for modified code
-        if(Vector2.Distance(transform.position, player.position) < attackDistance){     //Checks if enemy is within attacking range
-            attacking = true;
-        } else attacking = false;
-        anim.SetBool("Attacking", attacking);               //Sets "Attacking" parameter based on distance between player and enemy. Remember to loop animation
-#endregion
-
         if (isSlowed)
         {
             moveSpeed = 1f;
@@ -55,6 +49,37 @@ public class FollowEnemy : MonoBehaviour
         {
             moveSpeed = normalSpeed;
         }
+
+        Vector3 direction = player.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        movement = direction.normalized;
+
+        if (!attacking)
+        {
+            cooldownTimer += Time.deltaTime;
+
+            if(Vector2.Distance(transform.position, player.position) <= attackDistance && cooldownTimer >= attackCooldown)
+            {
+                attacking = true;
+                attackTimer = 0;
+                anim.SetBool("Attacking", true);
+                anim.speed = 2;
+                moveSpeed = fasterSpeed;
+                chargeVelo = movement * moveSpeed;
+            }
+        }
+        else
+        {
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackTime)
+            {
+                attacking = false;
+                cooldownTimer = 0;
+                anim.SetBool("Attacking", false);
+                anim.speed = 1;
+                moveSpeed = normalSpeed;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -63,14 +88,15 @@ public class FollowEnemy : MonoBehaviour
 
     }
 
-    void moveCharacter(Vector2 dir)     //Modified direction to dir to avoid confusion with previoudsly declared direction
+    void moveCharacter(Vector2 dir)
     {
-        //rb.MovePosition((Vector2)transform.position + (dir * moveSpeed * Time.deltaTime));
-
         //Modified code below
-        if((Vector2.Distance(transform.position, player.position)) > stoppingDistance && !GetComponent<EnemyManager>().stunned){
-
-            //Checks to stop moving when close to the player
+        if (GetComponent<EnemyManager>().stunned)
+        {
+            rb.velocity = Vector2.zero;
+        }
+        else if(!attacking)
+        {
             if (player.position.x < transform.position.x)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -78,14 +104,14 @@ public class FollowEnemy : MonoBehaviour
             else {
                 transform.localScale = new Vector3(1, 1, 1);
             }
-            rb.velocity = dir.normalized * moveSpeed;   //Modified movement for constant speed but you can use your own. I just added it as an alternative
-        } else rb.velocity = Vector2.zero;       
+            rb.velocity = dir * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = chargeVelo;
+        }              
     }
-
-    private void OnDrawGizmos() {                   //Blue gizmos for enemy stop radius
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, stoppingDistance);
-    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "PlayerProjectileIce(Clone)")
@@ -101,4 +127,8 @@ public class FollowEnemy : MonoBehaviour
         isSlowed = false;
     }
 
+    private void OnDrawGizmos() { //Blue gizmos for enemy atk range
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, attackDistance);
+    }
 }
