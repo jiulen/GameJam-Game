@@ -10,29 +10,44 @@ public class ElementalEffectChangeButton : MonoBehaviour
     public GameObject projectileChooser;
     public bool isProjectileChooserActive;
     public move playerMove;
-    public bool isUnlocked;
+    public bool fireIsUnlocked = false;
+    public bool iceIsUnlocked = false;
+    public bool poisonIsUnlocked = false;
     public Image elementSprite;
     // Start is called before the first frame update
     void Start()
     {
-        isUnlocked = false;
         isProjectileChooserActive = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isUnlocked == true)
-        {
-            elementSprite.color = Color.white;
-        }
     }
-    public void ChangeProjectileType()
+    public void FireProjectile()
     {
-        if (isUnlocked == true)
+        if (fireIsUnlocked == true)
         {
             int index = (int)projectileSlotNumber;
-            playerTest.projectile[0] = playerTest.projectile[index];
+            playerTest.projectile[0] = playerTest.projectile[1];
+        }
+    }
+
+    public void IceProjectile()
+    {
+        if (iceIsUnlocked == true)
+        {
+            int index = (int)projectileSlotNumber;
+            playerTest.projectile[0] = playerTest.projectile[2];
+        }
+    }
+
+    public void PoisonProjectile()
+    {
+        if (poisonIsUnlocked == true)
+        {
+            int index = (int)projectileSlotNumber;
+            playerTest.projectile[0] = playerTest.projectile[3];
         }
     }
 

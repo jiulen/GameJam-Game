@@ -13,6 +13,7 @@ public class TotemController : MonoBehaviour
     private bool isAlive;
     private IEnumerator totemHealCoroutine;
     SpriteRenderer spriteRenderer;
+    DoorManager door;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class TotemController : MonoBehaviour
         isAlive = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         Debug.Log(room);
+        door = GetComponentInParent<DoorManager>();
     }
 
     public void startTotemHeal()
@@ -88,6 +90,7 @@ public class TotemController : MonoBehaviour
                 isAlive = false;
                 StopCoroutine(totemHealCoroutine);
                 Destroy(this.gameObject);
+                door.enemyCount -= 1;
             }
         }
     }

@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
 
     public int experienceToGive;
     protected PlayerStats playerStats;
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public GameObject winScreen;
 
     bool fireArrowHit;

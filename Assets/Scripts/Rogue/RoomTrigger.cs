@@ -38,16 +38,13 @@ public class RoomTrigger : MonoBehaviour
                 playerStats = collision.gameObject.GetComponent<PlayerStats>();
                 SpawnEnemyPrefabs();
                 enteredBefore = true;
-                if (playerStats.currentLevel > 0)
-                {
-                    SpawnAdditionalEnemies();
-                }
             }
             room.setPlayerInside(true);
             door.setClosed(true);
             if(totemController != null)
             {
                 totemController.startTotemHeal();
+                door.enemyCount += 1;
             }
             
         }
@@ -72,21 +69,7 @@ public class RoomTrigger : MonoBehaviour
         {
             int randomEnemyIndex = Random.Range(0, enemyPrefabs.Length);
             Instantiate(enemyPrefabs[randomEnemyIndex], enemySpawnPoints[i].position, enemySpawnPoints[i].rotation);
+            door.enemyCount += 1;
         }
     }
-
-    void SpawnAdditionalEnemies()
-    {
-        int additionalEnemies = playerStats.currentLevel;
-        if (additionalEnemies > 4)
-        {
-            additionalEnemies = 4;
-        }
-        for (int i = 0; i <= additionalEnemies; i++)
-        {
-            int randomEnemyIndex = Random.Range(0, enemyPrefabs.Length);
-            Instantiate(enemyPrefabs[randomEnemyIndex], enemySpawnPoints[i].position, enemySpawnPoints[i].rotation);
-        }
-    }
-
 }

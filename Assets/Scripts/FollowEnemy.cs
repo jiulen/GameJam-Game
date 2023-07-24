@@ -23,10 +23,12 @@ public class FollowEnemy : MonoBehaviour
     [SerializeField] float attackTime;
     float attackTimer = 0;
     Vector2 chargeVelo;
+    EnemyManager enemyManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemyManager = GetComponent<EnemyManager>();
         isSlowed = false;
         rb = this.GetComponent<Rigidbody2D>();
         player = FindObjectOfType<HealthManager>().gameObject.transform;
@@ -38,15 +40,18 @@ public class FollowEnemy : MonoBehaviour
     {
         if (isSlowed)
         {
-            moveSpeed = 1f;
+            moveSpeed = normalSpeed * 0.5f;
+            enemyManager.spriteRenderer.color = Color.blue;
         }
         else if (attacking)
         {
             moveSpeed = fasterSpeed;
+            enemyManager.spriteRenderer.color = Color.white;
         }
         else
         {
             moveSpeed = normalSpeed;
+            enemyManager.spriteRenderer.color = Color.white;
         }
 
         Vector3 direction = player.position - transform.position;
