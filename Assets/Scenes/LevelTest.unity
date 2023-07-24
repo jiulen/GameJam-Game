@@ -224,9 +224,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: iceImage
+      value: 
+      objectReference: {fileID: 1195389593}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: fireImage
+      value: 
+      objectReference: {fileID: 467966961}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 822369581}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: poisonImage
+      value: 
+      objectReference: {fileID: 1034844367}
     - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: arrowCooldown
       value: 1
@@ -353,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905316, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905316, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: m_LocalPosition.z
