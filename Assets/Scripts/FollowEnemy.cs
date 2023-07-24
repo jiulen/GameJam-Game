@@ -31,7 +31,6 @@ public class FollowEnemy : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         player = FindObjectOfType<HealthManager>().gameObject.transform;
         anim = GetComponent<Animator>();
-        cooldownTimer = attackCooldown;
     }
 
     // Update is called once per frame

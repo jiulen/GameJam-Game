@@ -204,10 +204,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   moveSpeed: 4
-  fasterSpeed: 10
+  fasterSpeed: 8
   normalSpeed: 4
   attackDistance: 7.5
-  attackCooldown: 1
+  attackCooldown: 1.5
   attackTime: 1
 --- !u!114 &-3346308202217411138
 MonoBehaviour:
