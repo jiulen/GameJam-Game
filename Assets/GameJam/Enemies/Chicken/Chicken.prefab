@@ -228,7 +228,7 @@ MonoBehaviour:
   stunned: 0
   roomIndependent: 0
   hp: 0
-  startHp: 15
+  startHp: 1
   target: {fileID: 0}
   lootItem: {fileID: 172013033003219771, guid: 20591aa41e26f491c8a332b905fa7a43, type: 3}
   endGame: 0

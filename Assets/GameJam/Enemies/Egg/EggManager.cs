@@ -36,6 +36,8 @@ public class EggManager : MonoBehaviour
     [SerializeField] float flashTime;
     float flashTimer = 0;
     [SerializeField] AnimationCurve spawnJumpCurve;
+    Vector3 startPos;
+    CapsuleCollider2D collider;
 
     void Awake()
     {
@@ -50,6 +52,10 @@ public class EggManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        collider = GetComponent<CapsuleCollider2D>();
+        startPos = transform.position;
+
+        collider.isTrigger = true;
     }
 
     // If player is within range then the enemy will follow the player
@@ -84,9 +90,11 @@ public class EggManager : MonoBehaviour
                 spawnImmuneTimer = spawnImmuneTime;
                 manager.StopInvincibility();
                 spawnImmune = false;
+                
+                collider.isTrigger = false;
             }
 
-            transform.position = new Vector3(transform.position.x, spawnJumpCurve.Evaluate((Time.time % spawnJumpCurve.length)), transform.position.z);
+            transform.position = new Vector3(startPos.x, startPos.y + spawnJumpCurve.Evaluate((spawnImmuneTimer)), startPos.z);
         }
         else
         {

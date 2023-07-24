@@ -60,10 +60,13 @@ public class ExplodingProjectile : Projectile
     {
         if(hitInfo.tag == "Player" || hitInfo.name == "Walls" || hitInfo.name == "Layout Walls")
         {
-            //Spawn explosion
-            Instantiate(explosionPrefab, explosionTransform.position + explosionOffset, Quaternion.identity);
+            if (!scaling)
+            {
+                //Spawn explosion
+                Instantiate(explosionPrefab, explosionTransform.position + explosionOffset, Quaternion.identity);
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 }
