@@ -25,7 +25,7 @@ public class ExplodingProjectile : Projectile
         transform.localScale = minScale;
     }
 
-    private void Update()
+    override protected void Update()
     {
         if (scaling)
         {

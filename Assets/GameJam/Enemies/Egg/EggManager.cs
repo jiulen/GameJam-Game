@@ -153,4 +153,28 @@ public class EggManager : MonoBehaviour
             }
         }
     }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") || collision.collider.name == "Walls" || collision.collider.name == "Layout Walls")
+        {
+            if (isAttacking)
+            {
+                attackTimer = attackTime;
+                Debug.Log("Collided1 : " + collision.collider.name);
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox")  || collision.name == "Walls" || collision.name == "Layout Walls")
+        {
+            if (isAttacking)
+            {
+                attackTimer = attackTime;
+                Debug.Log("Collided2 : " + LayerMask.LayerToName(collision.gameObject.layer));
+            }
+        }
+    }
 }
