@@ -193,8 +193,8 @@ MonoBehaviour:
   test: {fileID: 0}
   target: {fileID: 0}
   minRange: 5
-  fireRate: 2
-  bulletNum: 8
+  fireRate: 3
+  bulletNum: 12
 --- !u!95 &3325913109804699694
 Animator:
   serializedVersion: 3
