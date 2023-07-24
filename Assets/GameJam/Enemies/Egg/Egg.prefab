@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 78b4615392c482547a0e98d51a5fc13b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 324996088a775cf4bb3cf9dcfaef1cab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 3780085809115867532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3aeeecc14a4ac8458e23dd92f4dff79, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   endGame: 0
   experienceToGive: 0
   winScreen: {fileID: 0}
+  explosionPrefab: {fileID: 0}
 --- !u!114 &658048729657352819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,14 +142,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643cfb24444d50f4da575bbfb384306d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  attackRange: 5
+  speed: 7.5
+  attackRange: 7.5
   eggplosionOffset: {x: -0.2, y: 3.4, z: 0}
   eggplosionPoint: {fileID: 4057612946358730105}
   eggplosionPrefab: {fileID: 439365332933872298, guid: 2999ec3c0466d4c44ab517ac67d294bd, type: 3}
   spawnImmuneTime: 0.5
   attackTime: 0.5
-  atkLaunchMultiplier: 1
+  atkLaunchMultiplier: 2
+  materialsList:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 80c851e880180e14a926af9eb5b10330, type: 2}
+  flashTime: 0.05
 --- !u!70 &6764654975601179064
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

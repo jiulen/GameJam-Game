@@ -31,6 +31,11 @@ public class EggManager : MonoBehaviour
 
     bool spawnImmune = true;
 
+    [SerializeField] Material[] materialsList; //first is default, second is white
+    bool isFlashing = false;
+    [SerializeField] float flashTime;
+    float flashTimer = 0; 
+
     void Awake()
     {
         manager = GetComponent<EnemyManager>();
@@ -53,23 +58,16 @@ public class EggManager : MonoBehaviour
         {
             float distToPlayer = Vector2.Distance(manager.target.position, transform.position);
 
-            if (distToPlayer > attackRange)
-            {
-                Vector2 dir = (manager.target.position - transform.position).normalized;
-                rb.velocity = dir * speed;
+            Vector2 dir = (manager.target.position - transform.position).normalized;
+            rb.velocity = dir * speed;
 
-                if (dir.x > 0)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-                else if (dir.x < 0)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-            }
-            else
+            if (dir.x > 0)
             {
-                rb.velocity = Vector2.zero;
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (dir.x < 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
             }
         }
     }
@@ -94,18 +92,39 @@ public class EggManager : MonoBehaviour
 
                 if (!isAttacking)
                 {
-                    //animator.Play("BunnyWalkAnimation");
-
                     if (distToPlayer <= attackRange)
                     {
                         isAttacking = true; 
                         rb.velocity *= atkLaunchMultiplier;
+                        animator.speed = 0;
+
+                        if (rb.velocity.x > 0)
+                        {
+                            transform.localScale = new Vector3(-1, 1, 1);
+                        }
+                        else if (rb.velocity.x < 0)
+                        {
+                            transform.localScale = new Vector3(1, 1, 1);
+                        }
                     }
                 }
                 else
                 {
+                    flashTimer += Time.deltaTime;
+
+                    if (flashTimer >= flashTime)
+                    {
+                        if (isFlashing) 
+                        {
+                            sr.material = materialsList[0]; 
+                            //flashTime /= 2;
+                        }
+                        else sr.material = materialsList[1];
+
+                        isFlashing = !isFlashing;
+                    }
+
                     attackTimer += Time.deltaTime;
-                    //animator.Play("BunnyKickAnimation");
 
                     if (attackTimer >= attackTime)
                     {
