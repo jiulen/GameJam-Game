@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTest : MonoBehaviour
 {
@@ -21,9 +22,19 @@ public class PlayerTest : MonoBehaviour
     Vector2 lookDirection;
     float lookAngle;
 
+    bool fireIsUnlocked;
+    bool iceIsUnlocked;
+    bool poisonIsUnlocked;
+    public Image fireImage;
+    public Image iceImage;
+    public Image poisonImage;
+
 
     void Start()
    {
+        fireIsUnlocked = false;
+        iceIsUnlocked = false;
+        poisonIsUnlocked = false;
         player = GetComponent<PlayerManager>();
         playerMove = GetComponent<move>();
         canShoot = true;
