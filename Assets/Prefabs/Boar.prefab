@@ -208,7 +208,7 @@ MonoBehaviour:
   normalSpeed: 4
   attackDistance: 7.5
   attackCooldown: 1
-  attackTime: 2
+  attackTime: 1
 --- !u!114 &-3346308202217411138
 MonoBehaviour:
   m_ObjectHideFlags: 0
