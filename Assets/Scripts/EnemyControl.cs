@@ -18,15 +18,17 @@ public class EnemyControl : MonoBehaviour
     [SerializeField]
     private float minRange = 0f;
     bool isSlowed;
+    public float originalSpeed = 3.5f;
 
     public bool isAttacking = false;
+    EnemyManager enemyManager;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-
+        enemyManager = GetComponent<EnemyManager>();
         manager = GetComponent<EnemyManager>();
     }
 
@@ -35,11 +37,13 @@ public class EnemyControl : MonoBehaviour
     {
         if (isSlowed)
         {
-            speed = 1f;
+            speed = originalSpeed * 0.5f;
+            enemyManager.spriteRenderer.color = Color.blue;
         }
         else
         {
-            speed = 3.5f;
+            speed = originalSpeed;
+            enemyManager.spriteRenderer.color = Color.white;
         }
 
         if (!manager.stunned)

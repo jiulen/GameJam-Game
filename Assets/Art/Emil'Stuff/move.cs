@@ -247,17 +247,17 @@ public class move : MonoBehaviour
 
         if (gameIsPaused == false && projectileElementChanger.isProjectileChooserActive)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && fireProjectileHolder.isUnlocked == true)
+            if (Input.GetKeyDown(KeyCode.Q) && fireProjectileHolder.fireIsUnlocked == true)
             {
                 playerTest.projectile[0] = playerTest.projectile[1];
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && iceProjectileHolder.isUnlocked == true)
+            if (Input.GetKeyDown(KeyCode.E) && iceProjectileHolder.iceIsUnlocked == true)
             {
                 playerTest.projectile[0] = playerTest.projectile[2];
             }
 
-            if (Input.GetKeyDown(KeyCode.R) && poisonProjectileHolder.isUnlocked == true)
+            if (Input.GetKeyDown(KeyCode.R) && poisonProjectileHolder.poisonIsUnlocked == true)
             {
                 playerTest.projectile[0] = playerTest.projectile[3];
             }
@@ -658,6 +658,24 @@ public class move : MonoBehaviour
         {
             yolkCount += 1;
             yolkText.text = "Yolk: " + yolkCount;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "UnlockFire(Clone)")
+        {
+            fireProjectileHolder.fireIsUnlocked = true;
+            fireProjectileHolder.elementSprite.color = Color.white;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "UnlockIce(Clone)")
+        {
+            iceProjectileHolder.iceIsUnlocked = true;
+            iceProjectileHolder.elementSprite.color = Color.white;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "UnlockPoison(Clone)")
+        {
+            poisonProjectileHolder.poisonIsUnlocked = true;
+            poisonProjectileHolder.elementSprite.color = Color.white;
             Destroy(collision.gameObject);
         }
     }

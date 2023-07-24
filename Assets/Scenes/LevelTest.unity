@@ -1931,7 +1931,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 597553699}
         m_TargetAssemblyTypeName: ElementalEffectChangeButton, Assembly-CSharp
-        m_MethodName: ChangeProjectileType
+        m_MethodName: FireProjectile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1957,8 +1957,10 @@ MonoBehaviour:
   projectileSlotNumber: 1
   projectileChooser: {fileID: 0}
   isProjectileChooserActive: 0
-  playerMove: {fileID: 0}
-  isUnlocked: 0
+  playerMove: {fileID: 33216050}
+  fireIsUnlocked: 0
+  iceIsUnlocked: 0
+  poisonIsUnlocked: 0
   elementSprite: {fileID: 467966961}
 --- !u!1001 &663791394
 PrefabInstance:
@@ -3094,8 +3096,10 @@ MonoBehaviour:
   projectileSlotNumber: 3
   projectileChooser: {fileID: 0}
   isProjectileChooserActive: 0
-  playerMove: {fileID: 0}
-  isUnlocked: 0
+  playerMove: {fileID: 33216050}
+  fireIsUnlocked: 0
+  iceIsUnlocked: 0
+  poisonIsUnlocked: 0
   elementSprite: {fileID: 1034844367}
 --- !u!114 &1192401802
 MonoBehaviour:
@@ -3143,7 +3147,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1192401801}
         m_TargetAssemblyTypeName: ElementalEffectChangeButton, Assembly-CSharp
-        m_MethodName: ChangeProjectileType
+        m_MethodName: PoisonProjectile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3600,7 +3604,9 @@ MonoBehaviour:
   projectileChooser: {fileID: 105539645}
   isProjectileChooserActive: 0
   playerMove: {fileID: 33216050}
-  isUnlocked: 0
+  fireIsUnlocked: 0
+  iceIsUnlocked: 0
+  poisonIsUnlocked: 0
   elementSprite: {fileID: 0}
 --- !u!114 &1654285509
 MonoBehaviour:
@@ -3834,8 +3840,10 @@ MonoBehaviour:
   projectileSlotNumber: 2
   projectileChooser: {fileID: 0}
   isProjectileChooserActive: 0
-  playerMove: {fileID: 0}
-  isUnlocked: 0
+  playerMove: {fileID: 33216050}
+  fireIsUnlocked: 0
+  iceIsUnlocked: 0
+  poisonIsUnlocked: 0
   elementSprite: {fileID: 1195389593}
 --- !u!114 &1727005860
 MonoBehaviour:
@@ -3883,7 +3891,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1727005859}
         m_TargetAssemblyTypeName: ElementalEffectChangeButton, Assembly-CSharp
-        m_MethodName: ChangeProjectileType
+        m_MethodName: IceProjectile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
