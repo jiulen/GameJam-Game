@@ -72,6 +72,7 @@ public class move : MonoBehaviour
     public ElementalEffectChangeButton iceProjectileHolder;
     public ElementalEffectChangeButton poisonProjectileHolder;
 
+
     public string Direction {
         get { return direction; }
     }
@@ -120,6 +121,11 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool isAttackingOrUsingMagic = (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
+    || (isMelee != true && Input.GetMouseButtonDown(0) && (setTime >= (0.333f * 0.6f)) && mode != "Hurt");
+
+        bool isWalking = x != 0 || y != 0;
+
         if (mode == "Dead") {
             return;
         }
@@ -189,57 +195,6 @@ public class move : MonoBehaviour
         //Set Direction
         changeDirection();
 
-        if (gameIsPaused == false && mode != "Idle" && mode != "Walking") 
-        {
-            if (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
-            {
-                mode = "Attack";
-                setTime = 0.267f;
-
-                // Determine the direction based on mouse position
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 directionVector = mousePos - transform.position;
-                float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
-
-                if (angle > -45 && angle <= 45)
-                {
-                    direction = "Side";
-                }
-                else if (angle > 45 && angle <= 135)
-                {
-                    direction = "Back";
-                }
-                else if (angle > 135 || angle <= -135)
-                {
-                    direction = "Side";
-                }
-                else
-                {
-                    direction = "Front";
-                }
-
-                animator.Play("Mlafi_" + mode + "_" + direction, -1, 0.0f);
-                StartCoroutine(Attack());
-                return;
-            }//Cancel into attack
-
-            if (isMelee != true && Input.GetMouseButtonDown(0) && (setTime >= (0.333f * 0.6f)) && mode != "Hurt")
-            {
-                Debug.Log("Can shoot: " + GetComponent<PlayerTest>().canShoot);
-                mode = "Magic";
-                setTime = 0.267f;
-                animator.Play("Mlafi_" + mode + "_" + direction, -1, 0.0f);
-                return;
-            }//Cancel into magic
-
-            setTime -= Time.deltaTime;
-            if (setTime <= 0)
-            {
-                mode = "Idle";
-            }
-            return;
-        }
-
         if (gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
         {
             projectileElementChanger.ToggleProjectileChooser();
@@ -272,39 +227,6 @@ public class move : MonoBehaviour
         {
             TogglePause();
         }
-
-        if (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
-        {
-            mode = "Attack";
-            setTime = 0.267f;
-
-            // Determine the direction based on mouse position
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 directionVector = mousePos - (Vector2)transform.position;
-            float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
-
-            if (angle > -45 && angle <= 45)
-            {
-                direction = "Side";
-            }
-            else if (angle > 45 && angle <= 135)
-            {
-                direction = "Back";
-            }
-            else if (angle > 135 || angle <= -135)
-            {
-                direction = "Side";
-            }
-            else
-            {
-                direction = "Front";
-            }
-
-            animator.Play("Mlafi_" + mode + "_" + direction, -1, 0.0f);
-            StartCoroutine(Attack());
-            return;
-        }//Cancel into attack
-
         //if (Input.GetButtonDown("Fire2") && (mode == "Idle" || mode == "Walk"))
         //{
         //    Debug.Log("Can shoot: " + GetComponent<PlayerTest>().canShoot);
@@ -315,70 +237,116 @@ public class move : MonoBehaviour
         //}
 
         //ROLL SET
-/*        if (gameIsPaused == false && Input.GetButton("Fire3")&& !rollStart && (mode == "Idle" || mode == "Walk"))
-        {
-            mode = "Roll";
-            setTime = 0.222f;
-
-            if (x == 0 && y == 0) {
-                if (direction == "Side")
+        /*        if (gameIsPaused == false && Input.GetButton("Fire3")&& !rollStart && (mode == "Idle" || mode == "Walk"))
                 {
-                    if (transform.localScale.x < 0)
-                    {
-                        x = 1;
-                    }
-                    else if (transform.localScale.x > 0) {
-                        x = -1;
-                    }
-                }
-                else
-                {
-                    if (direction == "Back")
-                    {
-                        y = 1;
-                    }
-                    else if (direction == "Front")
-                    {
-                        y = -1;
-                    }
-                    else {
-                        rollStart = true; // Just in case
-                        return;
-                    }
-                   
-                }
-            }
+                    mode = "Roll";
+                    setTime = 0.222f;
 
-            rollVector.x = rollSpeed * x;
-            rollVector.y = rollSpeed * y ;
-            if (x != 0 && y != 0) {
-                rollVector.x *= 0.707f;
-                rollVector.y *= 0.707f;
-            }//For Diagonal
+                    if (x == 0 && y == 0) {
+                        if (direction == "Side")
+                        {
+                            if (transform.localScale.x < 0)
+                            {
+                                x = 1;
+                            }
+                            else if (transform.localScale.x > 0) {
+                                x = -1;
+                            }
+                        }
+                        else
+                        {
+                            if (direction == "Back")
+                            {
+                                y = 1;
+                            }
+                            else if (direction == "Front")
+                            {
+                                y = -1;
+                            }
+                            else {
+                                rollStart = true; // Just in case
+                                return;
+                            }
 
-            rollStart = true;
-            rb.velocity = rollVector;
-            animator.Play("Mlafi_" + mode + "_" + direction);
-            return;
-        }*/
+                        }
+                    }
+
+                    rollVector.x = rollSpeed * x;
+                    rollVector.y = rollSpeed * y ;
+                    if (x != 0 && y != 0) {
+                        rollVector.x *= 0.707f;
+                        rollVector.y *= 0.707f;
+                    }//For Diagonal
+
+                    rollStart = true;
+                    rb.velocity = rollVector;
+                    animator.Play("Mlafi_" + mode + "_" + direction);
+                    return;
+                }*/
 
         //WALK
-        if (gameIsPaused == false && mode == "Idle" || mode == "Walk")
+        if (gameIsPaused == false && !isAttackingOrUsingMagic)
         {
-            if (x != 0 && y != 0)
+            // Code for walking
+            if (isWalking)
             {
                 mode = "Walk";
                 rb.velocity = new Vector2(x * 0.707f * speed, y * 0.707f * speed);
                 animator.Play("Mlafi_" + mode + "_" + direction);
-                return;
             }
-
-            if (x != 0 || y != 0)
+            else
             {
-                mode = "Walk";
+                mode = "Idle";
+                animator.Play("Mlafi_" + mode + "_" + direction);
+            }
+        }
+        else if (gameIsPaused == false && isAttackingOrUsingMagic)
+        {
+            // Code for attacking or using magic
+            if (isMelee == true && mode != "Hurt")
+            {
+                mode = "Attack";
+                setTime = 0.267f;
+
+                // Determine the direction based on mouse position
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 directionVector = mousePos - transform.position;
+                float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
+
+                if (angle > -45 && angle <= 45)
+                {
+                    direction = "Side";
+                }
+                else if (angle > 45 && angle <= 135)
+                {
+                    direction = "Back";
+                }
+                else if (angle > 135 || angle <= -135)
+                {
+                    direction = "Side";
+                }
+                else
+                {
+                    direction = "Front";
+                }
+
+                animator.Play("Mlafi_" + mode + "_" + direction, -1, 0.0f);
+                StartCoroutine(Attack());
+            }
+            else if (isMelee != true && mode != "Hurt")
+            {
+                Debug.Log("Can shoot: " + GetComponent<PlayerTest>().canShoot);
+                mode = "Magic";
+                setTime = 0.267f;
+                animator.Play("Mlafi_" + mode + "_" + direction, -1, 0.0f);
             }
         }
 
+        setTime -= Time.deltaTime;
+        if (setTime <= 0)
+        {
+            mode = "Idle";
+        }
 
         if (gameIsPaused == false && mode != "Hurt")
         {
