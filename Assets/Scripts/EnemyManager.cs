@@ -34,6 +34,7 @@ public class EnemyManager : MonoBehaviour
     public float slowMultiplier = 1;
     Color normalColor = Color.white; //color when not hurt
     bool hurting = false;
+    Coroutine slowCoroutine = null;
 
     // Start is called before the first frame update
     void Start()
@@ -185,7 +186,8 @@ public class EnemyManager : MonoBehaviour
         }
         if (other.gameObject.name == "PlayerProjectileIce(Clone)")
         {
-            StartCoroutine(SlowEnemy());
+            if (slowCoroutine != null) StopCoroutine(slowCoroutine);
+            slowCoroutine = StartCoroutine(SlowEnemy());
         }
     }
     IEnumerator PoisonDamage()
