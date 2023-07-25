@@ -32,7 +32,6 @@ public class DragonBossManager : MonoBehaviour
     private Vector2 laserMoveStartPos;
     public bool lockedTarget = false;
     public Vector2 targetPos;
-    public float slowMultiplier = 1; //set to values >0 but <1 for slowing effect
 
     private float waitAtkSpeed = 1;
 
@@ -103,7 +102,7 @@ public class DragonBossManager : MonoBehaviour
                 Vector2 walkDirection = (Vector2)transform.position - targetPos;
                 walkDirection.Normalize();
                 if (lockedTarget) walkDirection *= -1;
-                rb.velocity = walkSpeed * walkSpeedMultiplier * slowMultiplier * walkDirection;
+                rb.velocity = walkSpeed * walkSpeedMultiplier * manager.slowMultiplier * walkDirection;
 
                 //animation
                 if (!lockedTarget)

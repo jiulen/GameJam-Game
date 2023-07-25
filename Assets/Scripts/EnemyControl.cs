@@ -17,8 +17,6 @@ public class EnemyControl : MonoBehaviour
     private float maxRange = 0f; 
     [SerializeField]
     private float minRange = 0f;
-    bool isSlowed;
-    public float originalSpeed = 3.5f;
 
     public bool isAttacking = false;
     EnemyManager enemyManager;
@@ -35,17 +33,6 @@ public class EnemyControl : MonoBehaviour
     // If player is within range then the enemy will follow the player
     void FixedUpdate()
     {
-        if (isSlowed)
-        {
-            speed = originalSpeed * 0.5f;
-            enemyManager.spriteRenderer.color = Color.blue;
-        }
-        else
-        {
-            speed = originalSpeed;
-            enemyManager.spriteRenderer.color = Color.white;
-        }
-
         if (!manager.stunned)
         {
             if (!isAttacking)
@@ -94,7 +81,7 @@ public class EnemyControl : MonoBehaviour
     {
         Vector2 dirToPlayer = DirectionTowards2D(manager.target.position);
         StartMoveAnimation(dirToPlayer);
-        rb.velocity = (Vector3)dirToPlayer * speed;
+        rb.velocity = (Vector3)dirToPlayer * speed * enemyManager.slowMultiplier;
     }
 
     //Enemy run away movement
@@ -102,7 +89,7 @@ public class EnemyControl : MonoBehaviour
     {
         Vector2 dirToPlayer = DirectionTowards2D(manager.target.position);
         StartMoveAnimation(dirToPlayer);
-        rb.velocity = (Vector3)dirToPlayer * -speed;
+        rb.velocity = (Vector3)dirToPlayer * -speed * enemyManager.slowMultiplier;
     }
 
     private void StopMoveAnimation(Vector2 direction)
@@ -118,20 +105,4 @@ public class EnemyControl : MonoBehaviour
         myAnim.SetFloat("moveX", (direction.x));
         myAnim.SetFloat("moveY", (direction.y));
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.name == "PlayerProjectileIce(Clone)")
-        {
-            StartCoroutine(SlowEnemy());
-        }
-    }
-
-    IEnumerator SlowEnemy()
-    {
-        isSlowed = true;
-        yield return new WaitForSeconds(3f);
-        isSlowed = false;
-    }
-
 }

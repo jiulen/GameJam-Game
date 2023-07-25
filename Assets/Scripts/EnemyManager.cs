@@ -31,6 +31,8 @@ public class EnemyManager : MonoBehaviour
     FollowEnemy followEnemy;
     public GameObject explosionPrefab;
 
+    public float slowMultiplier = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -177,6 +179,10 @@ public class EnemyManager : MonoBehaviour
         {
             StartCoroutine(PoisonDamage());
         }
+        if (other.gameObject.name == "PlayerProjectileIce(Clone)")
+        {
+            StartCoroutine(SlowEnemy());
+        }
     }
     IEnumerator PoisonDamage()
     {
@@ -200,4 +206,13 @@ public class EnemyManager : MonoBehaviour
     public int getHp() { return hp; }
 
     public int getStartHp() { return startHp; }
+
+    IEnumerator SlowEnemy()
+    {
+        slowMultiplier = 0.5f;
+        spriteRenderer.color = Color.blue;
+        yield return new WaitForSeconds(3f);
+        slowMultiplier = 1;
+        spriteRenderer.color = Color.white;
+    }
 }

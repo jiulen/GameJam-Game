@@ -16,7 +16,6 @@ public class FollowEnemy : MonoBehaviour
     private Animator anim;                                  //Modified      Add an "Attacking" parameter to the enemy animator
     public float attackDistance;                            //Modified
     private bool attacking;                                 //Modified
-    bool isSlowed;
 
     [SerializeField] float attackCooldown;
     float cooldownTimer = 0;
@@ -29,7 +28,6 @@ public class FollowEnemy : MonoBehaviour
     void Start()
     {
         enemyManager = GetComponent<EnemyManager>();
-        isSlowed = false;
         rb = this.GetComponent<Rigidbody2D>();
         player = FindObjectOfType<HealthManager>().gameObject.transform;
         anim = GetComponent<Animator>();
@@ -38,20 +36,13 @@ public class FollowEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isSlowed)
-        {
-            moveSpeed = normalSpeed * 0.5f;
-            enemyManager.spriteRenderer.color = Color.blue;
-        }
-        else if (attacking)
+        if (attacking)
         {
             moveSpeed = fasterSpeed;
-            enemyManager.spriteRenderer.color = Color.white;
         }
         else
         {
             moveSpeed = normalSpeed;
-            enemyManager.spriteRenderer.color = Color.white;
         }
 
         Vector3 direction = player.position - transform.position;
@@ -89,7 +80,6 @@ public class FollowEnemy : MonoBehaviour
     private void FixedUpdate()
     {
         moveCharacter(movement);
-
     }
 
     void moveCharacter(Vector2 dir)
@@ -108,27 +98,12 @@ public class FollowEnemy : MonoBehaviour
             else {
                 transform.localScale = new Vector3(1, 1, 1);
             }
-            rb.velocity = dir * moveSpeed;
+            rb.velocity = dir * moveSpeed * enemyManager.slowMultiplier;
         }
         else
         {
-            rb.velocity = chargeVelo;
+            rb.velocity = chargeVelo * enemyManager.slowMultiplier;
         }              
-    }
-    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.name == "PlayerProjectileIce(Clone)")
-        {
-            StartCoroutine(SlowEnemy());
-        }
-    }
-
-    IEnumerator SlowEnemy()
-    {
-        isSlowed = true;
-        yield return new WaitForSeconds(3f);
-        isSlowed = false;
     }
 
     private void OnDrawGizmos() { //Blue gizmos for enemy atk range

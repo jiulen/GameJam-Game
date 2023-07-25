@@ -166,7 +166,7 @@ public class DragonBossFlyAttack : MonoBehaviour
             {
                 if (changingPhases)
                 {
-                    rb.velocity = flightPoints[currPointIndex].GetFlyDirection() * speed;
+                    rb.velocity = flightPoints[currPointIndex].GetFlyDirection() * speed * manager.slowMultiplier;
                     changingPhases = false;
                 }
             }

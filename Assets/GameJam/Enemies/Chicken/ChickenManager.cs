@@ -99,7 +99,7 @@ public class ChickenManager : MonoBehaviour
 
             sidewaysVelo = sidewaysDir * strafeDir * (1 - fowardsPercentage);
 
-            Vector2 totalVelo = (forwardVelo + sidewaysVelo).normalized * speed;
+            Vector2 totalVelo = (forwardVelo + sidewaysVelo).normalized * speed * manager.slowMultiplier;
             rb.velocity = totalVelo;
 
             if (dir.x > 0)

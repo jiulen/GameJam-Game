@@ -53,7 +53,7 @@ public class BunnyManager : MonoBehaviour
             if (distToPlayer > minRange)
             {
                 Vector2 dir = (manager.target.position - transform.position).normalized;
-                rb.velocity = dir * speed;
+                rb.velocity = dir * speed * manager.slowMultiplier;
 
                 if (dir.x > 0)
                 {
