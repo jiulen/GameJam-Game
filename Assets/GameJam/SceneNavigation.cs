@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneNavigation : MonoBehaviour
 {
     public GameObject startingScreen;
-    move playerMove;
+    [SerializeField] move playerMove;
 
     
     // Start is called before the first frame update
