@@ -236,10 +236,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 822369581}
     - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
-      propertyPath: bulletSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: poisonImage
       value: 
       objectReference: {fileID: 1034844367}
@@ -247,10 +243,6 @@ PrefabInstance:
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 1019964730}
-    - target: {fileID: 271607258860823795, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
-      propertyPath: m_TagString
-      value: TerrainHitBox
-      objectReference: {fileID: 0}
     - target: {fileID: 1930627374204079261, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: atkBuff
       value: 
@@ -271,10 +263,6 @@ PrefabInstance:
       propertyPath: poisonousBuff
       value: 
       objectReference: {fileID: 2034200291}
-    - target: {fileID: 3432507774243571895, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.075
-      objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905316, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3329,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 723571659, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 806375816, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4298,6 +4286,10 @@ PrefabInstance:
     - target: {fileID: 1842219440819303151, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: m_Name
       value: HP_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842219440819303151, guid: 854c868ef70b307459e74f3b96119994, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1993840960624521684, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: m_Sprite

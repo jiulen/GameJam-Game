@@ -5,6 +5,8 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     DoorManager door;
+    [SerializeField] GameObject doorClose;
+    [SerializeField] GameObject doorOpen;
     
     // Start is called before the first frame update
     void Start()
@@ -32,8 +34,7 @@ public class Door : MonoBehaviour
 
     void setActive(bool active)
     {
-        this.GetComponent<BoxCollider2D>().enabled = active;
-        this.GetComponent<SpriteRenderer>().enabled = active;
-
+        doorClose.SetActive(active);
+        doorOpen.SetActive(!active);
     }
 }
