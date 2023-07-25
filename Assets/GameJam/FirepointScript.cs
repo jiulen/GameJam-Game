@@ -10,6 +10,7 @@ public class FirepointScript : MonoBehaviour
     public Animator animator;
     float rotationZ;
     public GameObject gunScale;
+    public Vector3 offset;
     
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class FirepointScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = playerTransform.transform.position;
+        transform.position = playerTransform.transform.position + offset;
 
         rotationZ = transform.rotation.eulerAngles.z;
 

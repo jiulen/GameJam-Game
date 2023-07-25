@@ -236,6 +236,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 822369581}
     - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: bulletSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: poisonImage
       value: 
       objectReference: {fileID: 1034844367}
@@ -2015,6 +2019,7 @@ MonoBehaviour:
   playerTest: {fileID: 1231618921}
   animator: {fileID: 822369583}
   gunScale: {fileID: 29825037}
+  offset: {x: 0, y: -0.5, z: 0}
 --- !u!95 &822369583
 Animator:
   serializedVersion: 3
