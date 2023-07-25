@@ -19,6 +19,7 @@ TagManager:
   - Crystal
   - Chest
   - Totem
+  - TerrainHitBox
   layers:
   - Default
   - TransparentFX

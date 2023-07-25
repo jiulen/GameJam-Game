@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 1019964730}
+    - target: {fileID: 271607258860823795, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: m_TagString
+      value: TerrainHitBox
+      objectReference: {fileID: 0}
     - target: {fileID: 1930627374204079261, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: atkBuff
       value: 
@@ -263,6 +267,10 @@ PrefabInstance:
       propertyPath: poisonousBuff
       value: 
       objectReference: {fileID: 2034200291}
+    - target: {fileID: 3432507774243571895, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.075
+      objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905316, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: m_RootOrder
       value: 6
