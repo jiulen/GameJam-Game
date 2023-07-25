@@ -31,7 +31,7 @@ public class RoomTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "TerrainHitBox")
         {
             if (enteredBefore == false)
             {
@@ -52,7 +52,7 @@ public class RoomTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "TerrainHitBox")
         {
             room.setPlayerInside(false);
             if (totemController != null)

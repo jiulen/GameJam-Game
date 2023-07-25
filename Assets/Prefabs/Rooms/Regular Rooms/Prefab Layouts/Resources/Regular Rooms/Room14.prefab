@@ -472,6 +472,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7321498627167030619, guid: 09a93dc06512de6449f7a2d3b8958c81, type: 3}
+      propertyPath: m_Size.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321498627167030619, guid: 09a93dc06512de6449f7a2d3b8958c81, type: 3}
+      propertyPath: m_Size.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321498627167030619, guid: 09a93dc06512de6449f7a2d3b8958c81, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321498627167030619, guid: 09a93dc06512de6449f7a2d3b8958c81, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7831693781034974789, guid: 09a93dc06512de6449f7a2d3b8958c81, type: 3}
       propertyPath: m_Name
       value: Player Detector
