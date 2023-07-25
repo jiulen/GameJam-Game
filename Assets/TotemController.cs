@@ -90,7 +90,7 @@ public class TotemController : MonoBehaviour
                 isAlive = false;
                 StopCoroutine(totemHealCoroutine);
                 Destroy(this.gameObject);
-                door.enemyCount -= 1;
+                door.killEnemy();
             }
         }
     }
