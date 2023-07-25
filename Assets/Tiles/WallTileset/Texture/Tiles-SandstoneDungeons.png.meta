@@ -136,7 +136,7 @@ TextureImporter:
     second: Tiles-SandstoneDungeons_43
   - first:
       213: -590338842308203941
-    second: Tiles-SandstoneDungeons_44
+    second: Tiles-SandstoneDungeons_XX
   - first:
       213: 2910383580566701178
     second: Tiles-SandstoneDungeons_45
@@ -657,8 +657,8 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 5, y: 16}
-        - {x: 5, y: -16}
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
       tessellationDetail: 0
@@ -707,8 +707,8 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -5, y: -16}
-        - {x: -5, y: 16}
+      - - {x: 16, y: -16}
+        - {x: 16, y: 16}
         - {x: -16, y: 16}
         - {x: -16, y: -16}
       tessellationDetail: 0
@@ -958,9 +958,9 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 5, y: 16}
-        - {x: 5, y: 11}
-        - {x: 16, y: 11}
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
         - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
@@ -1260,18 +1260,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles-SandstoneDungeons_44
+      name: Tiles-SandstoneDungeons_XX
       rect:
         serializedVersion: 2
         x: 256
-        y: 32
+        y: 0
         width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: b5aaa1f53f1bec7f0800000000000000
