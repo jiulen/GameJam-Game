@@ -102,6 +102,13 @@ public class FollowEnemy : MonoBehaviour
         }
         else
         {
+            if (rb.velocity.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
             rb.velocity = chargeVelo * enemyManager.slowMultiplier;
         }              
     }

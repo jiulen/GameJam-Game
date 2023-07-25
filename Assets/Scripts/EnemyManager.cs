@@ -32,6 +32,8 @@ public class EnemyManager : MonoBehaviour
     public GameObject explosionPrefab;
 
     public float slowMultiplier = 1;
+    Color normalColor = Color.white; //color when not hurt
+    bool hurting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -161,8 +163,10 @@ public class EnemyManager : MonoBehaviour
     public IEnumerator FlashRed()
     {
         spriteRenderer.color = Color.red;
+        hurting = true;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = normalColor;
+        hurting = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -210,9 +214,11 @@ public class EnemyManager : MonoBehaviour
     IEnumerator SlowEnemy()
     {
         slowMultiplier = 0.5f;
-        spriteRenderer.color = Color.blue;
+        if (!hurting) spriteRenderer.color = Color.blue;
+        normalColor = Color.blue;
         yield return new WaitForSeconds(3f);
-        slowMultiplier = 1;
-        spriteRenderer.color = Color.white;
+        slowMultiplier = 1;     
+        if (!hurting) spriteRenderer.color = Color.white;   
+        normalColor = Color.white;
     }
 }
