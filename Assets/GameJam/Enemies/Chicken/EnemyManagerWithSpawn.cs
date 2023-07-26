@@ -21,6 +21,7 @@ public class EnemyManagerWithSpawn : EnemyManager
             {
                 if (!roomIndependent)
                 {
+                    room.getActiveRoom().GetComponent<DoorManager>().enemyCount += 1; //for spawning enemy
                     room.getActiveRoom().GetComponent<DoorManager>().killEnemy();
                 }
 

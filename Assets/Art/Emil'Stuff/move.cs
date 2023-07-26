@@ -592,37 +592,37 @@ public class move : MonoBehaviour
             shroomText.text = "Shroom: " + shroomCount;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name == "Broccoli")
+        if (collision.gameObject.name == "Broccoli(Clone)")
         {
             broccoliCount += 1;
             broccoliText.text = "Broccoli: " + broccoliCount;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name == "ChickenFeet")
+        if (collision.gameObject.name == "ChickenFeet(Clone)")
         {
             chickenFeetCount += 1;
             chickenFeetText.text = "ChickenFeet: " + chickenFeetCount;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name == "Rabbit Leg")
+        if (collision.gameObject.name == "RabbitLeg(Clone)")
         {
             rabbitLegCount += 1;
             rabbitLegText.text = "Rabbit Leg: " + rabbitLegCount;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name == "Shell")
+        if (collision.gameObject.name == "Shell(Clone)")
         {
             shellCount += 1;
             shellText.text = "Shell: " + shellCount;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name == "Wing")
+        if (collision.gameObject.name == "Wing(Clone)")
         {
             wingCount += 1;
             wingText.text = "Wing: " + wingCount;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name == "Yolk")
+        if (collision.gameObject.name == "Yolk(Clone)")
         {
             yolkCount += 1;
             yolkText.text = "Yolk: " + yolkCount;
