@@ -55,10 +55,6 @@ public class RoomTrigger : MonoBehaviour
         if(collision.tag == "TerrainHitBox")
         {
             room.setPlayerInside(false);
-            if (totemController != null)
-            {
-                totemController.startTotemHeal();
-            }
         }
         
     }
