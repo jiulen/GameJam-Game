@@ -32,7 +32,9 @@ public class RoomTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "TerrainHitBox")
-        {
+        {            
+            room.setPlayerInside(true);
+            
             if (enteredBefore == false)
             {
                 playerStats = collision.gameObject.GetComponent<PlayerStats>();
@@ -44,9 +46,7 @@ public class RoomTrigger : MonoBehaviour
                     totemController.startTotemHeal();
                     door.enemyCount += 1;
                 }
-            }
-            
-            room.setPlayerInside(true);            
+            }          
         }
     }
 
@@ -55,10 +55,6 @@ public class RoomTrigger : MonoBehaviour
         if(collision.tag == "TerrainHitBox")
         {
             room.setPlayerInside(false);
-            if (totemController != null)
-            {
-                totemController.startTotemHeal();
-            }
         }
         
     }
