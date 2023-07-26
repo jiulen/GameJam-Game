@@ -45,8 +45,8 @@ public class CookingManager : MonoBehaviour
     {
         cookTime = totalCookTimer;
         bakKutTehCount = 0;
-        feetWingBucketCount = 5;
-        oyakodonCount = 5;
+        feetWingBucketCount = 0;
+        oyakodonCount = 0;
         rabbitOmeletCount = 0;
         shellBroccoliCount = 0;
     }
