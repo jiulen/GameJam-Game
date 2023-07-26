@@ -11,7 +11,7 @@ public class TotemController : MonoBehaviour
     private GameObject activeRoom;
     private GameObject roomObject;
     private bool isAlive;
-    private IEnumerator totemHealCoroutine;
+    private Coroutine totemHealCoroutine;
     SpriteRenderer spriteRenderer;
     DoorManager door;
 
@@ -47,8 +47,10 @@ public class TotemController : MonoBehaviour
                 }
             }
             // Start the healing coroutine if it's not already running
-            totemHealCoroutine = TotemHealCoroutine();
-            StartCoroutine(totemHealCoroutine);
+            if (totemHealCoroutine == null)
+            {
+                totemHealCoroutine = StartCoroutine(TotemHealCoroutine());
+            }
         }
     }
 
@@ -88,7 +90,10 @@ public class TotemController : MonoBehaviour
             {
                 // The totem has been destroyed, perform any necessary actions
                 isAlive = false;
-                StopCoroutine(totemHealCoroutine);
+                if (totemHealCoroutine == null)
+                {
+                    StopCoroutine(totemHealCoroutine);
+                }                
                 Destroy(this.gameObject);
                 door.killEnemy();
             }
