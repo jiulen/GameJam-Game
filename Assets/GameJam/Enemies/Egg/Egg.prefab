@@ -125,11 +125,13 @@ MonoBehaviour:
   hp: 0
   startHp: 1
   target: {fileID: 0}
-  lootItem: {fileID: 172013033003219771, guid: 20591aa41e26f491c8a332b905fa7a43, type: 3}
+  lootItem: {fileID: 172013033003219771, guid: 4222b546c094641bf98db11def62fbc4, type: 3}
   endGame: 0
   experienceToGive: 0
+  spriteRenderer: {fileID: 0}
   winScreen: {fileID: 0}
   explosionPrefab: {fileID: 0}
+  slowMultiplier: 1
 --- !u!114 &658048729657352819
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -161,6 +161,11 @@ public class ChickenManager : MonoBehaviour
         }
     }
 
+    public void DestroyEgg()
+    {
+        if (eggObj != null) Destroy(eggObj);
+    }
+
     void Shoot()
     {
         Vector2 dir = (manager.target.position - firingPoint.position).normalized;
@@ -179,6 +184,7 @@ public class ChickenManager : MonoBehaviour
     {
         Vector2 dir = (manager.target.position - firingPoint.position).normalized;
         eggObj.GetComponent<ExplodingProjectile>().futureVelo = dir * shootSpeed;
+        eggObj = null;
 
         lineRenderer.enabled = false;
         targetRenderer.enabled = false;

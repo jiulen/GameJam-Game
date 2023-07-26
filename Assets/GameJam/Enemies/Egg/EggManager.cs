@@ -152,7 +152,7 @@ public class EggManager : MonoBehaviour
                         Instantiate(eggplosionPrefab, eggplosionPoint.transform.position + eggplosionOffset, Quaternion.identity);
 
                         //Destroy egg
-                        Destroy(this.gameObject);
+                        manager.Damage(1, 0);
                     }
                 }
             }
