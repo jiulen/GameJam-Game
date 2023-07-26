@@ -38,15 +38,15 @@ public class RoomTrigger : MonoBehaviour
                 playerStats = collision.gameObject.GetComponent<PlayerStats>();
                 SpawnEnemyPrefabs();
                 enteredBefore = true;
-            }
-            room.setPlayerInside(true);
-            door.setClosed(true);
-            if(totemController != null)
-            {
-                totemController.startTotemHeal();
-                door.enemyCount += 1;
+                door.setClosed(true);
+                if(totemController != null)
+                {
+                    totemController.startTotemHeal();
+                    door.enemyCount += 1;
+                }
             }
             
+            room.setPlayerInside(true);            
         }
     }
 
