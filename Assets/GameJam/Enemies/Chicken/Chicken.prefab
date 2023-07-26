@@ -228,7 +228,7 @@ MonoBehaviour:
   stunned: 0
   roomIndependent: 0
   hp: 0
-  startHp: 1
+  startHp: 15
   target: {fileID: 0}
   lootItem: {fileID: 172013033003219771, guid: 5a94b89ff52f44ad599ea72d83cc16aa, type: 3}
   endGame: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   enemySpawn: {fileID: 4015417862309734723}
   enemyToSpawnPrefab: {fileID: 3780085809115867532, guid: a7d7da824b572884fb03ad6deae6fc92, type: 3}
   enemySpawnOffset: {x: 0, y: 0, z: 0}
+  chickenManager: {fileID: 9035406267107131361}
 --- !u!114 &9035406267107131361
 MonoBehaviour:
   m_ObjectHideFlags: 0

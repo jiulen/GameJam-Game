@@ -10,6 +10,8 @@ public class EnemyManagerWithSpawn : EnemyManager
     GameObject enemyToSpawnPrefab;
     [SerializeField]
     Vector3 enemySpawnOffset;
+    [SerializeField]
+    ChickenManager chickenManager;
 
     override public void Damage(int p)
     {
@@ -21,6 +23,7 @@ public class EnemyManagerWithSpawn : EnemyManager
             {
                 if (!roomIndependent)
                 {
+                    chickenManager.DestroyEgg();
                     room.getActiveRoom().GetComponent<DoorManager>().enemyCount += 1; //for spawning enemy
                     room.getActiveRoom().GetComponent<DoorManager>().killEnemy();
                 }
