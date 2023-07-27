@@ -15,7 +15,6 @@ public class ChestManager : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
         hp = startHp;
     }
 

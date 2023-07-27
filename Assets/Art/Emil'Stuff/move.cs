@@ -60,13 +60,15 @@ public class move : MonoBehaviour
 
     private GameObject weaponArea;
     public Sprite gunSprite;
-    public Sprite gunBuffSprite;
+    public Sprite upgradeBuffSprite;
     public Sprite panSprite;
-    public Sprite panBuffSprite;
+    public Sprite noEleSprite;
+    public Sprite poisonGunSprite;
+    public Sprite freezeGunSprite;
+    public Sprite fireGunSprite;
     public Image weapon;
     public Image weaponBuff;
     private Text weaponName;
-    public ElementalEffectChangeButton projectileElementChanger;
     public PlayerTest playerTest;
     public ElementalEffectChangeButton fireProjectileHolder;
     public ElementalEffectChangeButton iceProjectileHolder;
@@ -96,7 +98,7 @@ public class move : MonoBehaviour
 
         weaponName.text = "Frying Pan";
         weapon.sprite = panSprite;
-        weaponBuff.sprite = panBuffSprite;
+        weaponBuff.sprite = noEleSprite;
 
         //boarTrotterCount = 0;
         //shroomCount = 0;
@@ -121,6 +123,12 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isMelee)
+        {
+            weaponBuff.sprite = upgradeBuffSprite;
+
+        }
+
         bool isAttackingOrUsingMagic = (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
     || (isMelee != true && Input.GetMouseButtonDown(0) && (setTime >= (0.333f * 0.6f)) && mode != "Hurt");
 
@@ -194,29 +202,6 @@ public class move : MonoBehaviour
       
         //Set Direction
         changeDirection();
-
-        if (gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            projectileElementChanger.ToggleProjectileChooser();
-        }
-
-        if (gameIsPaused == false && projectileElementChanger.isProjectileChooserActive)
-        {
-            if (Input.GetKeyDown(KeyCode.Q) && fireProjectileHolder.fireIsUnlocked == true)
-            {
-                playerTest.projectile[0] = playerTest.projectile[1];
-            }
-
-            if (Input.GetKeyDown(KeyCode.E) && iceProjectileHolder.iceIsUnlocked == true)
-            {
-                playerTest.projectile[0] = playerTest.projectile[2];
-            }
-
-            if (Input.GetKeyDown(KeyCode.R) && poisonProjectileHolder.poisonIsUnlocked == true)
-            {
-                playerTest.projectile[0] = playerTest.projectile[3];
-            }
-        }
 
         if (gameIsPaused == false && Input.GetKeyDown(KeyCode.Tab))
         {
@@ -367,7 +352,7 @@ public class move : MonoBehaviour
         {
             weaponName.text = "Kitchen Gun";
             weapon.sprite = gunSprite;
-            weaponBuff.sprite = gunBuffSprite;
+            weaponBuff.sprite = upgradeBuffSprite;
             fryingPan.SetActive(false);
             kitchenGun.SetActive(true);
             isMelee = false;
@@ -376,7 +361,7 @@ public class move : MonoBehaviour
         {
             weaponName.text = "Frying Pan";
             weapon.sprite = panSprite;
-            weaponBuff.sprite = panBuffSprite;
+            weaponBuff.sprite = noEleSprite;
             fryingPan.SetActive(true);
             kitchenGun.SetActive(false);
             isMelee = true;
@@ -632,20 +617,23 @@ public class move : MonoBehaviour
         }
         if (collision.gameObject.name == "UnlockFire(Clone)")
         {
+            upgradeBuffSprite = fireGunSprite;
             fireProjectileHolder.fireIsUnlocked = true;
-            fireProjectileHolder.elementSprite.color = Color.white;
+            fireProjectileHolder.FireProjectile();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockIce(Clone)")
         {
+            upgradeBuffSprite = freezeGunSprite;
             iceProjectileHolder.iceIsUnlocked = true;
-            iceProjectileHolder.elementSprite.color = Color.white;
+            iceProjectileHolder.IceProjectile();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockPoison(Clone)")
         {
+            upgradeBuffSprite = poisonGunSprite;
             poisonProjectileHolder.poisonIsUnlocked = true;
-            poisonProjectileHolder.elementSprite.color = Color.white;
+            poisonProjectileHolder.PoisonProjectile();
             Destroy(collision.gameObject);
         }
     }

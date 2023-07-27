@@ -92,7 +92,7 @@ public class HP_Display : MonoBehaviour
                 //Instantiate Heart
                 GameObject g = Instantiate<GameObject>(HeartPrefab.gameObject);
                 g.GetComponent<RectTransform>().SetParent(this.GetComponent<RectTransform>());
-                g.GetComponent<RectTransform>().localPosition = new Vector2(12.5f * i , 0);
+                g.GetComponent<RectTransform>().localPosition = new Vector2(11.5f * i , 0);
                 g.GetComponent<RectTransform>().localScale = Vector2.one;
                 hearts.Add(g.GetComponent<Image>());
             }

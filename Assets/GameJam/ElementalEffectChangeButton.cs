@@ -28,6 +28,7 @@ public class ElementalEffectChangeButton : MonoBehaviour
     {
         if (fireIsUnlocked == true)
         {
+            Debug.Log("fire ele ----------");
             int index = (int)projectileSlotNumber;
             playerTest.projectile[0] = playerTest.projectile[1];
         }
@@ -37,6 +38,7 @@ public class ElementalEffectChangeButton : MonoBehaviour
     {
         if (iceIsUnlocked == true)
         {
+            Debug.Log("ice ele ----------");
             int index = (int)projectileSlotNumber;
             playerTest.projectile[0] = playerTest.projectile[2];
         }
@@ -46,6 +48,7 @@ public class ElementalEffectChangeButton : MonoBehaviour
     {
         if (poisonIsUnlocked == true)
         {
+            Debug.Log("poison ele ----------");
             int index = (int)projectileSlotNumber;
             playerTest.projectile[0] = playerTest.projectile[3];
         }
