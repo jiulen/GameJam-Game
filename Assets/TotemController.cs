@@ -12,6 +12,7 @@ public class TotemController : MonoBehaviour
     private GameObject roomObject;
     private bool isAlive;
     private Coroutine totemHealCoroutine = null;
+  
     SpriteRenderer spriteRenderer;
     DoorManager door;
 
@@ -71,6 +72,7 @@ public class TotemController : MonoBehaviour
                     int startHp = enemyManager.getStartHp();
 
                     enemyManager.heal(currentHp, startHp, healHP);
+                    enemyManager.TotemHealingEffect.SetActive(true);
                 }
             }
 
@@ -95,6 +97,20 @@ public class TotemController : MonoBehaviour
                     StopCoroutine(totemHealCoroutine);
                 }                
                 Destroy(this.gameObject);
+
+                // Get all enemies with the "enemy" tag in the active room
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in enemies)
+                {
+
+                    EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
+                    if (enemyManager != null)
+                    {
+                        if (enemyManager.TotemHealingEffect != null) {
+                            enemyManager.TotemHealingEffect.SetActive(false);
+                        }                       
+                    }
+                }
                 door.killEnemy();
             }
         }

@@ -36,6 +36,7 @@ public class EnemyManager : MonoBehaviour
     bool hurting = false;
     Coroutine slowCoroutine = null;
     Coroutine poisonCoroutine = null;
+    public GameObject TotemHealingEffect = null;
 
     // Start is called before the first frame update
     void Start()
@@ -131,7 +132,6 @@ public class EnemyManager : MonoBehaviour
         {
             Debug.Log("I am healing up the enemies");
             Debug.Log(currentHp + "current hp before heal");
-
             int afterHealHp = currentHp + healValue;
             if (afterHealHp > startHp)
             {
@@ -143,12 +143,11 @@ public class EnemyManager : MonoBehaviour
             }
 
             Debug.Log(hp + "current hp after heal");
-
         }
     }
 
-    
-    public bool IsInvincible() 
+
+public bool IsInvincible() 
     {
         return isInvincible;
     }
