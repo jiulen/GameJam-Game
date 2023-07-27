@@ -7275,6 +7275,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1694806574401370403, guid: 29f6ad90db5c8004cab6118b903a6332, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694806574401370403, guid: 29f6ad90db5c8004cab6118b903a6332, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
