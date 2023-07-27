@@ -38,6 +38,11 @@ public class EnemyManager : MonoBehaviour
     Coroutine poisonCoroutine = null;
     public GameObject TotemHealingEffect = null;
 
+    void Awake()
+    {
+        hp = startHp;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,10 +59,6 @@ public class EnemyManager : MonoBehaviour
             doors = GetComponentInParent<DoorManager>();
             room = FindObjectOfType<RoomTemplates>();
         }
-        //this.gameObject.SetActive(false);
-        //this.enabled = false;
-
-        hp = startHp;
     }
 
     // Update is called once per frame
@@ -148,6 +149,13 @@ public class EnemyManager : MonoBehaviour
             }
 
             Debug.Log(hp + "current hp after heal");
+        }
+        else
+        {
+            if (TotemHealingEffect != null)
+            {
+                TotemHealingEffect.SetActive(false);
+            }
         }
     }
 
