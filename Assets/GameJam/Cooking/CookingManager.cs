@@ -185,25 +185,25 @@ public class CookingManager : MonoBehaviour
         //Add ingredient back to inventory
         switch (slotList[slotNum].ingredientSO.ingredientName)
         {
-            case "BoarTrotter":
+            case "Boar_Trotter":
                 playerMove.boarTrotterCount += 1;
-                playerMove.boarTrotterText.text = "Boar Trotter: " + playerMove.boarTrotterCount;                      
+                playerMove.boarTrotterText.text = "Boar Trotters: " + playerMove.boarTrotterCount;                      
                 break;
             case "Shroom":
                 playerMove.shroomCount += 1;
-                playerMove.shroomText.text = "Shroom: " + playerMove.shroomCount;
+                playerMove.shroomText.text = "Shrooms: " + playerMove.shroomCount;
                 break;
             case "Broccoli":
                 playerMove.broccoliCount += 1;
-                playerMove.broccoliText.text = "Broccoli: " + playerMove.broccoliCount;
+                playerMove.broccoliText.text = "Broccolis: " + playerMove.broccoliCount;
                 break;
             case "ChickenFeet":
                 playerMove.chickenFeetCount += 1;
-                playerMove.chickenFeetText.text = "ChickenFeet: " + playerMove.chickenFeetCount;
+                playerMove.chickenFeetText.text = "Chicken Feets: " + playerMove.chickenFeetCount;
                 break;
             case "RabbitLeg":
                 playerMove.rabbitLegCount += 1;
-                playerMove.rabbitLegText.text = "RabbitLeg: " + playerMove.rabbitLegCount;
+                playerMove.rabbitLegText.text = "Rabbit Legs: " + playerMove.rabbitLegCount;
                 break;
             case "Shell":
                 playerMove.shellCount += 1;
@@ -211,11 +211,11 @@ public class CookingManager : MonoBehaviour
                 break;
             case "Wing":
                 playerMove.wingCount += 1;
-                playerMove.wingText.text = "Wing: " + playerMove.wingCount;
+                playerMove.wingText.text = "Wings: " + playerMove.wingCount;
                 break;
             case "Yolk":
                 playerMove.yolkCount += 1;
-                playerMove.yolkText.text = "Yolk: " + playerMove.yolkCount;
+                playerMove.yolkText.text = "Yolks: " + playerMove.yolkCount;
                 break;
             default:
                 Debug.Log("Remove ingredient with wrong name");

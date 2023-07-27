@@ -580,52 +580,54 @@ public class move : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "BoarTrotter(Clone)")
+        if (collision.gameObject.name == "Boar_Trotter(Clone)")
         {
             boarTrotterCount += 1;
-            boarTrotterText.text = "Boar Trotter: " + boarTrotterCount;
+            boarTrotterText.text = "Boar Trotters: " + boarTrotterCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Shroom(Clone)")
         {
             shroomCount += 1;
-            shroomText.text = "Shroom: " + shroomCount;
+            shroomText.text = "Shrooms: " + shroomCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Broccoli(Clone)")
         {
             broccoliCount += 1;
-            broccoliText.text = "Broccoli: " + broccoliCount;
+            broccoliText.text = "Broccolis: " + broccoliCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "ChickenFeet(Clone)")
         {
             chickenFeetCount += 1;
-            chickenFeetText.text = "ChickenFeet: " + chickenFeetCount;
+            chickenFeetText.text = "Chicken Feets: " + chickenFeetCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "RabbitLeg(Clone)")
         {
+            Debug.Log("rabbit leg count " + rabbitLegCount);
             rabbitLegCount += 1;
-            rabbitLegText.text = "Rabbit Leg: " + rabbitLegCount;
+            Debug.Log("rabbit leg count picked up" + rabbitLegCount);
+            rabbitLegText.text = "Rabbit Legs: " + rabbitLegCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Shell(Clone)")
         {
             shellCount += 1;
-            shellText.text = "Shell: " + shellCount;
+            shellText.text = "Shells: " + shellCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Wing(Clone)")
         {
             wingCount += 1;
-            wingText.text = "Wing: " + wingCount;
+            wingText.text = "Wings: " + wingCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Yolk(Clone)")
         {
             yolkCount += 1;
-            yolkText.text = "Yolk: " + yolkCount;
+            yolkText.text = "Yolks: " + yolkCount;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockFire(Clone)")
