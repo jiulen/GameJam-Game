@@ -13,12 +13,19 @@ public class EnemyManagerWithSpawn : EnemyManager
     [SerializeField]
     ChickenManager chickenManager;
 
-    override public void Damage(int p)
+    override public void Damage(int p, bool poison = false)
     {
         if (!isInvincible)
         {
             hp -= p;
-            StartCoroutine(FlashRed());
+            if (poison)
+            {
+                StartCoroutine(FlashGreen());
+            }
+            else
+            {
+                StartCoroutine(FlashRed());
+            }
             if (hp <= 0)
             {
                 if (!roomIndependent)

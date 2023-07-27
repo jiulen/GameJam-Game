@@ -35,6 +35,7 @@ public class EnemyManager : MonoBehaviour
     Color normalColor = Color.white; //color when not hurt
     bool hurting = false;
     Coroutine slowCoroutine = null;
+    Coroutine poisonCoroutine = null;
 
     // Start is called before the first frame update
     void Start()
@@ -76,12 +77,19 @@ public class EnemyManager : MonoBehaviour
             stunned = false;
     }
 
-    virtual public void Damage(int p)
+    virtual public void Damage(int p, bool poison = false)
     {
         if (!isInvincible)
         {
             hp -= p;
-            StartCoroutine(FlashRed());
+            if (poison) 
+            {
+                StartCoroutine(FlashGreen());
+            }    
+            else 
+            {
+                StartCoroutine(FlashRed());
+            }
             if (hp <= 0)
             {
                 if (!roomIndependent)
@@ -169,20 +177,33 @@ public class EnemyManager : MonoBehaviour
         spriteRenderer.color = normalColor;
         hurting = false;
     }
+    public IEnumerator FlashGreen()
+    {
+        spriteRenderer.color = Color.green;
+        hurting = true;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = normalColor;
+        hurting = false;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "PlayerProjectileFire(Clone)" && fireArrowHit == false)
         {
             fireArrowHit = true;
+            spriteRenderer.color = Color.yellow;
+            normalColor = Color.yellow;
         }
         else if (other.gameObject.name == "PlayerProjectileFire(Clone)" && fireArrowHit == true)
         {
             fireArrowHit = false;
+            spriteRenderer.color = Color.white;
+            normalColor = Color.white;
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
         if (other.gameObject.name == "PlayerProjectilePoison(Clone)")
         {
-            StartCoroutine(PoisonDamage());
+            if (poisonCoroutine != null) StopCoroutine(poisonCoroutine);
+            poisonCoroutine = StartCoroutine(PoisonDamage());
         }
         if (other.gameObject.name == "PlayerProjectileIce(Clone)")
         {
@@ -199,7 +220,7 @@ public class EnemyManager : MonoBehaviour
         while (timer < duration)
         {
             yield return new WaitForSeconds(tickInterval);
-            Damage(damagePerTick);
+            Damage(damagePerTick, true);
             timer += tickInterval;
         }
     }
