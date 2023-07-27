@@ -124,9 +124,10 @@ MonoBehaviour:
   rb: {fileID: 28392296746180215}
   target: {fileID: 0}
   bulletDir: {x: 0, y: 0}
-  totalLifespan: -1
+  totalLifespan: 2.5
+  remainingLifespan: 0
   maxSpeed: 7.5
-  homingForce: 40
+  homingForce: 35
 --- !u!95 &1753630944350497563
 Animator:
   serializedVersion: 3

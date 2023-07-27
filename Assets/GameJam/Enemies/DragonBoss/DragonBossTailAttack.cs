@@ -60,7 +60,7 @@ public class DragonBossTailAttack : MonoBehaviour
         projNum = bulletNum;
         shootSpeedMultiplier = speed;
         shootTimer = shootTime / shootSpeedMultiplier;
-        started = false;        
+        started = false;
     }
 
     public void StopAttack()

@@ -67,19 +67,19 @@ public class DragonBossManager : MonoBehaviour
         {
             phaseNum = 4;
             newPhase = true;
-            waitAtkSpeed = 1.75f;
+            waitAtkSpeed = 1.6f;
         }
         else if ((float)manager.hp / (float)manager.startHp <= 0.25f && phaseNum < 3) //20% hp left
         {
             phaseNum = 3;
             newPhase = true;
-            waitAtkSpeed = 1.5f;
+            waitAtkSpeed = 1.4f;
         }
         else if ((float)manager.hp / (float)manager.startHp <= 0.5f && phaseNum < 2) //50% hp left
         {
             phaseNum = 2;
             newPhase = true;
-            waitAtkSpeed = 1.25f;
+            waitAtkSpeed = 1.2f;
         }
         
         waitTimer += Time.deltaTime;
@@ -170,18 +170,26 @@ public class DragonBossManager : MonoBehaviour
     }
 
     public void chooseAttack() {
-        //fly attack when enter new phase
-        int choose = Random.Range(0, 3);
+        int choose;
+        if (phaseNum > 1)
+        {
+            choose = Random.Range(0, 3);
+        }
+        else
+        {
+            choose = 1;
+        }
 
         if (newPhase)
         {
+            //fly attack when enter new phase
             choose = 4;
             newPhase = false;
 
             if (phaseNum > 1)
                 attackTimer = attackTime / waitAtkSpeed; //immediately use attack after fly in between phases
         }
-        else if (!fireballed && phaseNum >= 2)
+        else if (!fireballed && phaseNum >= 3)
         {
             choose = 3;
         }   
@@ -190,8 +198,9 @@ public class DragonBossManager : MonoBehaviour
 
         //Priority : Fly->Fireball->Tail/Laser
         //Laser twice as common as Tail
+        //Tail unlock at phase 2
         //Fly happens at start of each phase
-        //Fireball happens at start of phase 2
+        //Fireball happens at start of phase 3
 
         switch (choose) {
             case 0:
@@ -199,7 +208,7 @@ public class DragonBossManager : MonoBehaviour
                 //Laser attack
                 targetPos = laserAttack.StartAttack(1.25f + 0.25f * phaseNum);
                 lockedTarget = true;
-                walkSpeedMultiplier = 1 + 3.5f * phaseNum;
+                walkSpeedMultiplier = 1 + 1 * phaseNum;
                 laserMoveStartPos = transform.position;
                 break;
             case 2:
@@ -213,7 +222,7 @@ public class DragonBossManager : MonoBehaviour
                 break;
             case 4:
                 //Fly attack
-                flyAttack.StartFlying(Random.Range(0, flyAttack.FlightPatternListSize()));
+                flyAttack.StartFlying(Random.Range(0, flyAttack.FlightPatternListSize()), 30 + 5 * phaseNum);
                 break;
         }
 

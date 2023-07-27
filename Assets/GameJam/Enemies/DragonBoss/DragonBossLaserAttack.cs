@@ -142,7 +142,7 @@ public class DragonBossLaserAttack : MonoBehaviour
             //Go right
             atkLeft = false;
             animator.AnimationChange(DragonState.MOVE, DragonDirection.LEFT);
-            return playerTransform.position - leftOffset - new Vector3(0, laserTransform.localPosition.y, 0) + new Vector3(0, playerTransform.localScale.y, 0);
+            return playerTransform.position - leftOffset - new Vector3(0, laserTransform.localPosition.y, 0) + new Vector3(0, -0.15f * playerTransform.localScale.y, 0);
         }
         else
         {            
@@ -150,7 +150,7 @@ public class DragonBossLaserAttack : MonoBehaviour
             //Go left
             atkLeft = true;
             animator.AnimationChange(DragonState.MOVE, DragonDirection.RIGHT);
-            return playerTransform.position + leftOffset - new Vector3(0, laserTransform.localPosition.y, 0) + new Vector3(0, playerTransform.localScale.y, 0);
+            return playerTransform.position + leftOffset - new Vector3(0, laserTransform.localPosition.y, 0) + new Vector3(0, -0.15f * playerTransform.localScale.y, 0);
         }
     }
 

@@ -23,6 +23,7 @@ public class DragonBossFlyAttack : MonoBehaviour
     private float stunTime = 0.25f;
     [SerializeField]
     private float speed = 80.0f;
+    private float maxSpeed = 50.0f;
     [SerializeField]
     private float totalStartUpTime = 1.4f;
     [SerializeField]
@@ -78,6 +79,7 @@ public class DragonBossFlyAttack : MonoBehaviour
                 if(startUpTimer <= 0.0f) 
                 {
                     startUpTimer = 0.0f;
+                    totalSweepTime = 1.5f / (speed / maxSpeed); //1.5s for max speed
                     sweepTimer = totalSweepTime;
                     startingUp = false;
                     changingPhases = true;
@@ -173,8 +175,10 @@ public class DragonBossFlyAttack : MonoBehaviour
         }
     }
 
-    public void StartFlying(int patternIndex) 
+    public void StartFlying(int patternIndex, float flySpeed) 
     {
+        speed = flySpeed;
+
         //Shadow stuff
         shadow.shadowSizeTarget = 0.1f;
         shadow.shadowSizeChangeDuration = totalShortStartUpTime;

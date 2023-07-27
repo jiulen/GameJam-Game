@@ -11,7 +11,7 @@ public class Projectile : EnemyProjectile
     public Transform target;
     public Vector2 bulletDir;
     public float totalLifespan = -1;
-    float remainingLifespan;
+    public float remainingLifespan;
 
     bool hit = false;
 
