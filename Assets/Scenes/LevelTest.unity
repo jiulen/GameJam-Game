@@ -340,9 +340,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411000789}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: wingCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: yolkCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: kitchenGun
       value: 
       objectReference: {fileID: 29825037}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: shellCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: shroomText
       value: 
@@ -352,13 +364,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1745639809}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: shroomCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: broccoliText
       value: 
       objectReference: {fileID: 732569792}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: broccoliCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: rabbitLegText
       value: 
       objectReference: {fileID: 1074428335}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: rabbitLegCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: boarTrotterText
       value: 
@@ -367,6 +391,14 @@ PrefabInstance:
       propertyPath: chickenFeetText
       value: 
       objectReference: {fileID: 1570018697}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: boarTrotterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: chickenFeetCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: iceProjectileHolder
       value: 
