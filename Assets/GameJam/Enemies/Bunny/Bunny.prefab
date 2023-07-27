@@ -154,7 +154,7 @@ MonoBehaviour:
   winScreen: {fileID: 0}
   explosionPrefab: {fileID: 0}
   slowMultiplier: 1
-  TotemHealingEffect: {fileID: 0}
+  TotemHealingEffect: {fileID: 4945121672985753757}
 --- !u!70 &8506504882616809559
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -132,6 +132,11 @@ public class EnemyManager : MonoBehaviour
         {
             Debug.Log("I am healing up the enemies");
             Debug.Log(currentHp + "current hp before heal");
+            if (TotemHealingEffect != null)
+            {
+                TotemHealingEffect.SetActive(true);
+            }
+
             int afterHealHp = currentHp + healValue;
             if (afterHealHp > startHp)
             {

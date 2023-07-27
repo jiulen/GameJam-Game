@@ -72,7 +72,6 @@ public class TotemController : MonoBehaviour
                     int startHp = enemyManager.getStartHp();
 
                     enemyManager.heal(currentHp, startHp, healHP);
-                    enemyManager.TotemHealingEffect.SetActive(true);
                 }
             }
 
