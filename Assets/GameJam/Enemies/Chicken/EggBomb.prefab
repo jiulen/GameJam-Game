@@ -51,6 +51,8 @@ MonoBehaviour:
   damage: 0
   rb: {fileID: 6837905795600749693}
   target: {fileID: 0}
+  bulletDir: {x: 0, y: 0}
+  totalLifespan: -1
   explosionPrefab: {fileID: 250945704442077505, guid: f241e060002994540b7a7cdd40051e6d, type: 3}
   explosionTransform: {fileID: 4982548935007696301}
   explosionOffset: {x: 0, y: 1.65, z: 0}
@@ -98,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: b6c4240e221fd7e49ab3d003a56fef48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 85c23da130752ca48a2acf1c62eb3dce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -175,8 +175,10 @@ MonoBehaviour:
   lootItem: {fileID: 172013033003219771, guid: d2914cd5bf8534074a32c807fc1b88b6, type: 3}
   endGame: 0
   experienceToGive: 5
+  spriteRenderer: {fileID: 0}
   winScreen: {fileID: 0}
   explosionPrefab: {fileID: 124728817819768249, guid: 13074dc49ba7a4a4082e74f6f9cedaa6, type: 3}
+  slowMultiplier: 1
 --- !u!114 &3325913109804699685
 MonoBehaviour:
   m_ObjectHideFlags: 0
