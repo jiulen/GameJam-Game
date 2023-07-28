@@ -20,7 +20,6 @@ public class RoomTrigger : MonoBehaviour
     {
         room = GetComponentInParent<RoomManager>();
         door = GetComponentInParent<DoorManager>();
-        
         enteredBefore = false;
     }
 
@@ -37,8 +36,13 @@ public class RoomTrigger : MonoBehaviour
             
             if (enteredBefore == false)
             {
-                playerStats = collision.gameObject.GetComponent<PlayerStats>();
-                SpawnEnemyPrefabs();
+                playerStats = FindObjectOfType<PlayerStats>();
+                int numberOfEnemiesToSpawn = playerStats.currentLevel;
+                if (numberOfEnemiesToSpawn < 1)
+                {
+                    numberOfEnemiesToSpawn = 1; 
+                }
+                SpawnEnemyPrefabs(numberOfEnemiesToSpawn);
                 enteredBefore = true;
                 door.setClosed(true);
                 if(totemController != null)
@@ -59,12 +63,15 @@ public class RoomTrigger : MonoBehaviour
         
     }
 
-    void SpawnEnemyPrefabs()
+    void SpawnEnemyPrefabs(int numberOfEnemiesToSpawn)
     {
-        for (int i = 0; i < enemySpawnPoints.Length; i++)
+        Debug.Log("Spawning " + numberOfEnemiesToSpawn + " enemies.");
+        for (int i = 0; i < numberOfEnemiesToSpawn; i++)
         {
             int randomEnemyIndex = Random.Range(0, enemyPrefabs.Length);
-            Instantiate(enemyPrefabs[randomEnemyIndex], enemySpawnPoints[i].position, enemySpawnPoints[i].rotation);
+            Transform spawnPoint = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
+
+            Instantiate(enemyPrefabs[randomEnemyIndex], spawnPoint.position, spawnPoint.rotation);
             door.enemyCount += 1;
         }
     }
