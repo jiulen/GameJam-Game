@@ -17,7 +17,7 @@ public class EnemyContactDamageOnce : EnemyContactDamage
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    override protected void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player" && !hit)
         {

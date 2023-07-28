@@ -206,6 +206,6 @@ public class ChickenManager : MonoBehaviour
         lineRenderer.SetPosition(0, firingPoint.position);
         lineRenderer.SetPosition(1, lineTarget.transform.position);
 
-        eggObj.GetComponent<ExplodingProjectile>().futureVelo = dir * shootSpeed;
+        if (eggObj != null) eggObj.GetComponent<ExplodingProjectile>().futureVelo = dir * shootSpeed;
     }
 }

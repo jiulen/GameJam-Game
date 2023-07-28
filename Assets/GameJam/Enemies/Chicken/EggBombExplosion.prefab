@@ -31,7 +31,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6649695834616270638}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,6 +51,7 @@ MonoBehaviour:
   stunTime: 0.25
   contactDamage: 1
   dmgTime: 0.1
+  hit: 0
 --- !u!58 &5354919456532519734
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +151,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalDuration: 1
+--- !u!1 &9167415340718099866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6649695834616270638}
+  - component: {fileID: 4967948036981956132}
+  - component: {fileID: 6461603424456048302}
+  m_Layer: 8
+  m_Name: FriendlyFire
+  m_TagString: Projectile
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6649695834616270638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167415340718099866}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1572074658119411556}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4967948036981956132
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167415340718099866}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.165}
+  serializedVersion: 2
+  m_Radius: 0.14
+--- !u!114 &6461603424456048302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167415340718099866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40a1e2a2aae7574cb98427206de18c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  rb: {fileID: 0}
+  v: {x: 0, y: 0}
+  angle: 0
+  power: 3
+  cosineTest: 0
+  sineTest: 0
+  getPowerFromPlayer: 0

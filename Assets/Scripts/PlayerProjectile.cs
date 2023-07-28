@@ -20,12 +20,18 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
     private PlayerStats stats;
     bool hit = false;
 
+    [SerializeField]
+    bool getPowerFromPlayer = true;
+
     // Start is called before the first frame update
     void Start()
     {
         stats = FindObjectOfType<PlayerStats>();
 
-        power = stats.getRangedDamage();
+        if (getPowerFromPlayer)
+        {
+            power = stats.getRangedDamage();
+        }
 
         rb = GetComponent<Rigidbody2D>();
         

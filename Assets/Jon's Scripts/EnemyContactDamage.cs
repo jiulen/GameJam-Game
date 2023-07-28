@@ -9,7 +9,7 @@ public class EnemyContactDamage : MonoBehaviour
     [SerializeField]
     protected int contactDamage = 4;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    virtual protected void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
