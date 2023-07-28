@@ -115,9 +115,17 @@ public class EnemyManager : MonoBehaviour
                 }
                 else {
                     Instantiate(lootItem, transform.position, Quaternion.identity);
-                    if (!hitPlayer && hitlessDrop != null)
+                    if (!hitPlayer)
                     {
-                        Instantiate(hitlessDrop, transform.position, Quaternion.identity);
+                        Debug.Log(name + " hitless");
+                        if (hitlessDrop != null)
+                        {
+                            Instantiate(hitlessDrop, transform.position, Quaternion.identity);
+                        }                        
+                    }
+                    else
+                    {
+                        Debug.Log(name + "hitfull");
                     }
                     Destroy(gameObject);
                     playerStats.GainExperience(experienceToGive);
