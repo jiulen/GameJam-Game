@@ -22,11 +22,33 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
 
     [SerializeField]
     bool getPowerFromPlayer = true;
+    Animator myAnim;
 
     // Start is called before the first frame update
     void Start()
     {
+        myAnim = GetComponent<Animator>();
         stats = FindObjectOfType<PlayerStats>();
+
+        if (gameObject.name == "PlayerProjectile(Clone)")
+        {
+            myAnim.Play("NormalAttack");
+        }
+
+        if (gameObject.name == "PlayerProjectileFire(Clone)")
+        {
+            myAnim.Play("FireAttack");
+        }
+
+        if (gameObject.name == "PlayerProjectileIce(Clone)")
+        {
+            myAnim.Play("IceAttack");
+        }
+
+        if (gameObject.name == "PlayerProjectilePoison(Clone)")
+        {
+            myAnim.Play("PoisonAttack");
+        }
 
         if (getPowerFromPlayer)
         {
