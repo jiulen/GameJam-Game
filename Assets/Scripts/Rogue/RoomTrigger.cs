@@ -42,7 +42,7 @@ public class RoomTrigger : MonoBehaviour
                 {
                     numberOfEnemiesToSpawn = 1; 
                 }
-                SpawnEnemyPrefabs(numberOfEnemiesToSpawn);
+                StartCoroutine(SpawnEnemyPrefabs(numberOfEnemiesToSpawn));
                 enteredBefore = true;
                 door.setClosed(true);
                 if(totemController != null)
@@ -63,7 +63,7 @@ public class RoomTrigger : MonoBehaviour
         
     }
 
-    void SpawnEnemyPrefabs(int numberOfEnemiesToSpawn)
+    IEnumerator SpawnEnemyPrefabs(int numberOfEnemiesToSpawn)
     {
         Debug.Log("Spawning " + numberOfEnemiesToSpawn + " enemies.");
         for (int i = 0; i < numberOfEnemiesToSpawn; i++)
@@ -73,6 +73,8 @@ public class RoomTrigger : MonoBehaviour
 
             Instantiate(enemyPrefabs[randomEnemyIndex], spawnPoint.position, spawnPoint.rotation);
             door.enemyCount += 1;
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
