@@ -24,6 +24,9 @@ public class FollowEnemy : MonoBehaviour
     Vector2 chargeVelo;
     EnemyManager enemyManager;
 
+    bool readying = false;
+    [SerializeField] float readyTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +39,6 @@ public class FollowEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attacking)
-        {
-            moveSpeed = fasterSpeed;
-        }
-        else
-        {
-            moveSpeed = normalSpeed;
-        }
-
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         movement = direction.normalized;
@@ -53,8 +47,16 @@ public class FollowEnemy : MonoBehaviour
         {
             cooldownTimer += Time.deltaTime;
 
-            if(Vector2.Distance(transform.position, player.position) <= attackDistance && cooldownTimer >= attackCooldown)
+            if(Vector2.Distance(transform.position, player.position) <= attackDistance && cooldownTimer >= attackCooldown && !readying)
             {
+                readying = true;
+                moveSpeed = normalSpeed * 0.25f;
+                anim.speed = 0.25f;
+            }
+
+            if (readying && cooldownTimer >= attackCooldown + readyTime)
+            {
+                readying = false;
                 attacking = true;
                 attackTimer = 0;
                 anim.SetBool("Attacking", true);
@@ -65,8 +67,8 @@ public class FollowEnemy : MonoBehaviour
         }
         else
         {
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= attackTime)
+            //attackTimer += Time.deltaTime;
+            if (attackTimer >= attackTime) //attack stops when boar hit wall
             {
                 attacking = false;
                 cooldownTimer = 0;
@@ -113,8 +115,16 @@ public class FollowEnemy : MonoBehaviour
         }              
     }
 
-    private void OnDrawGizmos() { //Blue gizmos for enemy atk range
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, attackDistance);
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Walls" || collision.collider.name == "Layout Walls" || collision.collider.tag == "Door")
+        {
+            if (attacking)
+            {
+                attackTimer = attackTime;
+                enemyManager.Damage(3, 0.25f);
+                Debug.Log("Collided1 : " + collision.collider.name);
+            }
+        }
     }
 }

@@ -210,6 +210,7 @@ MonoBehaviour:
   attackDistance: 7.5
   attackCooldown: 1.5
   attackTime: 1
+  readyTime: 0.5
 --- !u!114 &-3346308202217411138
 MonoBehaviour:
   m_ObjectHideFlags: 0
