@@ -67,6 +67,7 @@ public class Weapon : MonoBehaviour
             float randRotation = Random.Range(0f, 360f);
 
             GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.Euler(0, 0, randRotation));
+            bullet.GetComponent<Projectile>().manager = test;
 
             float randScale = Random.Range(1f, 1.5f);
             bullet.transform.localScale = new Vector3(randScale, randScale, 1);

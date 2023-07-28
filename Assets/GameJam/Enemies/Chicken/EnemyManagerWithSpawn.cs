@@ -45,6 +45,10 @@ public class EnemyManagerWithSpawn : EnemyManager
                 }
                 else {
                     Instantiate(lootItem, transform.position, Quaternion.identity);
+                    if (!hitPlayer && hitlessDrop != null)
+                    {
+                        Instantiate(hitlessDrop, transform.position, Quaternion.identity);
+                    }
                     Instantiate(enemyToSpawnPrefab, enemySpawn.position + enemySpawnOffset, Quaternion.identity);
                     Destroy(gameObject);
                     playerStats.GainExperience(experienceToGive);

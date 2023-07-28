@@ -172,6 +172,7 @@ public class ChickenManager : MonoBehaviour
         Vector2 dir = (manager.target.position - firingPoint.position).normalized;
         eggObj = Instantiate(eggPrefab, firingPoint.position, Quaternion.identity);
         eggObj.GetComponent<ExplodingProjectile>().chickenManager = this;
+        eggObj.GetComponent<ExplodingProjectile>().manager = manager;
 
         eggObj.GetComponent<ExplodingProjectile>().futureVelo = dir * shootSpeed;
 
