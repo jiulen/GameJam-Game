@@ -189,7 +189,7 @@ MonoBehaviour:
   slashObj: {fileID: 2415495780021783420}
   slashTime: 0.3
   attackTime: 0.667
-  attackCooldown: 2
+  attackCooldown: 1
 --- !u!1 &2415495780021783420
 GameObject:
   m_ObjectHideFlags: 0
