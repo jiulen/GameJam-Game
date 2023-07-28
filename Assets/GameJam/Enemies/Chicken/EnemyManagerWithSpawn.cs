@@ -20,7 +20,7 @@ public class EnemyManagerWithSpawn : EnemyManager
             hp -= p;
             if (poison)
             {
-                StartCoroutine(FlashGreen());
+                StartCoroutine(FlashPurple());
             }
             else
             {

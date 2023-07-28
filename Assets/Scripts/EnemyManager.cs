@@ -86,7 +86,7 @@ public class EnemyManager : MonoBehaviour
             hp -= p;
             if (poison) 
             {
-                StartCoroutine(FlashGreen());
+                StartCoroutine(FlashPurple());
             }    
             else 
             {
@@ -189,9 +189,9 @@ public bool IsInvincible()
         spriteRenderer.color = normalColor;
         hurting = false;
     }
-    public IEnumerator FlashGreen()
+    public IEnumerator FlashPurple()
     {
-        spriteRenderer.color = Color.green;
+        spriteRenderer.color = new Color(0.5f, 0, 0.5f, 1);
         hurting = true;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = normalColor;
