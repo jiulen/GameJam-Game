@@ -73,6 +73,8 @@ public class move : MonoBehaviour
     public ElementalEffectChangeButton fireProjectileHolder;
     public ElementalEffectChangeButton iceProjectileHolder;
     public ElementalEffectChangeButton poisonProjectileHolder;
+    public GameObject projectileChooser;
+    public bool isProjectileChooserActive;
 
 
     public string Direction {
@@ -127,6 +129,24 @@ public class move : MonoBehaviour
         {
             weaponBuff.sprite = upgradeBuffSprite;
 
+        }
+
+        if(gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            ToggleProjectileChooser();
+        }
+
+        if (fireProjectileHolder.fireIsUnlocked == true && Input.GetKeyDown(KeyCode.Q))
+        {
+            playerTest.projectile[0] = playerTest.projectile[1];
+        }
+        if (iceProjectileHolder.iceIsUnlocked == true && Input.GetKeyDown(KeyCode.E))
+        {
+            playerTest.projectile[0] = playerTest.projectile[2];
+        }
+        if (poisonProjectileHolder.poisonIsUnlocked == true && Input.GetKeyDown(KeyCode.R))
+        {
+            playerTest.projectile[0] = playerTest.projectile[3];
         }
 
         bool isAttackingOrUsingMagic = (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
@@ -400,6 +420,19 @@ public class move : MonoBehaviour
         }
     }
 
+    public void ToggleProjectileChooser()
+    {
+        if (isProjectileChooserActive == false)
+        {
+            projectileChooser.SetActive(true);
+            isProjectileChooserActive = true;
+        }
+        else
+        {
+            projectileChooser.SetActive(false);
+            isProjectileChooserActive = false;
+        }
+    }
     public void TogglePause()
     {
         if (gameIsPaused == true)

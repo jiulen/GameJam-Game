@@ -420,6 +420,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: projectileChooser
+      value: 
+      objectReference: {fileID: 105539645}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: upgradeBuffSprite
       value: 
       objectReference: {fileID: 21300000, guid: 731ee268362c64f058e14a05d6db9d9f, type: 3}
