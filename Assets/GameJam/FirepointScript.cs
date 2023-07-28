@@ -11,6 +11,7 @@ public class FirepointScript : MonoBehaviour
     float rotationZ;
     public GameObject gunScale;
     public Vector3 offset;
+    bool lookingLeft;
     
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,14 @@ public class FirepointScript : MonoBehaviour
 
         if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && playerTest.canShoot)
         {
-            animator.Play("GunAnimation");
+            if (lookingLeft == true)
+            {
+                animator.Play("GunAnimationOtherSide");
+            }
+            else
+            {
+                animator.Play("GunAnimation");
+            }
         }
 
         if (playerMove.gameIsPaused == false && playerMove.isMelee == true && Input.GetMouseButtonDown(0))
@@ -47,14 +55,17 @@ public class FirepointScript : MonoBehaviour
         if (90f <= rotationZ && rotationZ <= 180f)
         {
             gunScale.transform.localScale = desiredScale;
+            lookingLeft = true;
         }
         else if (-180f <= rotationZ && rotationZ <= -90f)
         {
             gunScale.transform.localScale = desiredScale;
+            lookingLeft = true;
         }
         else 
         {
             gunScale.transform.localScale = originalScale;
+            lookingLeft = false;
         }
     }
 }

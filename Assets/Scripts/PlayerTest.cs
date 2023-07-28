@@ -17,6 +17,7 @@ public class PlayerTest : MonoBehaviour
     move playerMove;
 
     public Transform firePoint;
+    public Transform shootPoint;
     public GameObject bullet;
     public float bulletSpeed = 50;
     Vector2 lookDirection;
@@ -57,7 +58,7 @@ public class PlayerTest : MonoBehaviour
         if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && canShoot)
         {
             GameObject instantiatedObject = Instantiate(projectile[0]);
-            instantiatedObject.transform.position = firePoint.transform.position;
+            instantiatedObject.transform.position = shootPoint.transform.position;
             instantiatedObject.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
             instantiatedObject.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
             canShoot = false;
