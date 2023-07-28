@@ -6,7 +6,7 @@ public class EnemyContactDamageOnce : EnemyContactDamage
 {
     [SerializeField] float dmgTime = -1;
     float dmgTimer = 0;
-    bool hit = false;
+    public bool hit = false;
     
     void Update()
     {

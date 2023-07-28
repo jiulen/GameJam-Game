@@ -90,7 +90,10 @@ public class EnemyManager : MonoBehaviour
             }    
             else 
             {
-                StartCoroutine(FlashRed());
+                if (p > 0)
+                {
+                    StartCoroutine(FlashRed());
+                }
             }
             if (hp <= 0)
             {
