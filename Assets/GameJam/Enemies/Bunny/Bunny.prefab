@@ -189,7 +189,7 @@ MonoBehaviour:
   slashObj: {fileID: 2415495780021783420}
   slashTime: 0.3
   attackTime: 0.667
-  attackCooldown: 2
+  attackCooldown: 1
 --- !u!1 &2415495780021783420
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +201,8 @@ GameObject:
   - component: {fileID: 2692578173115157776}
   - component: {fileID: 20630390816265981}
   - component: {fileID: 3259318998027196156}
-  - component: {fileID: 558318096351642323}
   - component: {fileID: 8360041635748145237}
+  - component: {fileID: 6843616020317305168}
   m_Layer: 7
   m_Name: Slash
   m_TagString: Projectile
@@ -294,20 +294,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &558318096351642323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415495780021783420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46461638bc023746a7eea7361774a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stunTime: 0.25
-  contactDamage: 1
 --- !u!70 &8360041635748145237
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -324,6 +310,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01, y: 0.025}
   m_Size: {x: 0.3, y: 0.8}
   m_Direction: 0
+--- !u!114 &6843616020317305168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415495780021783420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d870a563780944c8acec4b383de2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunTime: 0.25
+  contactDamage: 1
+  dmgTime: -1
+  hit: 0
 --- !u!1 &4945121672985753757
 GameObject:
   m_ObjectHideFlags: 0

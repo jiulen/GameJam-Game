@@ -20,6 +20,7 @@ public class BunnyManager : MonoBehaviour
     bool isAttacking = false;
     [SerializeField]
     private GameObject slashObj;
+    private EnemyContactDamageOnce slashDmg;
     private Animator slashAnimator;
 
     private float attackTimer;
@@ -41,6 +42,7 @@ public class BunnyManager : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         slashAnimator = slashObj.GetComponent<Animator>();
+        slashDmg = slashObj.GetComponent<EnemyContactDamageOnce>();
     }
 
     // If player is within range then the enemy will follow the player
@@ -69,6 +71,10 @@ public class BunnyManager : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     // Update is called once per frame
@@ -89,6 +95,7 @@ public class BunnyManager : MonoBehaviour
                     rb.velocity = Vector2.zero;    
                     cooldownTimer = 0;
                     manager.TriggerInvincibility();
+                    slashDmg.hit = false;
                 }
             }
             else
@@ -113,6 +120,11 @@ public class BunnyManager : MonoBehaviour
                     animator.Play("BunnyWalkAnimation", sr.sortingLayerID, 0);
                     attackTimer = 0;
                     manager.StopInvincibility();
+
+                    if (!slashDmg.hit)
+                    {
+                        manager.Damage(0, 1);
+                    }
                 }
             }
         }

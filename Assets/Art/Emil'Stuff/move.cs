@@ -276,7 +276,7 @@ public class move : MonoBehaviour
             if (isWalking)
             {
                 mode = "Walk";
-                rb.velocity = new Vector2(x * 0.707f * speed, y * 0.707f * speed);
+                rb.velocity = new Vector2(x, y).normalized * speed;
                 animator.Play("Mlafi_" + mode + "_" + direction);
             }
             else
@@ -335,7 +335,7 @@ public class move : MonoBehaviour
 
         if (gameIsPaused == false && mode != "Hurt")
         {
-            rb.velocity = new Vector2(x * speed, y * speed);
+            rb.velocity = new Vector2(x, y).normalized * speed;
         }
 
         animator.Play("Mlafi_" + mode + "_" + direction);
