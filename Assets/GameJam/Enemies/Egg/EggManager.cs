@@ -37,7 +37,6 @@ public class EggManager : MonoBehaviour
     float flashTimer = 0;
     [SerializeField] AnimationCurve spawnJumpCurve;
     Vector3 startPos;
-    CapsuleCollider2D collider;
 
     void Awake()
     {
@@ -52,10 +51,7 @@ public class EggManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        collider = GetComponent<CapsuleCollider2D>();
         startPos = transform.position;
-
-        collider.isTrigger = true;
     }
 
     // If player is within range then the enemy will follow the player
@@ -150,12 +146,16 @@ public class EggManager : MonoBehaviour
                         GameObject explosion = Instantiate(eggplosionPrefab, eggplosionPoint.transform.position + eggplosionOffset, Quaternion.identity);
                         
                         CircleCollider2D explosionCollider = explosion.GetComponent<CircleCollider2D>();
-                        CapsuleCollider2D playerCollider = manager.playerObj.GetComponent<CapsuleCollider2D>();
 
                         //check if player in explosion range
-                        if (Physics2D.IsTouching(explosionCollider, playerCollider) && !manager.playerObj.GetComponent<HealthManager>().isInvincible())
+                        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, explosionCollider.radius * explosionCollider.transform.localScale.x);
+                        foreach (Collider2D colliderElement in colliderArray)
                         {
-                            manager.hitPlayer = true;
+                            if (colliderElement.name == "Player")
+                            {
+                                manager.hitPlayer = true;
+                                break;
+                            }
                         }
 
                         //Destroy egg

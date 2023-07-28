@@ -125,6 +125,7 @@ MonoBehaviour:
   hp: 0
   startHp: 1
   target: {fileID: 0}
+  playerObj: {fileID: 0}
   lootItem: {fileID: 172013033003219771, guid: 4222b546c094641bf98db11def62fbc4, type: 3}
   endGame: 0
   experienceToGive: 0
@@ -202,7 +203,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
