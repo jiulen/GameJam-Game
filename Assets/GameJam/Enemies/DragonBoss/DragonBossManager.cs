@@ -63,19 +63,19 @@ public class DragonBossManager : MonoBehaviour
         healthBar.value = manager.hp;
 
         //check phase
-        if ((float)manager.hp / (float)manager.startHp <= 0.05f && phaseNum < 4) //5% hp left
+        if ((float)manager.hp / (float)manager.startHp <= 0.1f && phaseNum < 4) //10% hp left
         {
             phaseNum = 4;
             newPhase = true;
             waitAtkSpeed = 1.6f;
         }
-        else if ((float)manager.hp / (float)manager.startHp <= 0.25f && phaseNum < 3) //20% hp left
+        else if ((float)manager.hp / (float)manager.startHp <= 0.3f && phaseNum < 3) //30% hp left
         {
             phaseNum = 3;
             newPhase = true;
             waitAtkSpeed = 1.4f;
         }
-        else if ((float)manager.hp / (float)manager.startHp <= 0.5f && phaseNum < 2) //50% hp left
+        else if ((float)manager.hp / (float)manager.startHp <= 0.6f && phaseNum < 2) //60% hp left
         {
             phaseNum = 2;
             newPhase = true;
@@ -208,7 +208,7 @@ public class DragonBossManager : MonoBehaviour
                 //Laser attack
                 targetPos = laserAttack.StartAttack(1.25f + 0.25f * phaseNum);
                 lockedTarget = true;
-                walkSpeedMultiplier = 1 + 1 * phaseNum;
+                walkSpeedMultiplier = 1.5f + 0.5f * phaseNum;
                 laserMoveStartPos = transform.position;
                 break;
             case 2:

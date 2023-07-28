@@ -119,15 +119,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b5db44c120d446b89957f3d3ada34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
+  speed: 5
   damage: 1
   rb: {fileID: 28392296746180215}
   target: {fileID: 0}
   bulletDir: {x: 0, y: 0}
   totalLifespan: 2.5
-  remainingLifespan: 0
-  maxSpeed: 7.5
-  homingForce: 35
+  remainingLifespan: 2.5
+  maxSpeed: 4
+  homingForce: 25
 --- !u!95 &1753630944350497563
 Animator:
   serializedVersion: 3
