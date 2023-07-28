@@ -116,6 +116,33 @@ public class ChickenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isAttacking)
+        {
+            attackTimer += Time.deltaTime;
+            animator.Play("Chicken_Attack");
+            
+            if (attackTimer > shootTime)
+            {
+                if (!shotEgg)
+                {
+                    shotEgg = true;
+                    Shoot();
+                }
+                else
+                {
+                    if (!launched) Aim();
+                }
+            }
+
+            if (attackTimer > attackTime)
+            {
+                isAttacking = false;
+                shotEgg = false;
+                animator.Play("Chicken_Run", sr.sortingLayerID, 0);
+                attackTimer = 0;
+            }
+        }
+
         if (!manager.stunned)
         {
             if (!isAttacking)
@@ -130,32 +157,6 @@ public class ChickenManager : MonoBehaviour
                     cooldownTimer = 0;
 
                     animator.Play("Chicken_Attack", sr.sortingLayerID, 0);
-                }
-            }
-            else
-            {
-                attackTimer += Time.deltaTime;
-                animator.Play("Chicken_Attack");
-                
-                if (attackTimer > shootTime)
-                {
-                    if (!shotEgg)
-                    {
-                        shotEgg = true;
-                        Shoot();
-                    }
-                    else
-                    {
-                        if (!launched) Aim();
-                    }
-                }
-
-                if (attackTimer > attackTime)
-                {
-                    isAttacking = false;
-                    shotEgg = false;
-                    animator.Play("Chicken_Run", sr.sortingLayerID, 0);
-                    attackTimer = 0;
                 }
             }
         }
