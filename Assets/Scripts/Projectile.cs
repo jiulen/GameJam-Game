@@ -17,6 +17,8 @@ public class Projectile : EnemyProjectile
 
     SpriteRenderer sr;
 
+    public EnemyManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,11 @@ public class Projectile : EnemyProjectile
                 hitInfo.GetComponent<HealthManager>().damage(damage,0.25f);
                 Destroy(gameObject);
                 hit = true;
+
+                if (manager != null)
+                {
+                    manager.hitPlayer = true;
+                }
             }
             else if(hitInfo.name == "Walls" || hitInfo.name == "Layout Walls")
             {

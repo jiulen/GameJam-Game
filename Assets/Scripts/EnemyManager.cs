@@ -16,6 +16,8 @@ public class EnemyManager : MonoBehaviour
 
     public Transform target;
 
+    public GameObject playerObj;
+
     private DoorManager doors = null;
     protected RoomTemplates room = null;
     [SerializeField] protected GameObject lootItem;
@@ -38,6 +40,9 @@ public class EnemyManager : MonoBehaviour
     Coroutine poisonCoroutine = null;
     public GameObject TotemHealingEffect = null;
 
+    public bool hitPlayer = false;
+    public GameObject hitlessDrop;
+
     void Awake()
     {
         hp = startHp;
@@ -50,6 +55,7 @@ public class EnemyManager : MonoBehaviour
 
         stunned = false;
 
+        playerObj = GameObject.FindGameObjectWithTag("Player");
         target = GameObject.FindGameObjectWithTag("Player").transform;
         playerStats = GameObject.FindObjectOfType<PlayerStats>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -109,6 +115,10 @@ public class EnemyManager : MonoBehaviour
                 }
                 else {
                     Instantiate(lootItem, transform.position, Quaternion.identity);
+                    if (!hitPlayer && hitlessDrop != null)
+                    {
+                        Instantiate(hitlessDrop, transform.position, Quaternion.identity);
+                    }
                     Destroy(gameObject);
                     playerStats.GainExperience(experienceToGive);
                 }

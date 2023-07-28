@@ -132,6 +132,9 @@ MonoBehaviour:
   winScreen: {fileID: 0}
   explosionPrefab: {fileID: 0}
   slowMultiplier: 1
+  TotemHealingEffect: {fileID: 0}
+  hitPlayer: 0
+  hitlessDrop: {fileID: 0}
 --- !u!114 &658048729657352819
 MonoBehaviour:
   m_ObjectHideFlags: 0

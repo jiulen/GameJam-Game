@@ -63,7 +63,8 @@ public class ExplodingProjectile : Projectile
             if (!scaling)
             {
                 //Spawn explosion
-                Instantiate(explosionPrefab, explosionTransform.position + explosionOffset, Quaternion.identity);
+                GameObject explosion = Instantiate(explosionPrefab, explosionTransform.position + explosionOffset, Quaternion.identity);
+                explosion.GetComponent<EnemyContactDamageOnce>().enemyManager = manager;
 
                 Destroy(gameObject);
             }

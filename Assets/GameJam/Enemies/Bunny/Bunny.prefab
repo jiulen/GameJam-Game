@@ -155,6 +155,8 @@ MonoBehaviour:
   explosionPrefab: {fileID: 0}
   slowMultiplier: 1
   TotemHealingEffect: {fileID: 4945121672985753757}
+  hitPlayer: 0
+  hitlessDrop: {fileID: 0}
 --- !u!70 &8506504882616809559
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -324,6 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunTime: 0.25
   contactDamage: 1
+  enemyManager: {fileID: -3346308202217411138}
   dmgTime: -1
   hit: 0
 --- !u!1 &4945121672985753757

@@ -23,6 +23,10 @@ public class EnemyContactDamageOnce : EnemyContactDamage
         {
             hit = true;
             collision.gameObject.GetComponent<HealthManager>().damage(contactDamage, stunTime);
+            if (enemyManager != null)
+            {
+                enemyManager.hitPlayer = true;
+            }
         }
     }
 }

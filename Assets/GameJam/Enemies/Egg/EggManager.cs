@@ -93,8 +93,6 @@ public class EggManager : MonoBehaviour
                 spawnImmuneTimer = spawnImmuneTime;
                 manager.StopInvincibility();
                 spawnImmune = false;
-                
-                collider.isTrigger = false;
             }
 
             transform.position = new Vector3(startPos.x, startPos.y + spawnJumpCurve.Evaluate((spawnImmuneTimer)), startPos.z);
@@ -149,7 +147,16 @@ public class EggManager : MonoBehaviour
                         attackTimer = 0;
 
                         //Spawn explosion
-                        Instantiate(eggplosionPrefab, eggplosionPoint.transform.position + eggplosionOffset, Quaternion.identity);
+                        GameObject explosion = Instantiate(eggplosionPrefab, eggplosionPoint.transform.position + eggplosionOffset, Quaternion.identity);
+                        
+                        CircleCollider2D explosionCollider = explosion.GetComponent<CircleCollider2D>();
+                        CapsuleCollider2D playerCollider = manager.playerObj.GetComponent<CapsuleCollider2D>();
+
+                        //check if player in explosion range
+                        if (Physics2D.IsTouching(explosionCollider, playerCollider) && !manager.playerObj.GetComponent<HealthManager>().isInvincible())
+                        {
+                            manager.hitPlayer = true;
+                        }
 
                         //Destroy egg
                         manager.Damage(1, 0);

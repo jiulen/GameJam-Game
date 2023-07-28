@@ -112,6 +112,11 @@ public class HealthManager : MonoBehaviour
         invincibiltyTime = invincibility;
     }
 
+    public bool isInvincible()
+    {
+        return invincibiltyTime > 0f;
+    }
+
     public IEnumerator GameOver() {
         yield return new WaitForSeconds(3);
         loseScreen.SetActive(true);
