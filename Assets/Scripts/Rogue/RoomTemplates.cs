@@ -341,7 +341,6 @@ public class RoomTemplates : MonoBehaviour
         {
             minimapManager.rooms[middleIndex].SetRoom(true);
             
-            minimapManager.UpdateGrid();
             minimapManager.currentRoomMarker.SetParent(minimapManager.rooms[middleIndex].transform);
             minimapManager.currentRoomMarker.localPosition = Vector3.zero;
         }
@@ -367,7 +366,6 @@ public class RoomTemplates : MonoBehaviour
         {
             minimapManager.rooms[currentIndex].SetRoom(true);
 
-            minimapManager.UpdateGrid();
             minimapManager.currentRoomMarker.SetParent(minimapManager.rooms[currentIndex].transform);
             minimapManager.currentRoomMarker.localPosition = Vector3.zero;
         }
