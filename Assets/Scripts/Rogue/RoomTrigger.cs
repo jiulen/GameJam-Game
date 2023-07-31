@@ -39,11 +39,7 @@ public class RoomTrigger : MonoBehaviour
             if (enteredBefore == false)
             {
                 playerStats = FindObjectOfType<PlayerStats>();
-                int numberOfEnemiesToSpawn = playerStats.currentLevel;
-                if (numberOfEnemiesToSpawn < 1)
-                {
-                    numberOfEnemiesToSpawn = 1;
-                }
+                int numberOfEnemiesToSpawn = playerStats.currentLevel + 1;
                 if (playerStats.currentLevel >= 2)
                 {
                     AddNewEnemyPrefab(mushroomEnemy);
