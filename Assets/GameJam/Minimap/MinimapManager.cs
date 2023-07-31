@@ -9,8 +9,7 @@ public class MinimapManager : MonoBehaviour
     public Image[] connectorsH;
     public Image[] connectorsV;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for (int i = 0 ; i < rooms.Length; ++i)
         {

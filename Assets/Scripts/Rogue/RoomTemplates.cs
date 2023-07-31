@@ -40,6 +40,11 @@ public class RoomTemplates : MonoBehaviour
     public Transform startRoomTransform;
     public Transform downSpawnPoint, rightSpawnPoint;
 
+    public RoomManager startRoomManager;
+
+    //minimap
+    public MinimapManager minimapManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -257,12 +262,17 @@ public class RoomTemplates : MonoBehaviour
                 {
                     GameObject roomSpawned = Instantiate(roomToSpawn, spawnPos, Quaternion.identity);
                     currNode.layoutManager = roomSpawned.GetComponent<LayoutManager>();
+                    roomSpawned.GetComponent<RoomManager>().roomIndex = currNode.index;
                     Debug.Log("Room spawn success : " + roomName);
                 }
                 else
                 {
                     Debug.Log("Room spawn fail : " + roomName);
                 }
+            }
+            else if (i == middleIndex)
+            {
+                startRoomManager.roomIndex = middleIndex;
             }
         }
 
@@ -305,6 +315,12 @@ public class RoomTemplates : MonoBehaviour
 
         //finished room gen
         stopGenerating = true;
+
+        //minimap start room
+        if (minimapManager != null)
+        {
+            minimapManager.rooms[middleIndex].SetRoom(true);
+        }
     }
 
     // Update is called once per frame
@@ -318,9 +334,15 @@ public class RoomTemplates : MonoBehaviour
         return stopGenerating;
     }
 
-    public void setActiveRoom(GameObject room)
+    public void setActiveRoom(GameObject room, int currentIndex)
     {
         activeRoom = room;
+
+        //minimap
+        if (minimapManager != null)
+        {
+            minimapManager.rooms[currentIndex].SetRoom(true);
+        }
     }
 
     public GameObject getActiveRoom()

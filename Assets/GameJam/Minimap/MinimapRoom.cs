@@ -9,14 +9,9 @@ public class MinimapRoom : MonoBehaviour
     public Image connectorBottom, connectorLeft, connectorRight, connectorTop = null;
     public bool connectB, connectL, connectR, connectT = false;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        room = GetComponent<Image>();
-    }
-
     public void SetRoom(bool roomActive)
     {
+        if (room == null) room = GetComponent<Image>();
         room.enabled = roomActive;
 
         if (roomActive)

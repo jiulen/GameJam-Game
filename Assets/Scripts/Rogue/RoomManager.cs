@@ -8,6 +8,8 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private bool playerInside;
 
     private RoomTemplates all;
+
+    public int roomIndex = -1;
     
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,7 @@ public class RoomManager : MonoBehaviour
         this.playerInside = playerInside;
         if (this.playerInside)
         {
-            all.setActiveRoom(this.gameObject);
+            all.setActiveRoom(this.gameObject, roomIndex);
         }
     }
 }
