@@ -340,7 +340,10 @@ public class RoomTemplates : MonoBehaviour
         if (minimapManager != null)
         {
             minimapManager.rooms[middleIndex].SetRoom(true);
-            minimapManager.currentRoomMarker.position = minimapManager.rooms[middleIndex].transform.position;
+            
+            minimapManager.UpdateGrid();
+            minimapManager.currentRoomMarker.SetParent(minimapManager.rooms[middleIndex].transform);
+            minimapManager.currentRoomMarker.localPosition = Vector3.zero;
         }
     }
 
@@ -363,7 +366,10 @@ public class RoomTemplates : MonoBehaviour
         if (minimapManager != null)
         {
             minimapManager.rooms[currentIndex].SetRoom(true);
-            minimapManager.currentRoomMarker.position = minimapManager.rooms[currentIndex].transform.position;
+
+            minimapManager.UpdateGrid();
+            minimapManager.currentRoomMarker.SetParent(minimapManager.rooms[currentIndex].transform);
+            minimapManager.currentRoomMarker.localPosition = Vector3.zero;
         }
     }
 

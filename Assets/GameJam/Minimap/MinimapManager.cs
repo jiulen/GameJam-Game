@@ -10,6 +10,8 @@ public class MinimapManager : MonoBehaviour
     public Image[] connectorsV;
     public Transform currentRoomMarker;
 
+    public LayoutGroup gridLayoutGroup;
+
     void Awake()
     {
         for (int i = 0 ; i < rooms.Length; ++i)
@@ -21,5 +23,13 @@ public class MinimapManager : MonoBehaviour
 
             rooms[i].SetRoom(false);
         }
+    }
+
+    public void UpdateGrid()
+    {
+        gridLayoutGroup.CalculateLayoutInputHorizontal();
+        gridLayoutGroup.CalculateLayoutInputVertical();
+        gridLayoutGroup.SetLayoutHorizontal();
+        gridLayoutGroup.SetLayoutVertical();
     }
 }
