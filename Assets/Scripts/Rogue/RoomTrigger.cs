@@ -15,6 +15,8 @@ public class RoomTrigger : MonoBehaviour
     [SerializeField]
     private TotemController totemController;
     PlayerStats playerStats;
+    public GameObject mushroomEnemy;
+    public GameObject chickenEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,15 @@ public class RoomTrigger : MonoBehaviour
                 int numberOfEnemiesToSpawn = playerStats.currentLevel;
                 if (numberOfEnemiesToSpawn < 1)
                 {
-                    numberOfEnemiesToSpawn = 1; 
+                    numberOfEnemiesToSpawn = 1;
+                }
+                if (playerStats.currentLevel >= 2)
+                {
+                    AddNewEnemyPrefab(mushroomEnemy);
+                }
+                if (playerStats.currentLevel >= 3)
+                {
+                    AddNewEnemyPrefab(chickenEnemy);
                 }
                 StartCoroutine(SpawnEnemyPrefabs(numberOfEnemiesToSpawn));
                 enteredBefore = true;
@@ -76,5 +86,16 @@ public class RoomTrigger : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    public void AddNewEnemyPrefab (GameObject newEnemyPrefab)
+    {
+        GameObject[] newEnemyPrefabs = new GameObject[enemyPrefabs.Length + 1];
+        for (int i = 0; i < enemyPrefabs.Length; i++)
+        {
+            newEnemyPrefabs[i] = enemyPrefabs[i];
+        }
+        newEnemyPrefabs[newEnemyPrefabs.Length - 1] = newEnemyPrefab;
+        enemyPrefabs = newEnemyPrefabs;
     }
 }
