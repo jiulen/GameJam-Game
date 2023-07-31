@@ -321,6 +321,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1509868364}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: iceIcon
+      value: 
+      objectReference: {fileID: 1195389593}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: fireIcon
+      value: 
+      objectReference: {fileID: 467966961}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: pausedUI
       value: 
       objectReference: {fileID: 1618797951}
@@ -360,6 +368,10 @@ PrefabInstance:
       propertyPath: kitchenGun
       value: 
       objectReference: {fileID: 29825037}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: poisonIcon
+      value: 
+      objectReference: {fileID: 1034844367}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: shellCount
       value: 0
@@ -1757,6 +1769,7 @@ MonoBehaviour:
   animator: {fileID: 822369583}
   gunScale: {fileID: 29825037}
   offset: {x: 0, y: -0.5, z: 0}
+  panScale: {fileID: 1388790584}
 --- !u!95 &822369583
 Animator:
   serializedVersion: 3
@@ -2540,13 +2553,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388790584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: 1.415, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1569526053}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1509868364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1131268860, guid: 854c868ef70b307459e74f3b96119994, type: 3}

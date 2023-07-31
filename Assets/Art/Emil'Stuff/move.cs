@@ -75,6 +75,9 @@ public class move : MonoBehaviour
     public ElementalEffectChangeButton fireProjectileHolder;
     public ElementalEffectChangeButton iceProjectileHolder;
     public ElementalEffectChangeButton poisonProjectileHolder;
+    public Image fireIcon;
+    public Image iceIcon;
+    public Image poisonIcon;
     public GameObject projectileChooser;
     public bool isProjectileChooserActive;
     public bool boarKilled, mushroomKilled, bunnyKilled, chickenKilled, eggKilled = false;
@@ -143,14 +146,17 @@ public class move : MonoBehaviour
         if (fireProjectileHolder.fireIsUnlocked == true && Input.GetKeyDown(KeyCode.Q))
         {
             playerTest.projectile[0] = playerTest.projectile[1];
+            upgradeBuffSprite = fireGunSprite;
         }
         if (iceProjectileHolder.iceIsUnlocked == true && Input.GetKeyDown(KeyCode.E))
         {
             playerTest.projectile[0] = playerTest.projectile[2];
+            upgradeBuffSprite = freezeGunSprite;
         }
         if (poisonProjectileHolder.poisonIsUnlocked == true && Input.GetKeyDown(KeyCode.R))
         {
             playerTest.projectile[0] = playerTest.projectile[3];
+            upgradeBuffSprite = poisonGunSprite;
         }
 
         bool isAttackingOrUsingMagic = (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
@@ -666,6 +672,7 @@ public class move : MonoBehaviour
             fireProjectileHolder.fireIsUnlocked = true;
             fireProjectileHolder.FireProjectile();
             collision.gameObject.name += " - deleting";
+            fireIcon.color = Color.white;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockIce(Clone)")
@@ -674,6 +681,7 @@ public class move : MonoBehaviour
             iceProjectileHolder.iceIsUnlocked = true;
             iceProjectileHolder.IceProjectile();
             collision.gameObject.name += " - deleting";
+            iceIcon.color = Color.white;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockPoison(Clone)")
@@ -682,6 +690,7 @@ public class move : MonoBehaviour
             poisonProjectileHolder.poisonIsUnlocked = true;
             poisonProjectileHolder.PoisonProjectile();
             collision.gameObject.name += " - deleting";
+            poisonIcon.color = Color.white;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "HeartPickUp(Clone)")

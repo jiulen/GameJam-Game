@@ -12,12 +12,11 @@ public class FirepointScript : MonoBehaviour
     public GameObject gunScale;
     public Vector3 offset;
     bool lookingLeft;
+    public GameObject panScale;
     
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 originalScale = new Vector3(-1, 1, 1);
-        Vector3 desiredScale = new Vector3(-1, -1, 1);
     }
 
     // Update is called once per frame
@@ -29,6 +28,8 @@ public class FirepointScript : MonoBehaviour
 
         Vector3 originalScale = new Vector3(-1f, 1f, 1f);
         Vector3 desiredScale = new Vector3(-1f, -1f, 1f);
+        Vector3 panOriginalScale = new Vector3(1, 1, 1);
+        Vector3 panDesiredScale = new Vector3(-1, 1, 1);
 
         if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && playerTest.canShoot)
         {
@@ -55,16 +56,19 @@ public class FirepointScript : MonoBehaviour
         if (90f <= rotationZ && rotationZ <= 180f)
         {
             gunScale.transform.localScale = desiredScale;
+            panScale.transform.localScale = panDesiredScale;
             lookingLeft = true;
         }
         else if (-180f <= rotationZ && rotationZ <= -90f)
         {
             gunScale.transform.localScale = desiredScale;
+            panScale.transform.localScale = panDesiredScale;
             lookingLeft = true;
         }
         else 
         {
             gunScale.transform.localScale = originalScale;
+            panScale.transform.localScale = panOriginalScale;
             lookingLeft = false;
         }
     }
