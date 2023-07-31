@@ -340,6 +340,7 @@ public class RoomTemplates : MonoBehaviour
         if (minimapManager != null)
         {
             minimapManager.rooms[middleIndex].SetRoom(true);
+            minimapManager.currentRoomMarker.position = minimapManager.rooms[middleIndex].transform.position;
         }
     }
 
@@ -362,6 +363,7 @@ public class RoomTemplates : MonoBehaviour
         if (minimapManager != null)
         {
             minimapManager.rooms[currentIndex].SetRoom(true);
+            minimapManager.currentRoomMarker.position = minimapManager.rooms[currentIndex].transform.position;
         }
     }
 

@@ -8,6 +8,7 @@ public class MinimapManager : MonoBehaviour
     public MinimapRoom[] rooms;
     public Image[] connectorsH;
     public Image[] connectorsV;
+    public Transform currentRoomMarker;
 
     void Awake()
     {
