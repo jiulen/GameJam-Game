@@ -31,6 +31,7 @@ public class RoomTemplates : MonoBehaviour
 
     public GameObject activeRoom;
 
+
     //New room gen stuff
     int maxWidth; //max size is square
     List<RoomNode> roomNodeList = new List<RoomNode>();

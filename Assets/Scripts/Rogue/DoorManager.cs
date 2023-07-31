@@ -7,6 +7,7 @@ public class DoorManager : MonoBehaviour
     private RoomManager room;
     public bool isClosed;
     public int enemyCount;
+    public GameObject heartPickUp;
 
     //public GameObject doors;
     // Start is called before the first frame update
@@ -33,12 +34,22 @@ public class DoorManager : MonoBehaviour
         //}
         if(enemyCount <= 0)
         {
+            //Debug.Log(playerMove);
+
+           
+            
+
             setClosed(false);
         }
     }
 
     public void setClosed(bool closed)
     {
+        if (!closed && isClosed)
+        {
+            Instantiate(heartPickUp, transform.position, Quaternion.identity);
+        }
+        
         isClosed = closed;
         //Debug.Log("Close door");
     }

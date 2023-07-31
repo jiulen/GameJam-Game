@@ -8,7 +8,6 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private bool playerInside;
 
     private RoomTemplates all;
-
     
     // Start is called before the first frame update
     void Start()
