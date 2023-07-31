@@ -65,6 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isClosed: 0
   enemyCount: 0
+  heartPickUp: {fileID: 8496803878734620528, guid: 9f96be7454db24c4993d083fad41a412, type: 3}
 --- !u!114 &1400932360844791019
 MonoBehaviour:
   m_ObjectHideFlags: 0

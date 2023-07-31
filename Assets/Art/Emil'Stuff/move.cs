@@ -69,6 +69,7 @@ public class move : MonoBehaviour
     public Image weapon;
     public Image weaponBuff;
     private Text weaponName;
+    private HealthManager healthManager;
     public PlayerTest playerTest;
     public ElementalEffectChangeButton fireProjectileHolder;
     public ElementalEffectChangeButton iceProjectileHolder;
@@ -88,6 +89,7 @@ public class move : MonoBehaviour
     {
         gameIsPaused = false;
         isMelee = true;
+        healthManager = GetComponent<HealthManager>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -569,24 +571,28 @@ public class move : MonoBehaviour
         {
             boarTrotterCount += 1;
             boarTrotterText.text = "Boar Trotters: " + boarTrotterCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Shroom(Clone)")
         {
             shroomCount += 1;
             shroomText.text = "Shrooms: " + shroomCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Broccoli(Clone)")
         {
             broccoliCount += 1;
             broccoliText.text = "Broccolis: " + broccoliCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "ChickenFeet(Clone)")
         {
             chickenFeetCount += 1;
             chickenFeetText.text = "Chicken Feets: " + chickenFeetCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "RabbitLeg(Clone)")
@@ -595,24 +601,28 @@ public class move : MonoBehaviour
             rabbitLegCount += 1;
             Debug.Log("rabbit leg count picked up" + rabbitLegCount);
             rabbitLegText.text = "Rabbit Legs: " + rabbitLegCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Shell(Clone)")
         {
             shellCount += 1;
             shellText.text = "Shells: " + shellCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Wing(Clone)")
         {
             wingCount += 1;
             wingText.text = "Wings: " + wingCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Yolk(Clone)")
         {
             yolkCount += 1;
             yolkText.text = "Yolks: " + yolkCount;
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockFire(Clone)")
@@ -620,6 +630,7 @@ public class move : MonoBehaviour
             upgradeBuffSprite = fireGunSprite;
             fireProjectileHolder.fireIsUnlocked = true;
             fireProjectileHolder.FireProjectile();
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockIce(Clone)")
@@ -627,6 +638,7 @@ public class move : MonoBehaviour
             upgradeBuffSprite = freezeGunSprite;
             iceProjectileHolder.iceIsUnlocked = true;
             iceProjectileHolder.IceProjectile();
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockPoison(Clone)")
@@ -634,6 +646,13 @@ public class move : MonoBehaviour
             upgradeBuffSprite = poisonGunSprite;
             poisonProjectileHolder.poisonIsUnlocked = true;
             poisonProjectileHolder.PoisonProjectile();
+            collision.gameObject.name += " - deleting";
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "HeartPickUp(Clone)")
+        {
+            healthManager.heal(1);
+            collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
     }
