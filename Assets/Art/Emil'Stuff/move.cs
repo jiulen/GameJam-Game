@@ -695,9 +695,14 @@ public class move : MonoBehaviour
         }
         if (collision.gameObject.name == "HeartPickUp(Clone)")
         {
-            healthManager.heal(1);
-            collision.gameObject.name += " - deleting";
-            Destroy(collision.gameObject);
+            int health = healthManager.getHealth();
+            int maxHealth = healthManager.getMaxHealth();
+            if(health != maxHealth)
+            {
+                healthManager.heal(1);
+                collision.gameObject.name += " - deleting";
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
