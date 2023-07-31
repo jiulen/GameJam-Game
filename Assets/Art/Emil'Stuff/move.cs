@@ -76,6 +76,7 @@ public class move : MonoBehaviour
     public ElementalEffectChangeButton poisonProjectileHolder;
     public GameObject projectileChooser;
     public bool isProjectileChooserActive;
+    public bool boarKilled, mushroomKilled, bunnyKilled, chickenKilled, eggKilled = false;
 
 
     public string Direction {

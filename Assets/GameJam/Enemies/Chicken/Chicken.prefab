@@ -232,6 +232,7 @@ MonoBehaviour:
   startHp: 15
   target: {fileID: 0}
   playerObj: {fileID: 0}
+  playerMove: {fileID: 0}
   lootItem: {fileID: 172013033003219771, guid: 5a94b89ff52f44ad599ea72d83cc16aa, type: 3}
   endGame: 0
   experienceToGive: 3
@@ -242,6 +243,7 @@ MonoBehaviour:
   TotemHealingEffect: {fileID: 3274888927318728475}
   hitPlayer: 0
   hitlessDrop: {fileID: 0}
+  heartPickup: {fileID: 8496803878734620528, guid: 9f96be7454db24c4993d083fad41a412, type: 3}
   enemySpawn: {fileID: 4015417862309734723}
   enemyToSpawnPrefab: {fileID: 3780085809115867532, guid: a7d7da824b572884fb03ad6deae6fc92, type: 3}
   enemySpawnOffset: {x: 0, y: 0, z: 0}

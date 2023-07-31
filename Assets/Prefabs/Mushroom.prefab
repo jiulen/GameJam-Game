@@ -275,6 +275,8 @@ MonoBehaviour:
   hp: 0
   startHp: 16
   target: {fileID: 0}
+  playerObj: {fileID: 0}
+  playerMove: {fileID: 0}
   lootItem: {fileID: 172013033003219771, guid: d2914cd5bf8534074a32c807fc1b88b6, type: 3}
   endGame: 0
   experienceToGive: 5
@@ -283,6 +285,9 @@ MonoBehaviour:
   explosionPrefab: {fileID: 124728817819768249, guid: 13074dc49ba7a4a4082e74f6f9cedaa6, type: 3}
   slowMultiplier: 1
   TotemHealingEffect: {fileID: 1267174123962426564}
+  hitPlayer: 0
+  hitlessDrop: {fileID: 0}
+  heartPickup: {fileID: 8496803878734620528, guid: 9f96be7454db24c4993d083fad41a412, type: 3}
 --- !u!114 &3325913109804699685
 MonoBehaviour:
   m_ObjectHideFlags: 0

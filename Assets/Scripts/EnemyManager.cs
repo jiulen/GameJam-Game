@@ -17,6 +17,7 @@ public class EnemyManager : MonoBehaviour
     public Transform target;
 
     public GameObject playerObj;
+    public move playerMove;
 
     private DoorManager doors = null;
     protected RoomTemplates room = null;
@@ -42,6 +43,7 @@ public class EnemyManager : MonoBehaviour
 
     public bool hitPlayer = false;
     public GameObject hitlessDrop;
+    public GameObject heartPickup;
 
     void Awake()
     {
@@ -57,6 +59,7 @@ public class EnemyManager : MonoBehaviour
 
         playerObj = GameObject.FindGameObjectWithTag("Player");
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        playerMove = playerObj.GetComponent<move>();
         playerStats = GameObject.FindObjectOfType<PlayerStats>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -114,6 +117,52 @@ public class EnemyManager : MonoBehaviour
                     StartCoroutine(GameOver());
                 }
                 else {
+                    if (heartPickup != null)
+                    {
+                        switch (name)
+                        {
+                            case "Boar(Clone)":
+                            if (!playerMove.boarKilled)
+                            {
+                                playerMove.boarKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Mushroom(Clone)":
+                            if (!playerMove.mushroomKilled)
+                            {
+                                playerMove.mushroomKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Bunny(Clone)":
+                            if (!playerMove.bunnyKilled)
+                            {
+                                playerMove.bunnyKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Chicken(Clone)":
+                            if (!playerMove.chickenKilled)
+                            {
+                                playerMove.chickenKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Egg(Clone)":
+                            if (!playerMove.eggKilled)
+                            {
+                                playerMove.eggKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                        }
+                    }
+                    
                     Instantiate(lootItem, transform.position, Quaternion.identity);
                     if (!hitPlayer)
                     {

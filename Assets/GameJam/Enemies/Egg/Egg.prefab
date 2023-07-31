@@ -126,6 +126,7 @@ MonoBehaviour:
   startHp: 1
   target: {fileID: 0}
   playerObj: {fileID: 0}
+  playerMove: {fileID: 0}
   lootItem: {fileID: 172013033003219771, guid: 4222b546c094641bf98db11def62fbc4, type: 3}
   endGame: 0
   experienceToGive: 0
@@ -136,6 +137,7 @@ MonoBehaviour:
   TotemHealingEffect: {fileID: 0}
   hitPlayer: 0
   hitlessDrop: {fileID: 0}
+  heartPickup: {fileID: 8496803878734620528, guid: 9f96be7454db24c4993d083fad41a412, type: 3}
 --- !u!114 &658048729657352819
 MonoBehaviour:
   m_ObjectHideFlags: 0

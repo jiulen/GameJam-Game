@@ -44,6 +44,52 @@ public class EnemyManagerWithSpawn : EnemyManager
                     StartCoroutine(GameOver());
                 }
                 else {
+                    if (heartPickup != null)
+                    {
+                        switch (name)
+                        {
+                            case "Boar(Clone)":
+                            if (!playerMove.boarKilled)
+                            {
+                                playerMove.boarKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Mushroom(Clone)":
+                            if (!playerMove.mushroomKilled)
+                            {
+                                playerMove.mushroomKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Bunny(Clone)":
+                            if (!playerMove.bunnyKilled)
+                            {
+                                playerMove.bunnyKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Chicken(Clone)":
+                            if (!playerMove.chickenKilled)
+                            {
+                                playerMove.chickenKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                            
+                            case "Egg(Clone)":
+                            if (!playerMove.eggKilled)
+                            {
+                                playerMove.eggKilled = true;
+                                Instantiate(heartPickup, transform.position, Quaternion.identity);
+                            }
+                            break;
+                        }
+                    }
+                    
                     Instantiate(lootItem, transform.position, Quaternion.identity);
                     if (!hitPlayer)
                     {
