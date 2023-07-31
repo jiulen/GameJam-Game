@@ -23,7 +23,8 @@ public class move : MonoBehaviour
 
     private Vector2 rollVector =  new Vector2(0, 0);
 
-    public GameObject frontHitbox, sideHitbox, backHitbox;
+    public GameObject attackSlash;
+    public Transform firePoint;
     private GameObject hitbox;
     private PlayerStats stats;
 
@@ -514,13 +515,13 @@ public class move : MonoBehaviour
         switch (direction)
         {
             case "Front":
-                hitbox = Instantiate(frontHitbox, transform);
+                hitbox = Instantiate(attackSlash, firePoint);
                 break;
             case "Side":
-                hitbox = Instantiate(sideHitbox, transform);
+                hitbox = Instantiate(attackSlash, firePoint);
                 break;
             case "Back":
-                hitbox = Instantiate(backHitbox, transform);
+                hitbox = Instantiate(attackSlash, firePoint);
                 break;
         }
 
