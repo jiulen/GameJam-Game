@@ -434,6 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunTime: 0.25
   contactDamage: 1
+  enemyManager: {fileID: 0}
 --- !u!50 &1268919306
 Rigidbody2D:
   serializedVersion: 4
@@ -517,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunTime: 0.25
   contactDamage: 1
+  enemyManager: {fileID: 0}
 --- !u!1 &1964713475
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,14 +694,18 @@ MonoBehaviour:
   hp: 0
   startHp: 500
   target: {fileID: 0}
+  playerObj: {fileID: 0}
+  playerMove: {fileID: 0}
   lootItem: {fileID: 0}
   endGame: 1
   experienceToGive: 0
   spriteRenderer: {fileID: 0}
   winScreen: {fileID: 0}
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 124728817819768249, guid: 13074dc49ba7a4a4082e74f6f9cedaa6, type: 3}
   slowMultiplier: 1
   TotemHealingEffect: {fileID: 0}
+  hitPlayer: 0
+  heartPickup: {fileID: 0}
 --- !u!114 &1194234142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,6 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCleared: 0
   playerInside: 0
+  roomIndex: -1
 --- !u!114 &8698778291477359020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,6 +965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isClosed: 0
   enemyCount: 0
+  heartPickUp: {fileID: 0}
 --- !u!1 &4042823034048217790
 GameObject:
   m_ObjectHideFlags: 0
