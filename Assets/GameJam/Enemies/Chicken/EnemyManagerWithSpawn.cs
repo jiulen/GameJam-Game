@@ -90,14 +90,17 @@ public class EnemyManagerWithSpawn : EnemyManager
                         }
                     }
                     
-                    Instantiate(lootItem, transform.position, Quaternion.identity);
+                    if (lootItem != null)
+                    {
+                        Instantiate(lootItem, transform.position, Quaternion.identity);
+                    }
                     if (!hitPlayer)
                     {
                         Debug.Log(name + " hitless");
-                        if (hitlessDrop != null)
+                        if (lootItem != null)
                         {
-                            Instantiate(hitlessDrop, transform.position, Quaternion.identity);
-                        }                        
+                            Instantiate(lootItem, transform.position, Quaternion.identity);
+                        }
                     }
                     else
                     {

@@ -42,7 +42,6 @@ public class EnemyManager : MonoBehaviour
     public GameObject TotemHealingEffect = null;
 
     public bool hitPlayer = false;
-    public GameObject hitlessDrop;
     public GameObject heartPickup;
 
     void Awake()
@@ -163,14 +162,17 @@ public class EnemyManager : MonoBehaviour
                         }
                     }
                     
-                    Instantiate(lootItem, transform.position, Quaternion.identity);
+                    if (lootItem != null)
+                    {
+                        Instantiate(lootItem, transform.position, Quaternion.identity);
+                    }
                     if (!hitPlayer)
                     {
                         Debug.Log(name + " hitless");
-                        if (hitlessDrop != null)
+                        if (lootItem != null)
                         {
-                            Instantiate(hitlessDrop, transform.position, Quaternion.identity);
-                        }                        
+                            Instantiate(lootItem, transform.position, Quaternion.identity);
+                        }
                     }
                     else
                     {
