@@ -261,8 +261,20 @@ public class RoomTemplates : MonoBehaviour
                 if (roomToSpawn != null) 
                 {
                     GameObject roomSpawned = Instantiate(roomToSpawn, spawnPos, Quaternion.identity);
+
                     currNode.layoutManager = roomSpawned.GetComponent<LayoutManager>();
+
                     roomSpawned.GetComponent<RoomManager>().roomIndex = currNode.index;
+
+                    //put directions in minimap
+                    if (minimapManager != null)
+                    {
+                        minimapManager.rooms[currNode.index].SetDirections(currNode.downNode != null, 
+                                                                           currNode.leftNode != null, 
+                                                                           currNode.rightNode != null, 
+                                                                           currNode.upNode != null);
+                    }
+
                     Debug.Log("Room spawn success : " + roomName);
                 }
                 else
@@ -273,6 +285,14 @@ public class RoomTemplates : MonoBehaviour
             else if (i == middleIndex)
             {
                 startRoomManager.roomIndex = middleIndex;
+
+                if (minimapManager != null)
+                    {
+                        minimapManager.rooms[middleIndex].SetDirections(startMiddleNode.downNode != null, 
+                                                                        startMiddleNode.leftNode != null, 
+                                                                        startMiddleNode.rightNode != null, 
+                                                                        startMiddleNode.upNode != null);
+                    }
             }
         }
 

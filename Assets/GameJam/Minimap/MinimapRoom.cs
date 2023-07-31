@@ -24,7 +24,7 @@ public class MinimapRoom : MonoBehaviour
         }
     }
     
-    public void SetDirections(bool b = false, bool l = false, bool r = false, bool t = false)
+    public void SetDirections(bool b, bool l, bool r, bool t)
     {
         connectB = b;
         connectL = l;

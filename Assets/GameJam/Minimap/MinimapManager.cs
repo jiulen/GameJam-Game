@@ -13,10 +13,10 @@ public class MinimapManager : MonoBehaviour
     {
         for (int i = 0 ; i < rooms.Length; ++i)
         {
-            if (i / 7 < 6) rooms[i].connectorBottom = connectorsH[i];
-            if (i % 7 > 0) rooms[i].connectorBottom = connectorsV[i - i / 7 - 1];
-            if (i % 7 < 6) rooms[i].connectorBottom = connectorsV[i - i / 7];
-            if (i / 7 > 0) rooms[i].connectorTop = connectorsH[i - 7];
+            if (i / 7 < 6) rooms[i].connectorBottom = connectorsV[i];
+            if (i % 7 > 0) rooms[i].connectorLeft = connectorsH[i - i / 7 - 1];
+            if (i % 7 < 6) rooms[i].connectorRight = connectorsH[i - i / 7];
+            if (i / 7 > 0) rooms[i].connectorTop = connectorsV[i - 7];
 
             rooms[i].SetRoom(false);
         }
