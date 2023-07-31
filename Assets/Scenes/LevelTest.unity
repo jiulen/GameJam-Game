@@ -1543,10 +1543,6 @@ MonoBehaviour:
   iceIsUnlocked: 0
   poisonIsUnlocked: 0
   elementSprite: {fileID: 467966961}
-  poisonGunSprite: {fileID: 0}
-  freezeGunSprite: {fileID: 0}
-  fireGunSprite: {fileID: 21300000, guid: dd3885098198d104888439be4c590aba, type: 3}
-  weaponBuffSprite: {fileID: 0}
 --- !u!1001 &663791394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2305,10 +2301,6 @@ MonoBehaviour:
   iceIsUnlocked: 0
   poisonIsUnlocked: 0
   elementSprite: {fileID: 1034844367}
-  poisonGunSprite: {fileID: 21300000, guid: c3aab7237df394c4890e647a4ae580ea, type: 3}
-  freezeGunSprite: {fileID: 0}
-  fireGunSprite: {fileID: 0}
-  weaponBuffSprite: {fileID: 0}
 --- !u!114 &1192401802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2847,10 +2839,6 @@ MonoBehaviour:
   iceIsUnlocked: 0
   poisonIsUnlocked: 0
   elementSprite: {fileID: 0}
-  poisonGunSprite: {fileID: 0}
-  freezeGunSprite: {fileID: 0}
-  fireGunSprite: {fileID: 0}
-  weaponBuffSprite: {fileID: 0}
 --- !u!114 &1654285509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3006,10 +2994,6 @@ MonoBehaviour:
   iceIsUnlocked: 0
   poisonIsUnlocked: 0
   elementSprite: {fileID: 1195389593}
-  poisonGunSprite: {fileID: 0}
-  freezeGunSprite: {fileID: 21300000, guid: 2bccd332882fcd14b9e4c377e432c587, type: 3}
-  fireGunSprite: {fileID: 0}
-  weaponBuffSprite: {fileID: 0}
 --- !u!114 &1727005860
 MonoBehaviour:
   m_ObjectHideFlags: 0
