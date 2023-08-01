@@ -144,7 +144,6 @@ public class DragonBossFlyAttack : MonoBehaviour
                 //finish landing   
                 
                 GetComponent<DragonBossManager>().attacking = false;
-                manager.StopInvincibility();
 
                 landing = false;
             }
@@ -231,8 +230,7 @@ public class DragonBossFlyAttack : MonoBehaviour
         shadow.ShowShadow(true);
 
         landTimer = 0;
-
-        manager.TriggerInvincibility();
+        
         flyHitboxObj.SetActive(false);
     }
 
