@@ -9,7 +9,7 @@ public class RoomTrigger : MonoBehaviour
     RoomManager room;
     DoorManager door;
 
-    bool enteredBefore;
+    public bool enteredBefore = false;
     public GameObject[] enemyPrefabs;
     public Transform[] enemySpawnPoints;
     [SerializeField]
@@ -21,8 +21,10 @@ public class RoomTrigger : MonoBehaviour
     void Start()
     {
         room = GetComponentInParent<RoomManager>();
-        door = GetComponentInParent<DoorManager>();
-        enteredBefore = false;
+        if (!enteredBefore)
+        {
+            door = GetComponentInParent<DoorManager>();
+        }
     }
 
     // Update is called once per frame

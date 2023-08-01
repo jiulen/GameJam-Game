@@ -40,6 +40,11 @@ public class RoomTemplates : MonoBehaviour
     public Transform startRoomTransform;
     public Transform downSpawnPoint, rightSpawnPoint;
 
+    public RoomManager startRoomManager;
+
+    //minimap
+    public MinimapManager minimapManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -256,13 +261,38 @@ public class RoomTemplates : MonoBehaviour
                 if (roomToSpawn != null) 
                 {
                     GameObject roomSpawned = Instantiate(roomToSpawn, spawnPos, Quaternion.identity);
+
                     currNode.layoutManager = roomSpawned.GetComponent<LayoutManager>();
+
+                    roomSpawned.GetComponent<RoomManager>().roomIndex = currNode.index;
+
+                    //put directions in minimap
+                    if (minimapManager != null)
+                    {
+                        minimapManager.rooms[currNode.index].SetDirections(currNode.downNode != null, 
+                                                                           currNode.leftNode != null, 
+                                                                           currNode.rightNode != null, 
+                                                                           currNode.upNode != null);
+                    }
+
                     Debug.Log("Room spawn success : " + roomName);
                 }
                 else
                 {
                     Debug.Log("Room spawn fail : " + roomName);
                 }
+            }
+            else if (i == middleIndex)
+            {
+                startRoomManager.roomIndex = middleIndex;
+
+                if (minimapManager != null)
+                    {
+                        minimapManager.rooms[middleIndex].SetDirections(startMiddleNode.downNode != null, 
+                                                                        startMiddleNode.leftNode != null, 
+                                                                        startMiddleNode.rightNode != null, 
+                                                                        startMiddleNode.upNode != null);
+                    }
             }
         }
 
@@ -305,6 +335,15 @@ public class RoomTemplates : MonoBehaviour
 
         //finished room gen
         stopGenerating = true;
+
+        //minimap start room
+        if (minimapManager != null)
+        {
+            minimapManager.rooms[middleIndex].SetRoom(true);
+            
+            minimapManager.currentRoomMarker.SetParent(minimapManager.rooms[middleIndex].transform);
+            minimapManager.currentRoomMarker.localPosition = Vector3.zero;
+        }
     }
 
     // Update is called once per frame
@@ -318,9 +357,18 @@ public class RoomTemplates : MonoBehaviour
         return stopGenerating;
     }
 
-    public void setActiveRoom(GameObject room)
+    public void setActiveRoom(GameObject room, int currentIndex)
     {
         activeRoom = room;
+
+        //minimap
+        if (minimapManager != null)
+        {
+            minimapManager.rooms[currentIndex].SetRoom(true);
+
+            minimapManager.currentRoomMarker.SetParent(minimapManager.rooms[currentIndex].transform);
+            minimapManager.currentRoomMarker.localPosition = Vector3.zero;
+        }
     }
 
     public GameObject getActiveRoom()
