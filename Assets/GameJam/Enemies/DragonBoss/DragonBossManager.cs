@@ -222,7 +222,7 @@ public class DragonBossManager : MonoBehaviour
                 break;
             case 4:
                 //Fly attack
-                flyAttack.StartFlying(Random.Range(0, flyAttack.FlightPatternListSize()), 30 + 5 * phaseNum);
+                flyAttack.StartFlying(Random.Range(0, flyAttack.FlightPatternListSize()), 30 + 5 * phaseNum, 0.7f - 0.05f * phaseNum);
                 break;
         }
 

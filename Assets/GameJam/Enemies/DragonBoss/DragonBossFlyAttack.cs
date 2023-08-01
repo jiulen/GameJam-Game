@@ -175,9 +175,10 @@ public class DragonBossFlyAttack : MonoBehaviour
         }
     }
 
-    public void StartFlying(int patternIndex, float flySpeed) 
+    public void StartFlying(int patternIndex, float flySpeed, float waitTime) 
     {
         speed = flySpeed;
+        totalStartUpTime = waitTime;
 
         //Shadow stuff
         shadow.shadowSizeTarget = 0.1f;
