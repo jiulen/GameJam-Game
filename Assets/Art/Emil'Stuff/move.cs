@@ -81,6 +81,7 @@ public class move : MonoBehaviour
     public GameObject projectileChooser;
     public bool isProjectileChooserActive;
     public bool boarKilled, mushroomKilled, bunnyKilled, chickenKilled, eggKilled = false;
+    public Animator weaponBuffAnim;
 
 
     public string Direction {
@@ -147,16 +148,19 @@ public class move : MonoBehaviour
         {
             playerTest.projectile[0] = playerTest.projectile[1];
             upgradeBuffSprite = fireGunSprite;
+            weaponBuffAnim.Play("FireIcon");
         }
         if (iceProjectileHolder.iceIsUnlocked == true && Input.GetKeyDown(KeyCode.E))
         {
             playerTest.projectile[0] = playerTest.projectile[2];
             upgradeBuffSprite = freezeGunSprite;
+            weaponBuffAnim.Play("IceIcon");
         }
         if (poisonProjectileHolder.poisonIsUnlocked == true && Input.GetKeyDown(KeyCode.R))
         {
             playerTest.projectile[0] = playerTest.projectile[3];
             upgradeBuffSprite = poisonGunSprite;
+            weaponBuffAnim.Play("PoisonIcon");
         }
 
         bool isAttackingOrUsingMagic = (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
@@ -669,6 +673,7 @@ public class move : MonoBehaviour
         if (collision.gameObject.name == "UnlockFire(Clone)")
         {
             upgradeBuffSprite = fireGunSprite;
+            weaponBuffAnim.Play("FireIcon");
             fireProjectileHolder.fireIsUnlocked = true;
             fireProjectileHolder.FireProjectile();
             collision.gameObject.name += " - deleting";
@@ -678,6 +683,7 @@ public class move : MonoBehaviour
         if (collision.gameObject.name == "UnlockIce(Clone)")
         {
             upgradeBuffSprite = freezeGunSprite;
+            weaponBuffAnim.Play("IceIcon");
             iceProjectileHolder.iceIsUnlocked = true;
             iceProjectileHolder.IceProjectile();
             collision.gameObject.name += " - deleting";
@@ -687,6 +693,7 @@ public class move : MonoBehaviour
         if (collision.gameObject.name == "UnlockPoison(Clone)")
         {
             upgradeBuffSprite = poisonGunSprite;
+            weaponBuffAnim.Play("PoisonIcon");
             poisonProjectileHolder.poisonIsUnlocked = true;
             poisonProjectileHolder.PoisonProjectile();
             collision.gameObject.name += " - deleting";
