@@ -26,12 +26,7 @@ public class DragonBossFlyAttack : MonoBehaviour
     private float maxSpeed = 50.0f;
     [SerializeField]
     private float totalStartUpTime = 1.4f;
-    [SerializeField]
-    private float totalShortStartUpTime = 0.6f;
-    [SerializeField]
-    private float totalSweepTime = 1.8f;
     private float startUpTimer = 0.0f;
-    private float sweepTimer = 0.0f;
     private int currPatternIndex = 0;
     private int currPointIndex = 0;
     private bool flying = false;
@@ -56,6 +51,14 @@ public class DragonBossFlyAttack : MonoBehaviour
 
     public GameObject flyHitboxObj;
 
+    public enum FLYSTATE
+    {
+        START,
+        STOP
+    }
+
+    public FLYSTATE flyState = FLYSTATE.START;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -79,17 +82,15 @@ public class DragonBossFlyAttack : MonoBehaviour
                 if(startUpTimer <= 0.0f) 
                 {
                     startUpTimer = 0.0f;
-                    totalSweepTime = 1.5f / (speed / maxSpeed); //1.5s for max speed
-                    sweepTimer = totalSweepTime;
                     startingUp = false;
                     changingPhases = true;
+
+                    flyState = FLYSTATE.START;
                 }
             }
             else 
             {
-                sweepTimer -= Time.deltaTime;
-
-                if(sweepTimer <= 0.0f) 
+                if(flyState == FLYSTATE.STOP) 
                 {
                     currPointIndex++;
                     int nextPatternIndex = currPatternIndex + 1;
@@ -102,7 +103,6 @@ public class DragonBossFlyAttack : MonoBehaviour
                     }
                     else 
                     {
-                        sweepTimer = 0.0f;
                         startUpTimer = totalStartUpTime;
                         startingUp = true;
                         changingPhases = true;
@@ -181,7 +181,7 @@ public class DragonBossFlyAttack : MonoBehaviour
 
         //Shadow stuff
         shadow.shadowSizeTarget = 0.1f;
-        shadow.shadowSizeChangeDuration = totalShortStartUpTime;
+        shadow.shadowSizeChangeDuration = totalStartUpTime;
 
         ActivatePatterns();
 
@@ -201,7 +201,7 @@ public class DragonBossFlyAttack : MonoBehaviour
         currPointIndex = flightPatterns[currPatternIndex];
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
-        startUpTimer = totalShortStartUpTime;
+        startUpTimer = totalStartUpTime;
         startingUp = true;
         changingPhases = true;
         flying = true;
@@ -241,7 +241,6 @@ public class DragonBossFlyAttack : MonoBehaviour
         startingUp = false;
         changingPhases = false;
         startUpTimer = 0.0f;
-        sweepTimer = 0.0f;
         currPatternIndex = 0;
         currPointIndex = 0;
         rb.velocity = Vector2.zero;
