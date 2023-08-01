@@ -31,6 +31,8 @@ public class ElementalEffectChangeButton : MonoBehaviour
             Debug.Log("fire ele ----------");
             int index = (int)projectileSlotNumber;
             playerTest.projectile[0] = playerTest.projectile[1];
+            playerMove.upgradeBuffSprite = playerMove.fireGunSprite;
+            playerMove.weaponBuffAnim.Play("FireIcon");
         }
     }
 
@@ -41,6 +43,8 @@ public class ElementalEffectChangeButton : MonoBehaviour
             Debug.Log("ice ele ----------");
             int index = (int)projectileSlotNumber;
             playerTest.projectile[0] = playerTest.projectile[2];
+            playerMove.upgradeBuffSprite = playerMove.freezeGunSprite;
+            playerMove.weaponBuffAnim.Play("IceIcon");
         }
     }
 
@@ -51,6 +55,8 @@ public class ElementalEffectChangeButton : MonoBehaviour
             Debug.Log("poison ele ----------");
             int index = (int)projectileSlotNumber;
             playerTest.projectile[0] = playerTest.projectile[3];
+            playerMove.upgradeBuffSprite = playerMove.poisonGunSprite;
+            playerMove.weaponBuffAnim.Play("PoisonIcon");
         }
     }
 
