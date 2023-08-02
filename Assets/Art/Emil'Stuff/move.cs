@@ -139,10 +139,10 @@ public class move : MonoBehaviour
 
         }
 
-        if(gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            ToggleProjectileChooser();
-        }
+        // if(gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
+        // {
+        //     ToggleProjectileChooser();
+        // }
 
         if (fireProjectileHolder.fireIsUnlocked == true && Input.GetKeyDown(KeyCode.Q))
         {

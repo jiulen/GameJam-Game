@@ -22,6 +22,11 @@ public class FirepointScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerMove.gameIsPaused || playerMove.mode == "Dead")
+        {
+            return;
+        }
+
         transform.position = playerTransform.transform.position + offset;
 
         rotationZ = transform.rotation.eulerAngles.z;
@@ -31,7 +36,7 @@ public class FirepointScript : MonoBehaviour
         Vector3 panOriginalScale = new Vector3(1, 1, 1);
         Vector3 panDesiredScale = new Vector3(-1, 1, 1);
 
-        if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && playerTest.canShoot)
+        if (playerMove.isMelee == false && Input.GetMouseButtonDown(0) && playerTest.canShoot)
         {
             if (lookingLeft == true)
             {
@@ -43,7 +48,7 @@ public class FirepointScript : MonoBehaviour
             }
         }
 
-        if (playerMove.gameIsPaused == false && playerMove.isMelee == true && Input.GetMouseButtonDown(0))
+        if (playerMove.isMelee == true && Input.GetMouseButtonDown(0))
         {
             animator.Play("WeaponAnimation");
         }
