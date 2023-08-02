@@ -535,71 +535,71 @@ public class move : MonoBehaviour
                 break;
         }
 
-        while (setTime > 0) {
-            //Cancel into attack
-            //Already in update
+        // while (setTime > 0) {
+        //     //Cancel into attack
+        //     //Already in update
 
 
-            //Cancel into dodge roll
-            if (gameIsPaused == false && Input.GetButton("Fire3") && !rollStart && setTime < (0.067f))
-            {
+        //     //Cancel into dodge roll
+        //     if (gameIsPaused == false && Input.GetButton("Fire3") && !rollStart && setTime < (0.067f))
+        //     {
 
-                mode = "Roll";
-                setTime = 0.111f;
+        //         mode = "Roll";
+        //         setTime = 0.111f;
 
-                if (x == 0 && y == 0)
-                {
-                    if (direction == "Side")
-                    {
-                        if (transform.localScale.x < 0)
-                        {
-                            x = 1;
-                        }
-                        else if (transform.localScale.x > 0)
-                        {
-                            x = -1;
-                        }
-                    }
-                    else
-                    {
-                        if (direction == "Back")
-                        {
-                            y = 1;
-                        }
-                        else if (direction == "Front")
-                        {
-                            y = -1;
-                        }
-                        else
-                        {
-                            rollStart = true; // Just in case
-                            Destroy(hitbox);
-                            hitbox = null;
-                            yield break;
-                        }
+        //         if (x == 0 && y == 0)
+        //         {
+        //             if (direction == "Side")
+        //             {
+        //                 if (transform.localScale.x < 0)
+        //                 {
+        //                     x = 1;
+        //                 }
+        //                 else if (transform.localScale.x > 0)
+        //                 {
+        //                     x = -1;
+        //                 }
+        //             }
+        //             else
+        //             {
+        //                 if (direction == "Back")
+        //                 {
+        //                     y = 1;
+        //                 }
+        //                 else if (direction == "Front")
+        //                 {
+        //                     y = -1;
+        //                 }
+        //                 else
+        //                 {
+        //                     rollStart = true; // Just in case
+        //                     Destroy(hitbox);
+        //                     hitbox = null;
+        //                     yield break;
+        //                 }
 
-                    }
-                }
+        //             }
+        //         }
 
-                rollVector.x = dodgeSpeed * x;
-                rollVector.y = dodgeSpeed * y;
-                if (x != 0 && y != 0)
-                {
-                    rollVector.x *= 0.707f;
-                    rollVector.y *= 0.707f;
-                }//For Diagonal
+        //         rollVector.x = dodgeSpeed * x;
+        //         rollVector.y = dodgeSpeed * y;
+        //         if (x != 0 && y != 0)
+        //         {
+        //             rollVector.x *= 0.707f;
+        //             rollVector.y *= 0.707f;
+        //         }//For Diagonal
 
-                rollStart = true;
-                Destroy(hitbox);
-                hitbox = null;
-                changeDirection();
-                rb.velocity = rollVector;
-                animator.Play("Mlafi_" + mode + "_" + direction);
-                yield break;
-            }
+        //         rollStart = true;
+        //         Destroy(hitbox);
+        //         hitbox = null;
+        //         changeDirection();
+        //         rb.velocity = rollVector;
+        //         animator.Play("Mlafi_" + mode + "_" + direction);
+        //         yield break;
+        //     }
 
-            yield return new WaitForEndOfFrame();
-        }
+        //     yield return new WaitForEndOfFrame();
+        // }
         //yield return new WaitForSeconds(0.267f);
         Destroy(hitbox);
         hitbox = null;
