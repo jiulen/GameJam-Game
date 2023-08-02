@@ -7,6 +7,8 @@ public class DoorManager : MonoBehaviour
     private RoomManager room;
     public bool isClosed;
     public int enemyCount;
+    public int totalEnemy = 0;
+    public int enemySpawned = 0;
     public GameObject heartPickUp;
 
     //public GameObject doors;
@@ -32,7 +34,7 @@ public class DoorManager : MonoBehaviour
         //    //this.enabled = false;
         //    doors.SetActive(false);
         //}
-        if(enemyCount <= 0)
+        if(enemyCount <= 0 && enemySpawned >= totalEnemy)
         {
             //Debug.Log(playerMove);
 
