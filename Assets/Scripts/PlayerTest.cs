@@ -46,15 +46,17 @@ public class PlayerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<move>().mode == "Dead" || GetComponent<move>().gameIsPaused)
+        { 
+            return; 
+        }
+
         lookDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
         lookDirection = lookDirection.normalized;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
-        if (GetComponent<move>().Mode == "Dead")
-        { 
-            return; 
-        }
+        
         if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && canShoot)
         {
             GameObject instantiatedObject = Instantiate(projectile[0]);
