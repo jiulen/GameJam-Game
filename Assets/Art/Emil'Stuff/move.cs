@@ -372,7 +372,7 @@ public class move : MonoBehaviour
             rb.velocity = new Vector2(x, y).normalized * speed;
         }
 
-        animator.Play("Mlafi_" + mode + "_" + direction);
+        //animator.Play("Mlafi_" + mode + "_" + direction);
 
         if (gameIsPaused == false && Input.GetMouseButtonDown(1))
         {
