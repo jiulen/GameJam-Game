@@ -34,6 +34,7 @@ public class DragonBossManager : MonoBehaviour
     public Vector2 targetPos;
 
     private float waitAtkSpeed = 1;
+    public GameObject shadowObj;
 
     // Start is called before the first frame update
     void Start()
@@ -167,6 +168,15 @@ public class DragonBossManager : MonoBehaviour
 
         flyAttack.ActivatePatterns();
         chooseAttack();
+    }
+
+    public void Deactivate()
+    {
+        active = false;
+
+        healthBar.gameObject.SetActive(false);
+
+        Destroy(shadowObj);
     }
 
     public void chooseAttack() {

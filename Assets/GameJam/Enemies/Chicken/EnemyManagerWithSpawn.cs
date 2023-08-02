@@ -41,7 +41,6 @@ public class EnemyManagerWithSpawn : EnemyManager
                
                 if (endGame)
                 {
-                    StartCoroutine(GameOver());
                 }
                 else {
                     if (heartPickup != null)

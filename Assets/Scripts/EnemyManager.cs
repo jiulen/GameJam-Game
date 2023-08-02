@@ -44,6 +44,9 @@ public class EnemyManager : MonoBehaviour
     public bool hitPlayer = false;
     public GameObject heartPickup;
 
+    SceneNavigation sceneNavigation;
+    public DragonBossManager dragonBossManager;
+
     void Awake()
     {
         hp = startHp;
@@ -52,6 +55,11 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (endGame)
+        {
+            sceneNavigation = FindObjectOfType<SceneNavigation>();
+        }
+
         fireArrowHit = false;
 
         stunned = false;
@@ -113,7 +121,15 @@ public class EnemyManager : MonoBehaviour
                
                 if (endGame)
                 {
-                    StartCoroutine(GameOver());
+                    if (sceneNavigation != null)
+                    {
+                        sceneNavigation.Win();
+                    }
+                    if (dragonBossManager != null)
+                    {
+                        dragonBossManager.Deactivate();
+                    }
+                    Destroy(gameObject);
                 }
                 else {
                     if (heartPickup != null)
@@ -246,13 +262,7 @@ public bool IsInvincible()
     {
         isInvincible = false;
     }
-
-    public IEnumerator GameOver()
-    {
-        yield return new WaitForSeconds(3);
-        winScreen.SetActive(true);
-        //SceneManager.LoadScene("MainMenu1");
-    }
+    
     public IEnumerator FlashRed()
     {
         spriteRenderer.color = Color.red;

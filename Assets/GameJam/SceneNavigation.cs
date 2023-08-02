@@ -7,6 +7,7 @@ public class SceneNavigation : MonoBehaviour
 {
     public GameObject startingScreen;
     [SerializeField] move playerMove;
+    public GameObject winScreen;
 
     
     // Start is called before the first frame update
@@ -31,5 +32,19 @@ public class SceneNavigation : MonoBehaviour
         Application.Quit();
         playerMove.gameIsPaused = false;
         Time.timeScale = 1f;
+    }
+    
+    public void Win()
+    {
+        StartCoroutine(GameOverWin());
+    }
+
+    IEnumerator GameOverWin()
+    {
+        yield return new WaitForSeconds(3);
+        winScreen.SetActive(true);
+        
+        playerMove.gameIsPaused = true;
+        Time.timeScale = 0f;
     }
 } 
