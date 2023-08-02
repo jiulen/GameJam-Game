@@ -166,8 +166,6 @@ public class move : MonoBehaviour
         bool isAttackingOrUsingMagic = (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
     || (isMelee != true && Input.GetMouseButtonDown(0) && (setTime >= (0.333f * 0.6f)) && mode != "Hurt");
 
-        bool isWalking = x != 0 || y != 0;
-
         if (mode == "Dead") {
             return;
         }
@@ -201,6 +199,7 @@ public class move : MonoBehaviour
         }
         else { y = 0; }
 
+        bool isWalking = x != 0 || y != 0;
 
         if (gameIsPaused == false && mode != "Roll" && !Input.GetButton("Fire3")) {
             rollStart = false;
