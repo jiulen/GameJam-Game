@@ -25,7 +25,7 @@ public class DragonBossShadow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!fixedShadow) 
+        if (!fixedShadow && body != null) 
             transform.position = body.position + shadowOffset;
 
         if (shadowSizeMultiplier != shadowSizeTarget)
