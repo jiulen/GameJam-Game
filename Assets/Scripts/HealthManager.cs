@@ -57,7 +57,7 @@ public class HealthManager : MonoBehaviour
     }
 
     public void damage(int dmg, float stunTime) {
-        if (GetComponent<move>().Mode == "Dead") {
+        if (GetComponent<move>().Mode == "Dead" || GetComponent<move>().winning) {
             return;
         }
 

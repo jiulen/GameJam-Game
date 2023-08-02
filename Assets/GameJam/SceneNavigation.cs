@@ -36,6 +36,7 @@ public class SceneNavigation : MonoBehaviour
     
     public void Win()
     {
+        playerMove.winning = true;
         StartCoroutine(GameOverWin());
     }
 

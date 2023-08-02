@@ -83,6 +83,8 @@ public class move : MonoBehaviour
     public bool boarKilled, mushroomKilled, bunnyKilled, chickenKilled, eggKilled = false;
     public Animator weaponBuffAnim;
 
+    public bool winning = false;
+
 
     public string Direction {
         get { return direction; }
@@ -95,6 +97,7 @@ public class move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        winning = false;
         gameIsPaused = false;
         isMelee = true;
         healthManager = GetComponent<HealthManager>();
