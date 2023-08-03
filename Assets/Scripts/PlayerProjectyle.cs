@@ -20,10 +20,17 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
     private bool isPlayerAttack;
 
     private PlayerStats stats;
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
+    public AudioClip[] panWoosh;
+    public AudioClip[] panHit;
 
     // Start is called before the first frame update
     void Start()
     {
+        int panWooshIndex = Random.Range(0, panWoosh.Length);
+        audioSource1.clip = panWoosh[panWooshIndex];
+        audioSource1.Play();
         stats = FindObjectOfType<PlayerStats>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -60,12 +67,18 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
             {
                 Destroy(gameObject);
             }
+            int panHitIndex = Random.Range(0, panHit.Length);
+            audioSource2.clip = panHit[panHitIndex];
+            audioSource2.Play();
         }
         if (collision.gameObject.tag == "Chest") {
             collision.GetComponent<ChestManager>().Damage();
             if (destroyOnHit)
             {
                 Destroy(gameObject);
+                int panHitIndex = Random.Range(0, panHit.Length);
+                audioSource2.clip = panHit[panHitIndex];
+                audioSource2.Play();
             }
         }
         if (collision.name == "Walls") {

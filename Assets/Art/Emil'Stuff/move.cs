@@ -89,10 +89,7 @@ public class move : MonoBehaviour
     public bool losing = false;
 
     AudioSource audioSource;
-    public AudioClip[] gunShot;
     public AudioClip toggleGun;
-    public AudioClip[] panHit;
-    public AudioClip[] panWoosh;
     public AudioClip togglePan;
 
 
@@ -547,9 +544,6 @@ public class move : MonoBehaviour
         //yield return new WaitForSeconds(0.267f);
         Destroy(hitbox);
         hitbox = null;
-        int panWooshIndex = Random.Range(0, panWoosh.Length);
-        audioSource.clip = panWoosh[panWooshIndex];
-        audioSource.Play();
     }
 
     public void addSpeed(float speedUp)
