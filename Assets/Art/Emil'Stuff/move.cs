@@ -12,9 +12,9 @@ public class move : MonoBehaviour
     private float rollSpeed = 24.0f;
     [SerializeField]
     private float dodgeSpeed = 24.0f;
-    private Animator animator;
+    public Animator animator;
     private SpriteRenderer sprite;
-    private string direction = "Front";
+    private string direction = "Side";
     public string mode = "Idle";
     public float setTime = 0.0f; //Cooldown
     private bool rollStart = false;
@@ -54,6 +54,7 @@ public class move : MonoBehaviour
     public int wingCount;
     public Text yolkText;
     public int yolkCount;
+    public GameObject setWeaponInactive;
 
     public bool isMelee;
     public GameObject fryingPan;
@@ -173,6 +174,7 @@ public class move : MonoBehaviour
     || (isMelee != true && Input.GetMouseButtonDown(0) && (setTime >= (0.333f * 0.6f)) && mode != "Hurt");
 
         if (mode == "Dead") {
+            setWeaponInactive.SetActive(false);
             return;
         }
 
@@ -312,7 +314,7 @@ public class move : MonoBehaviour
                 }*/
 
         //WALK
-        if (gameIsPaused == false && !isAttackingOrUsingMagic)
+        if (gameIsPaused == false && !isAttackingOrUsingMagic && mode != "Hurt")
         {
             // Code for walking
             if (isWalking)
@@ -340,21 +342,13 @@ public class move : MonoBehaviour
                 Vector3 directionVector = mousePos - transform.position;
                 float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
 
-                if (angle > -45 && angle <= 45)
+                if (angle > -90 && angle <= 90)
                 {
                     direction = "Side";
                 }
-                else if (angle > 45 && angle <= 135)
-                {
-                    direction = "Back";
-                }
-                else if (angle > 135 || angle <= -135)
+                else if (angle > 180 || angle <= -180)
                 {
                     direction = "Side";
-                }
-                else
-                {
-                    direction = "Front";
                 }
 
                 animator.Play("Mlafi_" + mode + "_" + direction, -1, 0.0f);
@@ -476,13 +470,12 @@ public class move : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 directionVector = mousePos - (Vector2)transform.position;
         float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
-
-        if (angle > -45 && angle <= 45)
+        if (angle > -90 && angle <= 90)
         {
             direction = "Side";
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (angle > 135 || angle <= -135)
+        else if (angle > 90 || angle <= -90)
         {
             direction = "Side";
             transform.localScale = new Vector3(1, 1, 1);
@@ -502,14 +495,6 @@ public class move : MonoBehaviour
             }
             else
             {
-                if (y < 0)
-                {
-                    direction = "Front";
-                }
-                else
-                {
-                    direction = "Back";
-                }
                 transform.localScale = new Vector3(1, 1, 1);
             }
 
