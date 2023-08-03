@@ -85,6 +85,8 @@ public class move : MonoBehaviour
 
     public bool winning = false;
 
+    public bool losing = false;
+
 
     public string Direction {
         get { return direction; }
@@ -98,6 +100,7 @@ public class move : MonoBehaviour
     void Start()
     {
         winning = false;
+        losing = false;
         gameIsPaused = false;
         isMelee = true;
         healthManager = GetComponent<HealthManager>();

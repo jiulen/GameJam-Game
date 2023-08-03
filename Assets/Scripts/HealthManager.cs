@@ -118,6 +118,12 @@ public class HealthManager : MonoBehaviour
     }
 
     public IEnumerator GameOver() {
+        if (GetComponent<move>().winning)
+        {
+            yield break;
+        }
+
+        GetComponent<move>().losing = true;
         yield return new WaitForSeconds(3);
         loseScreen.SetActive(true);
         //SceneManager.LoadScene("MainMenu1");
