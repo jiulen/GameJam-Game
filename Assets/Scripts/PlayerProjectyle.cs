@@ -26,6 +26,7 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
     public AudioClip[] panHit;
 
     public GameObject bloodPrefab;
+    public List<GameObject> hitObjects = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,13 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (hitObjects.Contains(collision.gameObject))
+        {
+            return;
+        }
+
+        hitObjects.Add(collision.gameObject);
+
         if (collision.gameObject.tag == "Enemy") {
             //Enemy HP Down
             //Enemy Stun slight
@@ -72,6 +80,8 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
             int panHitIndex = Random.Range(0, panHit.Length);
             audioSource2.clip = panHit[panHitIndex];
             audioSource2.Play();
+
+            Instantiate(bloodPrefab, collision.ClosestPoint(collision.transform.position), Quaternion.identity);
         }
         if (collision.gameObject.tag == "Chest") {
             collision.GetComponent<ChestManager>().Damage();
