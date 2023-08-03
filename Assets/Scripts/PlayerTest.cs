@@ -30,6 +30,8 @@ public class PlayerTest : MonoBehaviour
     public Image iceImage;
     public Image poisonImage;
 
+    public SpriteRenderer muzzleFlash;
+
 
     void Start()
    {
@@ -41,6 +43,8 @@ public class PlayerTest : MonoBehaviour
         canShoot = true;
         currentTimer = 0;
         arrowCooldownMultiplier = 1;
+
+        muzzleFlash.enabled = false;
    }
 
     // Update is called once per frame
@@ -65,6 +69,7 @@ public class PlayerTest : MonoBehaviour
             instantiatedObject.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
             canShoot = false;
             GetComponent<move>().SetAnimation("Magic", 0.25f, true);
+            StartCoroutine(MuzzleFlash());
         }
         if (!canShoot)
         {
@@ -76,5 +81,12 @@ public class PlayerTest : MonoBehaviour
                 currentTimer = 0;
             }
         }
+    }
+
+    IEnumerator MuzzleFlash()
+    {
+        muzzleFlash.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        muzzleFlash.enabled = false;
     }
 }
