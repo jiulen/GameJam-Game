@@ -357,6 +357,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411000789}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: toggleGun
+      value: 
+      objectReference: {fileID: 8300000, guid: 51a80f5b1ae8ff741a3b5773455805fe, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: togglePan
+      value: 
+      objectReference: {fileID: 8300000, guid: 01a86cf3243416f409de6f0ef986a3be, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: wingCount
       value: 0
       objectReference: {fileID: 0}
@@ -449,6 +457,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panHit.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: projectileChooser
       value: 
       objectReference: {fileID: 105539645}
@@ -461,17 +473,61 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 731ee268362c64f058e14a05d6db9d9f, type: 3}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: iceProjectileHolder
       value: 
       objectReference: {fileID: 1727005859}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panWoosh.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: fireProjectileHolder
       value: 
       objectReference: {fileID: 597553699}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panHit.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b60153ded51d5b34a82e1803bf014f5f, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panHit.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 90d47bfd1f3c2cc40aba4aa86419ae28, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panHit.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 05c9aac06ef262c4f9410cb50885a6e5, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: effab592060afd646ac826f69b676e98, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 37c0cfd1db36d85428faae250eb3ef77, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e0df25595c167be4c82e724fbf5f1500, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: statsToggleButtonText
       value: 
       objectReference: {fileID: 596598653}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panWoosh.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b24c33364360d945b7fe22ba2b20190, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panWoosh.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c53e30f9704c11c459bb5eefd0cc23ca, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: panWoosh.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: dad107a7f931c4344beaf921e253b303, type: 3}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: poisonProjectileHolder
       value: 
@@ -2479,6 +2535,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66c2696ce2d54141999eaeea0b1aaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1231618917
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231618915}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1231618920 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2080022336, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}

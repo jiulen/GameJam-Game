@@ -88,6 +88,14 @@ public class move : MonoBehaviour
 
     public bool losing = false;
 
+    AudioSource audioSource;
+    public AudioClip[] gunShot;
+    public AudioClip toggleGun;
+    public AudioClip[] panHit;
+    public AudioClip[] panWoosh;
+    public AudioClip togglePan;
+
+
 
     public string Direction {
         get { return direction; }
@@ -100,6 +108,7 @@ public class move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         winning = false;
         losing = false;
         gameIsPaused = false;
@@ -392,6 +401,8 @@ public class move : MonoBehaviour
             fryingPan.SetActive(false);
             kitchenGun.SetActive(true);
             isMelee = false;
+            audioSource.clip = toggleGun;
+            audioSource.Play();
         }
         else
         {
@@ -401,6 +412,8 @@ public class move : MonoBehaviour
             fryingPan.SetActive(true);
             kitchenGun.SetActive(false);
             isMelee = true;
+            audioSource.clip = togglePan;
+            audioSource.Play();
         }
     }
 
@@ -534,6 +547,9 @@ public class move : MonoBehaviour
         //yield return new WaitForSeconds(0.267f);
         Destroy(hitbox);
         hitbox = null;
+        int panWooshIndex = Random.Range(0, panWoosh.Length);
+        audioSource.clip = panWoosh[panWooshIndex];
+        audioSource.Play();
     }
 
     public void addSpeed(float speedUp)
