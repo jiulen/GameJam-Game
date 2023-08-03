@@ -238,9 +238,12 @@ public class move : MonoBehaviour
             }
             return;
         }
-      
-        //Set Direction
-        changeDirection();
+
+        if (!gameIsPaused)
+        {
+            //Set Direction
+            changeDirection();
+        }
 
         if (gameIsPaused == false && Input.GetKeyDown(KeyCode.Tab))
         {
