@@ -417,6 +417,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b60153ded51d5b34a82e1803bf014f5f, type: 3}
   - {fileID: 8300000, guid: 90d47bfd1f3c2cc40aba4aa86419ae28, type: 3}
   - {fileID: 8300000, guid: 05c9aac06ef262c4f9410cb50885a6e5, type: 3}
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
 --- !u!95 &3600374058563953306
 Animator:
   serializedVersion: 3

@@ -149,6 +149,11 @@ MonoBehaviour:
   travelSpeed: 0
   destroyOnHit: 0
   isPlayerAttack: 1
+  audioSource1: {fileID: 0}
+  audioSource2: {fileID: 0}
+  panWoosh: []
+  panHit: []
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
 --- !u!50 &1656589019622850056
 Rigidbody2D:
   serializedVersion: 4

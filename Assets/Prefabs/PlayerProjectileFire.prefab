@@ -149,6 +149,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: effab592060afd646ac826f69b676e98, type: 3}
   - {fileID: 8300000, guid: 37c0cfd1db36d85428faae250eb3ef77, type: 3}
   - {fileID: 8300000, guid: e0df25595c167be4c82e724fbf5f1500, type: 3}
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
 --- !u!61 &3641859027427865685
 BoxCollider2D:
   m_ObjectHideFlags: 0

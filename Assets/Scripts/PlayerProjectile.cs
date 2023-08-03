@@ -26,6 +26,7 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
 
     AudioSource audioSource;
     public AudioClip[] gunShot;
+    public GameObject bloodPrefab;
 
     // Start is called before the first frame update
     void Start()

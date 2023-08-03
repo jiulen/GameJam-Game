@@ -25,6 +25,8 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
     public AudioClip[] panWoosh;
     public AudioClip[] panHit;
 
+    public GameObject bloodPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
