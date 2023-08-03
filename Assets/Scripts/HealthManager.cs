@@ -70,8 +70,12 @@ public class HealthManager : MonoBehaviour
 
         string state = "Hurt";
         if (health <= 0) {
-            state = "Dead";
-            StartCoroutine(GameOver());
+            if (!GetComponent<move>().winning)
+            {
+                state = "Dead";
+            
+                StartCoroutine(GameOver());
+            }
         }
 
         GetComponent<move>().SetAnimation(state, stunTime);
@@ -118,11 +122,6 @@ public class HealthManager : MonoBehaviour
     }
 
     public IEnumerator GameOver() {
-        if (GetComponent<move>().winning)
-        {
-            yield break;
-        }
-
         GetComponent<move>().losing = true;
         yield return new WaitForSeconds(3);
         loseScreen.SetActive(true);
