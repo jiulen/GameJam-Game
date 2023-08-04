@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     public int currentLevel;
     public int currentExperiencePoints;
     public int levelUpCost;
+    public GameObject LevelUpEffect = null;
     // Level Up Stats
     public int bonusATK = 0, bonusDEX = 0, bonusVIT = 0; //ATK for more melee dmg, DEX for more ranged dmg, VIT for more health
     public int unusedStatPoints = 0;
@@ -96,7 +97,24 @@ public class PlayerStats : MonoBehaviour
             unusedStatPoints++;
 
             levelUpCost = 10 * currentLevel + 10;
+
+            if (LevelUpEffect != null)
+            {
+                StartCoroutine(ActivateEffectForDuration());
+            }
         }
+    }
+
+    private IEnumerator ActivateEffectForDuration()
+    {
+        // Activate the LevelUpEffect
+        LevelUpEffect.SetActive(true);
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(2);
+
+        // Deactivate the LevelUpEffect after the duration
+        LevelUpEffect.SetActive(false);
     }
 
     public void IncreaseStats(int statType)
