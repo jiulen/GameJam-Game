@@ -8,11 +8,21 @@ public class MinimapRoom : MonoBehaviour
     Image room;
     public Image connectorBottom, connectorLeft, connectorRight, connectorTop = null;
     public bool connectB, connectL, connectR, connectT = false;
+    Image icon;
+
+    void Awake()
+    {
+        icon = transform.GetChild(0).GetComponent<Image>();
+    }
 
     public void SetRoom(bool roomActive)
     {
         if (room == null) room = GetComponent<Image>();
         room.enabled = roomActive;
+        if (icon.sprite != null)
+        {
+            icon.enabled = true;
+        }
 
         if (roomActive)
         {
@@ -48,5 +58,10 @@ public class MinimapRoom : MonoBehaviour
             if (connectorRight != null) connectorRight.enabled = false;
             if (connectorTop != null) connectorTop.enabled = false;
         }
+    }
+
+    public void SetIcon(Sprite iconSprite)
+    {
+        icon.sprite = iconSprite;
     }
 }

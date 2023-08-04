@@ -12,6 +12,7 @@ public class DragonBossLandingAttack : MonoBehaviour
     bool hitPlayer = false;
     public SpriteRenderer sprite;
     private Animator animator;
+    public GameObject bloodPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,11 @@ public class DragonBossLandingAttack : MonoBehaviour
         {
             if (attacking && !hitPlayer && attackTimer < dmgTime)
             {
+                if (!hitInfo.gameObject.GetComponent<HealthManager>().isInvincible() && bloodPrefab != null)
+                {
+                    Instantiate(bloodPrefab, hitInfo.transform.position, Quaternion.identity);
+                }
+
                 hitInfo.GetComponent<HealthManager>().damage(landingDamage,0.25f);
                 hitPlayer = true;
             }            

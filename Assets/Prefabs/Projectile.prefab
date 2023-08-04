@@ -140,3 +140,8 @@ MonoBehaviour:
   target: {fileID: 0}
   bulletDir: {x: 0, y: 0}
   totalLifespan: 3
+  remainingLifespan: 0
+  manager: {fileID: 0}
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  sparkPrefab: {fileID: 5433918820615269867, guid: 0f1db1e989adbfc42b4beff53598337f, type: 3}
+  bulletCollider: {fileID: 5835134633621006304}

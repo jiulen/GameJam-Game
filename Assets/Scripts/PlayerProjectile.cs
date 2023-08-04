@@ -87,7 +87,11 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
                 if(hitInfo.tag == "Enemy")
                 {
                     hitInfo.GetComponent<EnemyManager>().Damage(power);
-                    Instantiate(bloodPrefab, hitInfo.bounds.ClosestPoint(head.position), Quaternion.identity);
+
+                    if (bloodPrefab != null)
+                    {
+                        Instantiate(bloodPrefab, hitInfo.bounds.ClosestPoint(head.position), Quaternion.identity);
+                    }
                 }
 
                 if (hitInfo.tag == "Chest") {
@@ -101,7 +105,10 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
 
                 if (hitInfo.name ==  "Walls" || hitInfo.name == "Layout Walls" || hitInfo.tag == "Chest" || hitInfo.tag == "Totem" || hitInfo.tag == "Door")
                 {
-                    Instantiate(sparkPrefab, hitInfo.bounds.ClosestPoint(head.position), transform.rotation);
+                    if (sparkPrefab != null)
+                    {
+                        Instantiate(sparkPrefab, hitInfo.bounds.ClosestPoint(head.position), transform.rotation);
+                    }
                 }
             }
         }

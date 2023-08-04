@@ -11,6 +11,9 @@ public class MinimapManager : MonoBehaviour
     public Transform currentRoomMarker;
 
     public LayoutGroup gridLayoutGroup;
+    public Sprite bossIcon;
+    public Sprite chestIcon;
+    public Sprite homeIcon;
 
     void Awake()
     {

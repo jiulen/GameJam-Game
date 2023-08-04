@@ -22,7 +22,14 @@ public class EnemyContactDamageOnce : EnemyContactDamage
         if (collision.tag == "Player" && !hit)
         {
             hit = true;
+
+            if (!collision.gameObject.GetComponent<HealthManager>().isInvincible() && bloodPrefab != null)
+            {
+                Instantiate(bloodPrefab, collision.bounds.ClosestPoint(contactCollider.transform.position + (Vector3)contactCollider.offset), Quaternion.identity);
+            }
+
             collision.gameObject.GetComponent<HealthManager>().damage(contactDamage, stunTime);
+            
             if (enemyManager != null)
             {
                 enemyManager.hitPlayer = true;

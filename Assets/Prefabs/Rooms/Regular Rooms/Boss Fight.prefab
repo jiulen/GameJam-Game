@@ -326,6 +326,7 @@ MonoBehaviour:
   attackTime: 0.5
   attackTimer: 0
   sprite: {fileID: 932123941}
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
 --- !u!70 &622925056
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -435,6 +436,9 @@ MonoBehaviour:
   stunTime: 0.25
   contactDamage: 1
   enemyManager: {fileID: 0}
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  contactCollider: {fileID: 1268919309}
+  playerCenterBlood: 1
 --- !u!50 &1268919306
 Rigidbody2D:
   serializedVersion: 4
@@ -519,6 +523,9 @@ MonoBehaviour:
   stunTime: 0.25
   contactDamage: 1
   enemyManager: {fileID: 0}
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  contactCollider: {fileID: 1506104468}
+  playerCenterBlood: 1
 --- !u!1 &1964713475
 GameObject:
   m_ObjectHideFlags: 0

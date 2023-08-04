@@ -314,6 +314,7 @@ public class RoomTemplates : MonoBehaviour
 
                     bossRoomCreated = true;
                     currNode.layoutManager.spawnBossRegularRoom();
+                    minimapManager.rooms[currNode.index].SetIcon(minimapManager.bossIcon);
                 }
                 else if (!itemRoomCreated && currNode.index == chestRoomIndex)
                 {
@@ -322,6 +323,7 @@ public class RoomTemplates : MonoBehaviour
 
                     itemRoomCreated = true;
                     currNode.layoutManager.spawnItemRoom();
+                    minimapManager.rooms[currNode.index].SetIcon(minimapManager.chestIcon);
                 }
                 else
                 {
@@ -332,6 +334,7 @@ public class RoomTemplates : MonoBehaviour
                 }
             }
         }
+        minimapManager.rooms[middleIndex].SetIcon(minimapManager.homeIcon);
 
         //finished room gen
         stopGenerating = true;
