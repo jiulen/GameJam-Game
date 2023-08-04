@@ -154,6 +154,8 @@ MonoBehaviour:
   panWoosh: []
   panHit: []
   bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  sparkPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  hitObjects: []
 --- !u!50 &1656589019622850056
 Rigidbody2D:
   serializedVersion: 4

@@ -130,6 +130,13 @@ MonoBehaviour:
   travelSpeed: 0
   destroyOnHit: 0
   isPlayerAttack: 1
+  audioSource1: {fileID: 0}
+  audioSource2: {fileID: 0}
+  panWoosh: []
+  panHit: []
+  bloodPrefab: {fileID: 0}
+  sparkPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  hitObjects: []
 --- !u!95 &5668967502940255465
 Animator:
   serializedVersion: 3

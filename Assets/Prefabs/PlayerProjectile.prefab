@@ -145,6 +145,7 @@ MonoBehaviour:
   sineTest: 0
   getPowerFromPlayer: 1
   bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  sparkPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
 --- !u!61 &3641859027427865685
 BoxCollider2D:
   m_ObjectHideFlags: 0

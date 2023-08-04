@@ -81,7 +81,7 @@ public class PlayerProjectyle : MonoBehaviour //Player melee projectile
             audioSource2.clip = panHit[panHitIndex];
             audioSource2.Play();
 
-            Instantiate(bloodPrefab, (collision.transform.position + transform.position) / 2, Quaternion.identity);
+            Instantiate(bloodPrefab, collision.bounds.ClosestPoint(transform.position), Quaternion.identity);
         }
         if (collision.gameObject.tag == "Chest") {
             collision.GetComponent<ChestManager>().Damage();
