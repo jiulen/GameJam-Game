@@ -26,8 +26,8 @@ public class PlayerStats : MonoBehaviour
     private move move;
 
     // For buffs
-    public int atkBuff = 10;
-    public float speedBuff = 10f;
+    public int atkBuff = 5;
+    public float speedBuff = 5f;
     //Upgrades
 
     public List<(string, string)> upgradeDescriptions; // Item1 is the name of upgrade, Item2 is the effect of upgrade
