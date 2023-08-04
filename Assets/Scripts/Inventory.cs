@@ -10,10 +10,10 @@ public enum ITEM {
     SHADOW,
     POTION,
     bakKutTeh,
-    feetWingBucket,
+    succulentFeet,
     oyakodon,
     rabbitOmelet,
-    shellBroccoli
+    xiaoJiDunMoGu
 }
 
 public class Inventory : MonoBehaviour
@@ -224,9 +224,9 @@ public class Inventory : MonoBehaviour
 
                 GetComponent<PlayerStats>().RemoveBuffs(2);
                 break;
-            case ITEM.shellBroccoli:
+            case ITEM.succulentFeet:
                 // Poisonous Vomit
-                Debug.Log("Used  sb");
+                Debug.Log("Used  sf");
                 gameObject.GetComponent<move>().SetAnimation("Magic", animTime);
                 GetComponent<PlayerStats>().AddBuffs(3);
                 playerBuff.AddBuffIcon(poisonousBuff, buffDuration - 3f); // the travel speed for the poison ball is 3s
@@ -234,9 +234,9 @@ public class Inventory : MonoBehaviour
 
                 GetComponent<PlayerStats>().RemoveBuffs(3);
                 break;
-            case ITEM.feetWingBucket:
+            case ITEM.xiaoJiDunMoGu:
                 // Walk over walls
-                Debug.Log("Used  fwb");
+                Debug.Log("Used  xjdmg");
                 GetComponent<PlayerStats>().AddBuffs(4);
                 playerBuff.AddBuffIcon(noBlockBuff, buffDuration);
                 yield return new WaitForSeconds(buffDuration);

@@ -40,22 +40,22 @@ public class DishButton : MonoBehaviour
                     }
                 }
             break;
-            case ITEM.feetWingBucket:
-                if (cookingManager.feetWingBucketCount > 0)
+            case ITEM.xiaoJiDunMoGu:
+                if (cookingManager.xiaoJiDunMoGuCount > 0)
                 {
                     if (inventory.slots.Count < inventory.Capacity)
                     {
                         //Add to last slot available
-                        cookingManager.feetWingBucketCount -= 1;
-                        cookingManager.feetWingBucketText.text = "Feet Wing Bucket: " + cookingManager.feetWingBucketCount;
+                        cookingManager.xiaoJiDunMoGuCount -= 1;
+                        cookingManager.xiaoJiDunMoGuText.text = "Xiao Ji Dun Mo Gu: " + cookingManager.xiaoJiDunMoGuCount;
                         Debug.Log("Item Added");
                         inventory.slots.Add(itemType);
                     }
                     else
                     {
                         //Pop out the active slot
-                        cookingManager.feetWingBucketCount -= 1;
-                        cookingManager.feetWingBucketText.text = "Feet Wing Bucket: " + cookingManager.feetWingBucketCount;
+                        cookingManager.xiaoJiDunMoGuCount -= 1;
+                        cookingManager.xiaoJiDunMoGuText.text = "Xiao Ji Dun Mo Gu: " + cookingManager.xiaoJiDunMoGuCount;
                         Debug.Log("Item Replaced");
                         inventory.slots[inventory.slotUsed] = itemType;
                     }
@@ -103,22 +103,22 @@ public class DishButton : MonoBehaviour
                     }
                 }
             break;
-            case ITEM.shellBroccoli:
-                if (cookingManager.shellBroccoliCount > 0)
+            case ITEM.succulentFeet:
+                if (cookingManager.succulentFeetCount > 0)
                 {
                     if (inventory.slots.Count < inventory.Capacity)
                     {
                         //Add to last slot available
-                        cookingManager.shellBroccoliCount -= 1;
-                        cookingManager.shellBroccoliText.text = "Shell Broccoli: " + cookingManager.shellBroccoliCount;
+                        cookingManager.succulentFeetCount -= 1;
+                        cookingManager.succulentFeetText.text = "Glazing Succulent Feet: " + cookingManager.succulentFeetCount;
                         Debug.Log("Item Added");
                         inventory.slots.Add(itemType);
                     }
                     else
                     {
                         //Pop out the active slot
-                        cookingManager.shellBroccoliCount -= 1;
-                        cookingManager.shellBroccoliText.text = "Shell Broccoli: " + cookingManager.shellBroccoliCount;
+                        cookingManager.succulentFeetCount -= 1;
+                        cookingManager.succulentFeetText.text = "Glazing Succulent Feet: " + cookingManager.succulentFeetCount;
                         Debug.Log("Item Replaced");
                         inventory.slots[inventory.slotUsed] = itemType;
                     }

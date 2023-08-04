@@ -32,23 +32,23 @@ public class CookingManager : MonoBehaviour
 
     public Text bakKutTehText;
     public int bakKutTehCount;
-    public Text feetWingBucketText;
-    public int feetWingBucketCount;
+    public Text xiaoJiDunMoGuText;
+    public int xiaoJiDunMoGuCount;
     public Text oyakodonText;
     public int oyakodonCount;
     public Text rabbitOmeletText;
     public int rabbitOmeletCount;
-    public Text shellBroccoliText;
-    public int shellBroccoliCount;
+    public Text succulentFeetText;
+    public int succulentFeetCount;
 
     void Start()
     {
         cookTime = totalCookTimer;
-        bakKutTehCount = 0;
-        feetWingBucketCount = 0;
-        oyakodonCount = 0;
-        rabbitOmeletCount = 0;
-        shellBroccoliCount = 0;
+        bakKutTehCount = 2;
+        succulentFeetCount = 21;
+        oyakodonCount = 2;
+        rabbitOmeletCount = 2;
+        xiaoJiDunMoGuCount = 2;
     }
 
     void Update()
@@ -308,11 +308,11 @@ public class CookingManager : MonoBehaviour
                 bakKutTehText.text = "Bak Kut Teh: " + bakKutTehCount;
                 Debug.Log("Added BKT");
                 break;
-            case "FeetWingBucket":
-                //Add FeetWingBucket here
-                feetWingBucketCount += 1;
-                feetWingBucketText.text = "Feet Wing Bucket: " + feetWingBucketCount;
-                Debug.Log("Added FWB");
+            case "XiaoJiDunMoGu":
+                //Add XiaoJiDunMoGu here
+                xiaoJiDunMoGuCount += 1;
+                xiaoJiDunMoGuText.text = "Xiao Ji Dun Mo Gu: " + xiaoJiDunMoGuCount;
+                Debug.Log("Added XJDMG");
                 break;
             case "Oyakodon":
                 //Add Oyakodon here
@@ -326,11 +326,11 @@ public class CookingManager : MonoBehaviour
                 rabbitOmeletText.text = "Rabbit Omelet: " + rabbitOmeletCount;
                 Debug.Log("Added RO");
                 break;
-            case "ShellBroccoli":
-                //Add ShellBroccoli here
-                shellBroccoliCount += 1;
-                shellBroccoliText.text = "Shell Broccoli: " + shellBroccoliCount;
-                Debug.Log("Added SB");
+            case "SucculentFeet":
+                //Add SucculentFeet here
+                succulentFeetCount += 1;
+                succulentFeetText.text = "Glazing Succulent Feet: " + succulentFeetCount;
+                Debug.Log("Added SF");
                 break;
         }
     }
