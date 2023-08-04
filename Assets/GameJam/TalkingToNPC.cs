@@ -55,7 +55,7 @@ public class TalkingToNPC : MonoBehaviour
         {
             enemyName.text = "Chicken";
             enemyType.text = "Type: Ranged";
-            enemyTip.text = "After defeating it, you will be in for a surprise";
+            enemyTip.text = "After defeating it, you may be in for a surprise";
             enemyImage.sprite = enemySprite[3];
         }
         else if (enemyNumber[0] == 5)
