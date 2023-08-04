@@ -47,6 +47,8 @@ MonoBehaviour:
   stunTime: 0.25
   contactDamage: 1
   enemyManager: {fileID: -3346308202217411138}
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  contactCollider: {fileID: 40797942}
 --- !u!70 &40797942
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -241,8 +243,8 @@ MonoBehaviour:
   slowMultiplier: 1
   TotemHealingEffect: {fileID: 4894927091223368625}
   hitPlayer: 0
-  hitlessDrop: {fileID: 0}
   heartPickup: {fileID: 8496803878734620528, guid: 9f96be7454db24c4993d083fad41a412, type: 3}
+  dragonBossManager: {fileID: 0}
 --- !u!70 &4762315567791279806
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

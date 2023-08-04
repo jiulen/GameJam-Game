@@ -18,6 +18,9 @@ public class Projectile : EnemyProjectile
     SpriteRenderer sr;
 
     public EnemyManager manager;
+    public GameObject bloodPrefab;
+    public GameObject sparkPrefab;
+    public Collider2D bulletCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,11 @@ public class Projectile : EnemyProjectile
         {
             if(hitInfo.tag == "Player")
             {
+                if (!hitInfo.gameObject.GetComponent<HealthManager>().isInvincible())
+                {
+                    Instantiate(bloodPrefab, hitInfo.bounds.ClosestPoint(bulletCollider.transform.position + (Vector3)bulletCollider.offset), Quaternion.identity);
+                }
+
                 hitInfo.GetComponent<HealthManager>().damage(damage,0.25f);
                 Destroy(gameObject);
                 hit = true;
@@ -50,8 +58,10 @@ public class Projectile : EnemyProjectile
                     manager.hitPlayer = true;
                 }
             }
-            else if(hitInfo.name == "Walls" || hitInfo.name == "Layout Walls")
+            else if (hitInfo.name == "Walls" || hitInfo.name == "Layout Walls" || hitInfo.tag == "Door")
             {
+                Instantiate(sparkPrefab, hitInfo.bounds.ClosestPoint(bulletCollider.transform.position + (Vector3)bulletCollider.offset), transform.rotation);
+
                 Destroy(gameObject);
                 hit = true;
             }

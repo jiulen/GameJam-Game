@@ -50,6 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunTime: 0.25
   contactDamage: 1
+  enemyManager: {fileID: 0}
+  bloodPrefab: {fileID: 0}
+  contactCollider: {fileID: 5354919456532519734}
   dmgTime: 0.1
   hit: 0
 --- !u!58 &5354919456532519734
@@ -219,3 +222,6 @@ MonoBehaviour:
   cosineTest: 0
   sineTest: 0
   getPowerFromPlayer: 0
+  bloodPrefab: {fileID: 5433918820615269867, guid: 52edd42c935e10041b76f53469e23af1, type: 3}
+  sparkPrefab: {fileID: 0}
+  head: {fileID: 6649695834616270638}
