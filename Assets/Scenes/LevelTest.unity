@@ -252,6 +252,22 @@ PrefabInstance:
       propertyPath: arrowCooldown
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: effab592060afd646ac826f69b676e98, type: 3}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 37c0cfd1db36d85428faae250eb3ef77, type: 3}
+    - target: {fileID: -942483267051202488, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: gunShot.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e0df25595c167be4c82e724fbf5f1500, type: 3}
     - target: {fileID: 2080022336, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: loseScreen
       value: 
@@ -2182,17 +2198,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1126013681 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8632047633615502074, guid: 854c868ef70b307459e74f3b96119994, type: 3}
-  m_PrefabInstance: {fileID: 2034200289}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1145103466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,14 +3489,14 @@ MonoBehaviour:
   progressArrow: {fileID: 1576390045}
   bakKutTehText: {fileID: 1995880479}
   bakKutTehCount: 0
-  feetWingBucketText: {fileID: 2034200290}
-  feetWingBucketCount: 0
+  xiaoJiDunMoGuText: {fileID: 0}
+  xiaoJiDunMoGuCount: 0
   oyakodonText: {fileID: 35747296}
   oyakodonCount: 0
   rabbitOmeletText: {fileID: 931261509}
   rabbitOmeletCount: 0
-  shellBroccoliText: {fileID: 1126013681}
-  shellBroccoliCount: 0
+  succulentFeetText: {fileID: 0}
+  succulentFeetCount: 0
 --- !u!114 &1966542756 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1966542756, guid: 854c868ef70b307459e74f3b96119994, type: 3}
@@ -10803,17 +10808,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854c868ef70b307459e74f3b96119994, type: 3}
---- !u!114 &2034200290 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8972634682073994205, guid: 854c868ef70b307459e74f3b96119994, type: 3}
-  m_PrefabInstance: {fileID: 2034200289}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2034200291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3934243225953261938, guid: 854c868ef70b307459e74f3b96119994, type: 3}

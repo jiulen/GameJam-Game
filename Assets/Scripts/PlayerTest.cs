@@ -30,6 +30,8 @@ public class PlayerTest : MonoBehaviour
     public Image iceImage;
     public Image poisonImage;
 
+    AudioSource audioSource;
+    public AudioClip[] gunShot;
     public SpriteRenderer muzzleFlash;
 
 
@@ -69,6 +71,10 @@ public class PlayerTest : MonoBehaviour
             instantiatedObject.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
             canShoot = false;
             GetComponent<move>().SetAnimation("Magic", 0.25f, true);
+            audioSource = GetComponent<AudioSource>();
+            int gunShotIndex = Random.Range(0, gunShot.Length);
+            audioSource.clip = gunShot[gunShotIndex];
+            audioSource.Play();
             StartCoroutine(MuzzleFlash());
         }
         if (!canShoot)

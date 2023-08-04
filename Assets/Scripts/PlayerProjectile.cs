@@ -24,18 +24,11 @@ public class PlayerProjectile : MonoBehaviour //Player ranged projectile
     bool getPowerFromPlayer = true;
     Animator myAnim;
 
-    AudioSource audioSource;
-    public AudioClip[] gunShot;
     public GameObject bloodPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        int gunShotIndex = Random.Range(0, gunShot.Length);
-        audioSource.clip = gunShot[gunShotIndex];
-        audioSource.Play();
-
         myAnim = GetComponent<Animator>();
         stats = FindObjectOfType<PlayerStats>();
 
