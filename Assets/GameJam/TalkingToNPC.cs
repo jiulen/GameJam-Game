@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TalkingToNPC : MonoBehaviour
 {
@@ -8,10 +9,18 @@ public class TalkingToNPC : MonoBehaviour
     public GameObject npcDialogue;
     bool isTalking = false;
     bool inRangeOfNPC = false;
+    public int[] enemyNumber;
+    public Text enemyName;
+    public Text enemyType;
+    public Text enemyTip;
+    public Image enemyImage;
+    public Sprite[] enemySprite;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        int randomNumber = Random.Range(1, 5);
+        enemyNumber[0] = randomNumber;
     }
 
     // Update is called once per frame
@@ -20,6 +29,45 @@ public class TalkingToNPC : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && playerMove.gameIsPaused == false)
         {
             ToggleDialogue();
+        }
+        if(enemyNumber[0] == 1)
+        {
+            enemyName.text = "Boar";
+            enemyType.text = "Type: Melee";
+            enemyTip.text = "The boar will charge at you in a straight line";
+            enemyImage.sprite = enemySprite[0];
+        }
+        else if (enemyNumber[0] == 2)
+        {
+            enemyName.text = "Bunny";
+            enemyType.text = "Type: Melee";
+            enemyTip.text = "The bunny has to stop moving to attack";
+            enemyImage.sprite = enemySprite[1];
+        }
+        else if (enemyNumber[0] == 3)
+        {
+            enemyName.text = "Mushroom";
+            enemyType.text = "Type: Ranged";
+            enemyTip.text = "The mushroom can attack in all directions";
+            enemyImage.sprite = enemySprite[2];
+        }
+        else if (enemyNumber[0] == 4)
+        {
+            enemyName.text = "Chicken";
+            enemyType.text = "Type: Ranged";
+            enemyTip.text = "After defeating it, you will be in for a surprise";
+            enemyImage.sprite = enemySprite[3];
+        }
+        else if (enemyNumber[0] == 5)
+        {
+            enemyName.text = "Egg";
+            enemyType.text = "Type: Melee";
+            enemyTip.text = "Kaboom";
+            enemyImage.sprite = enemySprite[4];
+        }
+        if (npcDialogue.activeSelf && Input.GetMouseButtonDown(0) && playerMove.gameIsPaused == false)
+        {
+            NextTip();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +103,14 @@ public class TalkingToNPC : MonoBehaviour
                 npcDialogue.SetActive(false);
                 isTalking = false;
             }
+        }
+    }
+    void NextTip()
+    {
+        enemyNumber[0] += 1;
+        if (enemyNumber[0] == 6)
+        {
+            enemyNumber[0] = 1;
         }
     }
 }
