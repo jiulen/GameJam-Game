@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 
 public class RoomTrigger : MonoBehaviour
 {
     RoomManager room;
     DoorManager door;
+    public bool isStartingScene;
 
     public bool enteredBefore = false;
     public GameObject[] enemyPrefabs;
@@ -69,7 +71,10 @@ public class RoomTrigger : MonoBehaviour
         {
             room.setPlayerInside(false);
         }
-        
+        if (isStartingScene == true && collision.tag == "Player")
+        {
+            SceneManager.LoadScene("LevelTest");
+        }
     }
 
     IEnumerator SpawnEnemyPrefabs(int numberOfEnemiesToSpawn)
