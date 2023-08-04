@@ -73,13 +73,6 @@ public class move : MonoBehaviour
     private Text weaponName;
     private HealthManager healthManager;
     public PlayerTest playerTest;
-    public ElementalEffectChangeButton fireProjectileHolder;
-    public ElementalEffectChangeButton iceProjectileHolder;
-    public ElementalEffectChangeButton poisonProjectileHolder;
-    public Image fireIcon;
-    public Image iceIcon;
-    public Image poisonIcon;
-    public GameObject projectileChooser;
     public bool isProjectileChooserActive;
     public bool boarKilled, mushroomKilled, bunnyKilled, chickenKilled, eggKilled = false;
     public Animator weaponBuffAnim;
@@ -152,30 +145,7 @@ public class move : MonoBehaviour
 
         }
 
-        // if(gameIsPaused == false && Input.GetKeyDown(KeyCode.LeftControl))
-        // {
-        //     ToggleProjectileChooser();
-        // }
-
-        if (fireProjectileHolder.fireIsUnlocked == true && Input.GetKeyDown(KeyCode.Q))
-        {
-            playerTest.projectile[0] = playerTest.projectile[1];
-            upgradeBuffSprite = fireGunSprite;
-            weaponBuffAnim.Play("FireIcon");
-        }
-        if (iceProjectileHolder.iceIsUnlocked == true && Input.GetKeyDown(KeyCode.E))
-        {
-            playerTest.projectile[0] = playerTest.projectile[2];
-            upgradeBuffSprite = freezeGunSprite;
-            weaponBuffAnim.Play("IceIcon");
-        }
-        if (poisonProjectileHolder.poisonIsUnlocked == true && Input.GetKeyDown(KeyCode.R))
-        {
-            playerTest.projectile[0] = playerTest.projectile[3];
-            upgradeBuffSprite = poisonGunSprite;
-            weaponBuffAnim.Play("PoisonIcon");
-        }
-
+       
         bool isAttackingOrUsingMagic = (isMelee == true && Input.GetMouseButtonDown(0) && (setTime <= (0.267f / 8.0f * 4.0f)) && mode != "Hurt")
     || (isMelee != true && Input.GetMouseButtonDown(0) && (setTime >= (0.333f * 0.6f)) && mode != "Hurt");
 
@@ -446,19 +416,6 @@ public class move : MonoBehaviour
         }
     }
 
-    public void ToggleProjectileChooser()
-    {
-        if (isProjectileChooserActive == false)
-        {
-            projectileChooser.SetActive(true);
-            isProjectileChooserActive = true;
-        }
-        else
-        {
-            projectileChooser.SetActive(false);
-            isProjectileChooserActive = false;
-        }
-    }
     public void TogglePause()
     {
         if (gameIsPaused == true)
@@ -615,30 +572,21 @@ public class move : MonoBehaviour
         {
             upgradeBuffSprite = fireGunSprite;
             weaponBuffAnim.Play("FireIcon");
-            fireProjectileHolder.fireIsUnlocked = true;
-            fireProjectileHolder.FireProjectile();
             collision.gameObject.name += " - deleting";
-            fireIcon.color = Color.white;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockIce(Clone)")
         {
             upgradeBuffSprite = freezeGunSprite;
             weaponBuffAnim.Play("IceIcon");
-            iceProjectileHolder.iceIsUnlocked = true;
-            iceProjectileHolder.IceProjectile();
             collision.gameObject.name += " - deleting";
-            iceIcon.color = Color.white;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "UnlockPoison(Clone)")
         {
             upgradeBuffSprite = poisonGunSprite;
             weaponBuffAnim.Play("PoisonIcon");
-            poisonProjectileHolder.poisonIsUnlocked = true;
-            poisonProjectileHolder.PoisonProjectile();
             collision.gameObject.name += " - deleting";
-            poisonIcon.color = Color.white;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "HeartPickUp(Clone)")

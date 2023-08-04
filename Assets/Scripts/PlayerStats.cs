@@ -165,7 +165,7 @@ public class PlayerStats : MonoBehaviour
                 break;
             case 2:
                 Debug.Log("Evasion buff");
-                healthManager.setInvis(10);
+                healthManager.setInvis(5);
                 break;
             case 3:
                 Debug.Log("Poisonous buff");
