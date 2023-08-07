@@ -408,6 +408,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &247154039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6736363245684976069, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+  m_PrefabInstance: {fileID: 677076249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &247154043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247154039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862ef8b50dbf54944886b94d9ab7c065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &281043253 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1997165194, guid: 854c868ef70b307459e74f3b96119994, type: 3}
@@ -1576,6 +1593,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 622313999508488780, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068451107030555656, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1180204139036654062, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
@@ -3498,6 +3519,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2413954694375696791, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2722473542845621448, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3506,9 +3531,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5396048232805604573, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599584421289573653, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5705186342619356750, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_Name
       value: Entry Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788782457929217629, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869275127370331894, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_RootOrder
@@ -4741,6 +4778,14 @@ PrefabInstance:
     - target: {fileID: 8364641138966102759, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_Offset.y
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508230404147225566, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508230404147225566, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: enteredBefore
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8508230404147225566, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: isStartingScene
@@ -9791,7 +9836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMove: {fileID: 1543897411}
   npcDialogue: {fileID: 2116083429}
-  enemyNumber: 00000000
+  enemyNumber: 0
   enemyName: {fileID: 1210656573}
   enemyType: {fileID: 516230903}
   enemyTip: {fileID: 1658638069}
@@ -19547,7 +19592,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 677076249}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6696b920f67535b4caec43cec5d14cb5, type: 3}
   m_Name: 
@@ -20586,7 +20631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMove: {fileID: 1543897411}
   npcDialogue: {fileID: 1973276844}
-  enemyNumber: 
+  enemyNumber: 0
   enemyName: {fileID: 0}
   enemyType: {fileID: 0}
   enemyTip: {fileID: 0}
