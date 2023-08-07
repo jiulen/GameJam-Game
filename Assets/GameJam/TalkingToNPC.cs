@@ -30,44 +30,47 @@ public class TalkingToNPC : MonoBehaviour
         {
             ToggleDialogue();
         }
-        if(enemyNumber[0] == 1)
+        if (npcDialogue.activeSelf)
         {
-            enemyName.text = "Boar";
-            enemyType.text = "Type: Melee";
-            enemyTip.text = "The boar will charge at you in a straight line";
-            enemyImage.sprite = enemySprite[0];
-        }
-        else if (enemyNumber[0] == 2)
+            if (enemyNumber[0] == 1)
+            {
+                enemyName.text = "Boar";
+                enemyType.text = "Type: Melee";
+                enemyTip.text = "The boar will charge at you in a straight line";
+                enemyImage.sprite = enemySprite[0];
+            }
+            else if (enemyNumber[0] == 2)
+            {
+                enemyName.text = "Bunny";
+                enemyType.text = "Type: Melee";
+                enemyTip.text = "The bunny has to stop moving to attack";
+                enemyImage.sprite = enemySprite[1];
+            }
+            else if (enemyNumber[0] == 3)
+            {
+                enemyName.text = "Mushroom";
+                enemyType.text = "Type: Ranged";
+                enemyTip.text = "The mushroom can attack in all directions";
+                enemyImage.sprite = enemySprite[2];
+            }
+            else if (enemyNumber[0] == 4)
+            {
+                enemyName.text = "Chicken";
+                enemyType.text = "Type: Ranged";
+                enemyTip.text = "After defeating it, you may be in for a surprise";
+                enemyImage.sprite = enemySprite[3];
+            }
+            else if (enemyNumber[0] == 5)
+            {
+                enemyName.text = "Egg";
+                enemyType.text = "Type: Melee";
+                enemyTip.text = "Kaboom";
+                enemyImage.sprite = enemySprite[4];
+            }
+            if(Input.GetMouseButtonDown(0) && playerMove.gameIsPaused == false)
         {
-            enemyName.text = "Bunny";
-            enemyType.text = "Type: Melee";
-            enemyTip.text = "The bunny has to stop moving to attack";
-            enemyImage.sprite = enemySprite[1];
-        }
-        else if (enemyNumber[0] == 3)
-        {
-            enemyName.text = "Mushroom";
-            enemyType.text = "Type: Ranged";
-            enemyTip.text = "The mushroom can attack in all directions";
-            enemyImage.sprite = enemySprite[2];
-        }
-        else if (enemyNumber[0] == 4)
-        {
-            enemyName.text = "Chicken";
-            enemyType.text = "Type: Ranged";
-            enemyTip.text = "After defeating it, you may be in for a surprise";
-            enemyImage.sprite = enemySprite[3];
-        }
-        else if (enemyNumber[0] == 5)
-        {
-            enemyName.text = "Egg";
-            enemyType.text = "Type: Melee";
-            enemyTip.text = "Kaboom";
-            enemyImage.sprite = enemySprite[4];
-        }
-        if (npcDialogue.activeSelf && Input.GetMouseButtonDown(0) && playerMove.gameIsPaused == false)
-        {
-            NextTip();
+                NextTip();
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
