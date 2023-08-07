@@ -44,7 +44,10 @@ public class RoomManager : MonoBehaviour
         this.playerInside = playerInside;
         if (this.playerInside)
         {
-            all.setActiveRoom(this.gameObject, roomIndex);
+            if (all != null)
+            {
+                all.setActiveRoom(this.gameObject, roomIndex);
+            }
         }
     }
 }

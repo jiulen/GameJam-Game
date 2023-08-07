@@ -9,7 +9,7 @@ public class TalkingToNPC : MonoBehaviour
     public GameObject npcDialogue;
     bool isTalking = false;
     bool inRangeOfNPC = false;
-    public int[] enemyNumber;
+    public int enemyNumber;
     public Text enemyName;
     public Text enemyType;
     public Text enemyTip;
@@ -20,7 +20,7 @@ public class TalkingToNPC : MonoBehaviour
     void Start()
     {
         int randomNumber = Random.Range(1, 5);
-        enemyNumber[0] = randomNumber;
+        enemyNumber = randomNumber;
     }
 
     // Update is called once per frame
@@ -32,35 +32,35 @@ public class TalkingToNPC : MonoBehaviour
         }
         if (npcDialogue.activeSelf)
         {
-            if (enemyNumber[0] == 1)
+            if (enemyNumber == 1)
             {
                 enemyName.text = "Boar";
                 enemyType.text = "Type: Melee";
                 enemyTip.text = "The boar will charge at you in a straight line";
                 enemyImage.sprite = enemySprite[0];
             }
-            else if (enemyNumber[0] == 2)
+            else if (enemyNumber == 2)
             {
                 enemyName.text = "Bunny";
                 enemyType.text = "Type: Melee";
                 enemyTip.text = "The bunny has to stop moving to attack";
                 enemyImage.sprite = enemySprite[1];
             }
-            else if (enemyNumber[0] == 3)
+            else if (enemyNumber == 3)
             {
                 enemyName.text = "Mushroom";
                 enemyType.text = "Type: Ranged";
                 enemyTip.text = "The mushroom can attack in all directions";
                 enemyImage.sprite = enemySprite[2];
             }
-            else if (enemyNumber[0] == 4)
+            else if (enemyNumber == 4)
             {
                 enemyName.text = "Chicken";
                 enemyType.text = "Type: Ranged";
                 enemyTip.text = "After defeating it, you may be in for a surprise";
                 enemyImage.sprite = enemySprite[3];
             }
-            else if (enemyNumber[0] == 5)
+            else if (enemyNumber == 5)
             {
                 enemyName.text = "Egg";
                 enemyType.text = "Type: Melee";
@@ -110,10 +110,10 @@ public class TalkingToNPC : MonoBehaviour
     }
     void NextTip()
     {
-        enemyNumber[0] += 1;
-        if (enemyNumber[0] == 6)
+        enemyNumber += 1;
+        if (enemyNumber == 6)
         {
-            enemyNumber[0] = 1;
+            enemyNumber = 1;
         }
     }
 }

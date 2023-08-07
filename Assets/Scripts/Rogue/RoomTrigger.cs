@@ -73,10 +73,6 @@ public class RoomTrigger : MonoBehaviour
         {
             room.setPlayerInside(false);
         }
-        if (isStartingScene == true && collision.tag == "Player")
-        {
-            SceneManager.LoadScene("LevelTest");
-        }
     }
 
     IEnumerator SpawnEnemyPrefabs(int numberOfEnemiesToSpawn)
