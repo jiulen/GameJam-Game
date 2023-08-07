@@ -19,6 +19,8 @@ public class RoomTrigger : MonoBehaviour
     PlayerStats playerStats;
     public GameObject mushroomEnemy;
     public GameObject chickenEnemy;
+
+    public GameObject spawnMarker;
     // Start is called before the first frame update
     void Start()
     {
@@ -85,11 +87,14 @@ public class RoomTrigger : MonoBehaviour
             int randomEnemyIndex = Random.Range(0, enemyPrefabs.Length);
             Transform spawnPoint = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
 
+            Instantiate(spawnMarker, spawnPoint.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.8f);
+
             Instantiate(enemyPrefabs[randomEnemyIndex], spawnPoint.position, spawnPoint.rotation);
             door.enemyCount += 1;
             door.enemySpawned += 1;
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

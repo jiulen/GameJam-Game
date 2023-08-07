@@ -173,6 +173,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6625652026535390995}
     m_Modifications:
     - target: {fileID: 5120237460382920628, guid: 09a93dc06512de6449f7a2d3b8958c81, type: 3}
+      propertyPath: spawnMarker
+      value: 
+      objectReference: {fileID: 6943025364589587238, guid: 82e28bd5a38d0fc48a84d402118e300f, type: 3}
+    - target: {fileID: 5120237460382920628, guid: 09a93dc06512de6449f7a2d3b8958c81, type: 3}
       propertyPath: chickenEnemy
       value: 
       objectReference: {fileID: 983599470995280849, guid: 581b6017efd78e14d86b1e098ee09183, type: 3}
