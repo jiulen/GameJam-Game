@@ -185,7 +185,7 @@ public class CookingManager : MonoBehaviour
         //Add ingredient back to inventory
         switch (slotList[slotNum].ingredientSO.ingredientName)
         {
-            case "Boar_Trotter":
+            case "BoarTrotter":
                 playerMove.boarTrotterCount += 1;
                 playerMove.boarTrotterText.text = "x " + playerMove.boarTrotterCount.ToString();                      
                 break;
