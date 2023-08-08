@@ -24,9 +24,7 @@ public class Bag : MonoBehaviour
         DEXCounter.text = playerStats.bonusDEX.ToString();
         VITCounter.text = playerStats.bonusVIT.ToString();
         StatPointsCounter.text = playerStats.unusedStatPoints.ToString();
-
-        HPCounter.text = healthManager.getHealth() + " / " + healthManager.getMaxHealth();
-        XPCounter.text = playerStats.currentExperiencePoints.ToString();
+        
         LVCounter.text = playerStats.currentLevel.ToString();
     }
 }
