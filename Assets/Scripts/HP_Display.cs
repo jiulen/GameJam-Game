@@ -14,10 +14,10 @@ public class HP_Display : MonoBehaviour
     private List<Image> hearts;
 
     [SerializeField]
-    private int maxHP = 5; //start with 5 hearts
+    public int maxHP = 5; //start with 5 hearts
     private int hp = 0; // displayed HP
     [SerializeField]
-    private int targetHp = 5;//for winding down hp
+    public int targetHp = 5;//for winding down hp
     public float heartSpace;
 
 
