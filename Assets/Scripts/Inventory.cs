@@ -274,23 +274,23 @@ public class Inventory : MonoBehaviour
         {
             case ITEM.bakKutTeh:            
                 cookingManager.bakKutTehCount += 1;
-                cookingManager.bakKutTehText.text = cookingManager.bakKutTehCount.ToString();
+                cookingManager.bakKutTehText.text = "x " + cookingManager.bakKutTehCount.ToString();
                 break;
             case ITEM.oyakodon:
                 cookingManager.oyakodonCount += 1;
-                cookingManager.oyakodonText.text = cookingManager.oyakodonCount.ToString();
+                cookingManager.oyakodonText.text = "x " + cookingManager.oyakodonCount.ToString();
                 break;
             case ITEM.rabbitOmelet:
                 cookingManager.rabbitOmeletCount += 1;
-                cookingManager.rabbitOmeletText.text = cookingManager.rabbitOmeletCount.ToString();
+                cookingManager.rabbitOmeletText.text = "x " + cookingManager.rabbitOmeletCount.ToString();
                 break;
             case ITEM.succulentFeet:
                 cookingManager.succulentFeetCount += 1;
-                cookingManager.succulentFeetText.text = cookingManager.succulentFeetCount.ToString();
+                cookingManager.succulentFeetText.text = "x " + cookingManager.succulentFeetCount.ToString();
                 break;
             case ITEM.xiaoJiDunMoGu:
                 cookingManager.xiaoJiDunMoGuCount += 1;
-                cookingManager.xiaoJiDunMoGuText.text = cookingManager.xiaoJiDunMoGuCount.ToString();
+                cookingManager.xiaoJiDunMoGuText.text = "x " + cookingManager.xiaoJiDunMoGuCount.ToString();
                 break;
         }
     }

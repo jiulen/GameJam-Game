@@ -1359,10 +1359,10 @@ MonoBehaviour:
   shadowImg: {fileID: 5717083814435076686, guid: d3e9cc34859aa5943a06c1fb05fb583f, type: 3}
   potionImg: {fileID: 21300000, guid: 7ccc5165e2360a249abe2b5e281788ac, type: 3}
   bakKutTehImg: {fileID: 21300000, guid: 13a2788283e15438b981e933b3dac17b, type: 3}
-  xiaoJiDunMoGuImg: {fileID: 21300000, guid: 06e77b7ab7ecc436685a20a7b72b0f87, type: 3}
-  oyakodonImg: {fileID: 21300000, guid: 0056078dc86f347b0b37609c00fa4abf, type: 3}
-  rabbitOmeletImg: {fileID: 21300000, guid: e32c15b13834a4c8baa1fa2275c2829e, type: 3}
-  succulentFeetImg: {fileID: 21300000, guid: 4b7d35b1d4cda483889acb32fdaaae86, type: 3}
+  xiaoJiDunMoGuImg: {fileID: 21300000, guid: 01f401205b24d48368989d50c393df73, type: 3}
+  oyakodonImg: {fileID: 21300000, guid: 24c1b953fd11e431b90b3d42d09e0712, type: 3}
+  rabbitOmeletImg: {fileID: 21300000, guid: ae1ae6bf8d35344b187f282f836ad760, type: 3}
+  succulentFeetImg: {fileID: 21300000, guid: 57e99c5064ba94b9497cd9ba3d775b8b, type: 3}
   slot1: {fileID: 9144721068804820755}
   slot2: {fileID: 4091936001733138735}
   slot3: {fileID: 4392703303635785967}
@@ -2981,6 +2981,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
 --- !u!1 &5290041524226041156 stripped
@@ -3236,6 +3240,10 @@ PrefabInstance:
       value: Button (8)
       objectReference: {fileID: 0}
     - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 8
       objectReference: {fileID: 0}
@@ -3481,16 +3489,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
---- !u!224 &2358409461238997516 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3509032699893650067, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
-  m_PrefabInstance: {fileID: 1155268200690495647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6690207077038612942 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+  m_PrefabInstance: {fileID: 1155268200690495647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2358409461238997516 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3509032699893650067, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
   m_PrefabInstance: {fileID: 1155268200690495647}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8355272867469190126
@@ -3708,6 +3720,10 @@ PrefabInstance:
     - target: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
       propertyPath: m_Name
       value: Button (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
@@ -3951,16 +3967,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
---- !u!1 &8020104675705741480 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
-  m_PrefabInstance: {fileID: 2566232758781555193}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1382466267432166250 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3509032699893650067, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+  m_PrefabInstance: {fileID: 2566232758781555193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8020104675705741480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
   m_PrefabInstance: {fileID: 2566232758781555193}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2056469537422054666
@@ -4178,6 +4198,10 @@ PrefabInstance:
     - target: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
       propertyPath: m_Name
       value: Button (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
@@ -4407,16 +4431,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
---- !u!1 &7090119370995163569 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
-  m_PrefabInstance: {fileID: 3365631126928273632}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2163848828659868275 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3509032699893650067, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+  m_PrefabInstance: {fileID: 3365631126928273632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7090119370995163569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
   m_PrefabInstance: {fileID: 3365631126928273632}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2100514091574343717
@@ -4648,6 +4676,10 @@ PrefabInstance:
     - target: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
       propertyPath: m_Name
       value: Button (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
@@ -4891,6 +4923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: x 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
 --- !u!224 &5451113297741435380 stripped
@@ -5118,6 +5154,12 @@ PrefabInstance:
     - target: {fileID: 5534982959968735569, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007926099722342660, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}
+      propertyPath: m_Text
+      value: 'x 0
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a64ceef8454de34ea8c467c377394e1, type: 3}

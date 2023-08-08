@@ -26,7 +26,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Add to last slot available
                         cookingManager.bakKutTehCount -= 1;
-                        cookingManager.bakKutTehText.text = "Bak Kut Teh: " + cookingManager.bakKutTehCount;
+                        cookingManager.bakKutTehText.text = "x " + cookingManager.bakKutTehCount.ToString();
                         Debug.Log("Item Added");
                         inventory.slots.Add(itemType);
                     }
@@ -34,7 +34,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Pop out the active slot
                         cookingManager.bakKutTehCount -= 1;
-                        cookingManager.bakKutTehText.text = "Bak Kut Teh: " + cookingManager.bakKutTehCount;
+                        cookingManager.bakKutTehText.text = "x " + cookingManager.bakKutTehCount.ToString();
                         Debug.Log("Item Replaced");
                         inventory.slots[inventory.slotUsed] = itemType;
                     }
@@ -47,7 +47,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Add to last slot available
                         cookingManager.xiaoJiDunMoGuCount -= 1;
-                        cookingManager.xiaoJiDunMoGuText.text = "Xiao Ji Dun Mo Gu: " + cookingManager.xiaoJiDunMoGuCount;
+                        cookingManager.xiaoJiDunMoGuText.text = "x " + cookingManager.xiaoJiDunMoGuCount.ToString();
                         Debug.Log("Item Added");
                         inventory.slots.Add(itemType);
                     }
@@ -55,7 +55,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Pop out the active slot
                         cookingManager.xiaoJiDunMoGuCount -= 1;
-                        cookingManager.xiaoJiDunMoGuText.text = "Xiao Ji Dun Mo Gu: " + cookingManager.xiaoJiDunMoGuCount;
+                        cookingManager.xiaoJiDunMoGuText.text = "x " + cookingManager.xiaoJiDunMoGuCount.ToString();
                         Debug.Log("Item Replaced");
                         inventory.slots[inventory.slotUsed] = itemType;
                     }
@@ -68,7 +68,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Add to last slot available
                         cookingManager.oyakodonCount -= 1;
-                        cookingManager.oyakodonText.text = "Oyakodon: " + cookingManager.oyakodonCount;
+                        cookingManager.oyakodonText.text = "x " + cookingManager.oyakodonCount.ToString();
                         Debug.Log("Item Added");
                         inventory.slots.Add(itemType);
                     }
@@ -76,7 +76,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Pop out the active slot
                         cookingManager.oyakodonCount -= 1;
-                        cookingManager.oyakodonText.text = "Oyakodon: " + cookingManager.oyakodonCount;
+                        cookingManager.oyakodonText.text = "x " + cookingManager.oyakodonCount.ToString();
                         Debug.Log("Item Replaced");
                         inventory.slots[inventory.slotUsed] = itemType;
                     }
@@ -89,7 +89,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Add to last slot available
                         cookingManager.rabbitOmeletCount -= 1;
-                        cookingManager.rabbitOmeletText.text = "Rabbit Omelet: " + cookingManager.rabbitOmeletCount;
+                        cookingManager.rabbitOmeletText.text = "x " + cookingManager.rabbitOmeletCount.ToString();
                         Debug.Log("Item Added");
                         inventory.slots.Add(itemType);
                     }
@@ -97,7 +97,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Pop out the active slot
                         cookingManager.rabbitOmeletCount -= 1;
-                        cookingManager.rabbitOmeletText.text = "RabbitOmelet: " + cookingManager.rabbitOmeletCount;
+                        cookingManager.rabbitOmeletText.text = "x " + cookingManager.rabbitOmeletCount.ToString();
                         Debug.Log("Item Replaced");
                         inventory.slots[inventory.slotUsed] = itemType;
                     }
@@ -110,7 +110,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Add to last slot available
                         cookingManager.succulentFeetCount -= 1;
-                        cookingManager.succulentFeetText.text = "Glazing Succulent Feet: " + cookingManager.succulentFeetCount;
+                        cookingManager.succulentFeetText.text = "x " + cookingManager.succulentFeetCount.ToString();
                         Debug.Log("Item Added");
                         inventory.slots.Add(itemType);
                     }
@@ -118,7 +118,7 @@ public class DishButton : MonoBehaviour
                     {
                         //Pop out the active slot
                         cookingManager.succulentFeetCount -= 1;
-                        cookingManager.succulentFeetText.text = "Glazing Succulent Feet: " + cookingManager.succulentFeetCount;
+                        cookingManager.succulentFeetText.text = "x " + cookingManager.succulentFeetCount.ToString();
                         Debug.Log("Item Replaced");
                         inventory.slots[inventory.slotUsed] = itemType;
                     }

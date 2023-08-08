@@ -44,11 +44,11 @@ public class CookingManager : MonoBehaviour
     void Start()
     {
         cookTime = totalCookTimer;
-        bakKutTehCount = 2;
-        succulentFeetCount = 21;
-        oyakodonCount = 2;
-        rabbitOmeletCount = 2;
-        xiaoJiDunMoGuCount = 2;
+        //bakKutTehCount = 0;
+        //succulentFeetCount = 21;
+        //oyakodonCount = 2;
+        //rabbitOmeletCount = 2;
+        //xiaoJiDunMoGuCount = 2;
     }
 
     void Update()
@@ -88,7 +88,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.boarTrotterCount > 0)
                             {
                                 playerMove.boarTrotterCount -= 1;
-                                playerMove.boarTrotterText.text = "Boar Trotter: " + playerMove.boarTrotterCount;
+                                playerMove.boarTrotterText.text = "x " + playerMove.boarTrotterCount.ToString();
                                 haveItem = true;
                             }                        
                             break;
@@ -96,7 +96,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.shroomCount > 0)
                             {
                                 playerMove.shroomCount -= 1;
-                                playerMove.shroomText.text = "Shroom: " + playerMove.shroomCount;
+                                playerMove.shroomText.text = "x " + playerMove.shroomCount.ToString();
                                 haveItem = true;
                             }
                             break;
@@ -104,7 +104,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.broccoliCount > 0)
                             {
                                 playerMove.broccoliCount -= 1;
-                                playerMove.broccoliText.text = "Broccoli: " + playerMove.broccoliCount;
+                                playerMove.broccoliText.text = "x " + playerMove.broccoliCount.ToString();
                                 haveItem = true;
                             }
                             break;
@@ -112,7 +112,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.chickenFeetCount > 0)
                             {
                                 playerMove.chickenFeetCount -= 1;
-                                playerMove.chickenFeetText.text = "ChickenFeet: " + playerMove.chickenFeetCount;
+                                playerMove.chickenFeetText.text = "x " + playerMove.chickenFeetCount.ToString();
                                 haveItem = true;
                             }
                             break;
@@ -120,7 +120,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.rabbitLegCount > 0)
                             {
                                 playerMove.rabbitLegCount -= 1;
-                                playerMove.rabbitLegText.text = "RabbitLeg: " + playerMove.rabbitLegCount;
+                                playerMove.rabbitLegText.text = "x " + playerMove.rabbitLegCount.ToString();
                                 haveItem = true;
                             }
                             break;
@@ -128,7 +128,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.shellCount > 0)
                             {
                                 playerMove.shellCount -= 1;
-                                playerMove.shellText.text = "Shell: " + playerMove.shellCount;
+                                playerMove.shellText.text = "x " + playerMove.shellCount.ToString();
                                 haveItem = true;
                             }
                             break;
@@ -136,7 +136,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.wingCount > 0)
                             {
                                 playerMove.wingCount -= 1;
-                                playerMove.wingText.text = "Wing: " + playerMove.wingCount;
+                                playerMove.wingText.text = "x " + playerMove.wingCount.ToString();
                                 haveItem = true;
                             }
                             break;
@@ -144,7 +144,7 @@ public class CookingManager : MonoBehaviour
                             if (playerMove.yolkCount > 0)
                             {
                                 playerMove.yolkCount -= 1;
-                                playerMove.yolkText.text = "Yolk: " + playerMove.yolkCount;
+                                playerMove.yolkText.text = "x " + playerMove.yolkCount.ToString();
                                 haveItem = true;
                             }
                             break;
@@ -187,35 +187,35 @@ public class CookingManager : MonoBehaviour
         {
             case "Boar_Trotter":
                 playerMove.boarTrotterCount += 1;
-                playerMove.boarTrotterText.text = "Boar Trotters: " + playerMove.boarTrotterCount;                      
+                playerMove.boarTrotterText.text = "x " + playerMove.boarTrotterCount.ToString();                      
                 break;
             case "Shroom":
                 playerMove.shroomCount += 1;
-                playerMove.shroomText.text = "Shrooms: " + playerMove.shroomCount;
+                playerMove.shroomText.text = "x " + playerMove.shroomCount.ToString();
                 break;
             case "Broccoli":
                 playerMove.broccoliCount += 1;
-                playerMove.broccoliText.text = "Broccolis: " + playerMove.broccoliCount;
+                playerMove.broccoliText.text = "x " + playerMove.broccoliCount.ToString();
                 break;
             case "ChickenFeet":
                 playerMove.chickenFeetCount += 1;
-                playerMove.chickenFeetText.text = "Chicken Feets: " + playerMove.chickenFeetCount;
+                playerMove.chickenFeetText.text = "x " + playerMove.chickenFeetCount.ToString();
                 break;
             case "RabbitLeg":
                 playerMove.rabbitLegCount += 1;
-                playerMove.rabbitLegText.text = "Rabbit Legs: " + playerMove.rabbitLegCount;
+                playerMove.rabbitLegText.text = "x " + playerMove.rabbitLegCount.ToString();
                 break;
             case "Shell":
                 playerMove.shellCount += 1;
-                playerMove.shellText.text = "Shell: " + playerMove.shellCount;
+                playerMove.shellText.text = "x " + playerMove.shellCount.ToString();
                 break;
             case "Wing":
                 playerMove.wingCount += 1;
-                playerMove.wingText.text = "Wings: " + playerMove.wingCount;
+                playerMove.wingText.text = "x " + playerMove.wingCount.ToString();
                 break;
             case "Yolk":
                 playerMove.yolkCount += 1;
-                playerMove.yolkText.text = "Yolks: " + playerMove.yolkCount;
+                playerMove.yolkText.text = "x " + playerMove.yolkCount.ToString();
                 break;
             default:
                 Debug.Log("Remove ingredient with wrong name");
@@ -305,31 +305,31 @@ public class CookingManager : MonoBehaviour
             case "BakKutTeh":
                 //Add BakKutTeh here
                 bakKutTehCount += 1;
-                bakKutTehText.text = bakKutTehCount.ToString();
+                bakKutTehText.text = "x " + bakKutTehCount.ToString();
                 Debug.Log("Added BKT");
                 break;
             case "XiaoJiDunMoGu":
                 //Add XiaoJiDunMoGu here
                 xiaoJiDunMoGuCount += 1;
-                xiaoJiDunMoGuText.text = xiaoJiDunMoGuCount.ToString();
+                xiaoJiDunMoGuText.text = "x " + xiaoJiDunMoGuCount.ToString();
                 Debug.Log("Added XJDMG");
                 break;
             case "Oyakodon":
                 //Add Oyakodon here
                 oyakodonCount += 1;
-                oyakodonText.text = oyakodonCount.ToString();
+                oyakodonText.text = "x " + oyakodonCount.ToString();
                 Debug.Log("Added Oyakodon");
                 break;
             case "RabbitOmelet":
                 //Add RabbitOmelet here
                 rabbitOmeletCount += 1;
-                rabbitOmeletText.text = rabbitOmeletCount.ToString();
+                rabbitOmeletText.text = "x " + rabbitOmeletCount.ToString();
                 Debug.Log("Added RO");
                 break;
             case "SucculentFeet":
                 //Add SucculentFeet here
                 succulentFeetCount += 1;
-                succulentFeetText.text = succulentFeetCount.ToString();
+                succulentFeetText.text = "x " + succulentFeetCount.ToString();
                 Debug.Log("Added SF");
                 break;
         }

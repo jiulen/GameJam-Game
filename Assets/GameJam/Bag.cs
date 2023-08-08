@@ -20,13 +20,13 @@ public class Bag : MonoBehaviour
     void Update()
     {
         //Stats counters
-        ATKCounter.text = "" + playerStats.bonusATK;
-        DEXCounter.text = "" + playerStats.bonusDEX;
-        VITCounter.text = "" + playerStats.bonusVIT;
-        StatPointsCounter.text = "" + playerStats.unusedStatPoints;
+        ATKCounter.text = playerStats.bonusATK.ToString();
+        DEXCounter.text = playerStats.bonusDEX.ToString();
+        VITCounter.text = playerStats.bonusVIT.ToString();
+        StatPointsCounter.text = playerStats.unusedStatPoints.ToString();
 
-        HPCounter.text = "" + healthManager.getHealth() + " / " + healthManager.getMaxHealth();
-        XPCounter.text = "" + playerStats.currentExperiencePoints;
-        LVCounter.text = "" + playerStats.currentLevel;
+        HPCounter.text = healthManager.getHealth() + " / " + healthManager.getMaxHealth();
+        XPCounter.text = playerStats.currentExperiencePoints.ToString();
+        LVCounter.text = playerStats.currentLevel.ToString();
     }
 }
