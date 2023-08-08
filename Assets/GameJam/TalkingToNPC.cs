@@ -15,6 +15,7 @@ public class TalkingToNPC : MonoBehaviour
     public Text enemyTip;
     public Image enemyImage;
     public Sprite[] enemySprite;
+    public bool isTipsEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class TalkingToNPC : MonoBehaviour
         {
             ToggleDialogue();
         }
-        if (npcDialogue.activeSelf)
+        if (npcDialogue.activeSelf && isTipsEnemy)
         {
             if (enemyNumber == 1)
             {
