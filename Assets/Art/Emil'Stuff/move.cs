@@ -513,58 +513,56 @@ public class move : MonoBehaviour
         if (collision.gameObject.name == "Boar_Trotter(Clone)")
         {
             boarTrotterCount += 1;
-            boarTrotterText.text = "Boar Trotters: " + boarTrotterCount;
+            boarTrotterText.text = "x " + boarTrotterCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Shroom(Clone)")
         {
             shroomCount += 1;
-            shroomText.text = "Shrooms: " + shroomCount;
+            shroomText.text = "x " + shroomCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Broccoli(Clone)")
         {
             broccoliCount += 1;
-            broccoliText.text = "Broccolis: " + broccoliCount;
+            broccoliText.text = "x " + broccoliCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "ChickenFeet(Clone)")
         {
             chickenFeetCount += 1;
-            chickenFeetText.text = "Chicken Feets: " + chickenFeetCount;
+            chickenFeetText.text = "x " + chickenFeetCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "RabbitLeg(Clone)")
         {
-            Debug.Log("rabbit leg count " + rabbitLegCount);
             rabbitLegCount += 1;
-            Debug.Log("rabbit leg count picked up" + rabbitLegCount);
-            rabbitLegText.text = "Rabbit Legs: " + rabbitLegCount;
+            rabbitLegText.text = "x " + rabbitLegCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Shell(Clone)")
         {
             shellCount += 1;
-            shellText.text = "Shells: " + shellCount;
+            shellText.text = "x " + shellCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Wing(Clone)")
         {
             wingCount += 1;
-            wingText.text = "Wings: " + wingCount;
+            wingText.text = "x " + wingCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name == "Yolk(Clone)")
         {
             yolkCount += 1;
-            yolkText.text = "Yolks: " + yolkCount;
+            yolkText.text = "x " + yolkCount.ToString();
             collision.gameObject.name += " - deleting";
             Destroy(collision.gameObject);
         }

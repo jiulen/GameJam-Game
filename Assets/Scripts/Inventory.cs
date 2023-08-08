@@ -46,19 +46,32 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject noBlockBuff;
     [SerializeField]
+    private GameObject atkBuffIntry;
+    [SerializeField]
+    private GameObject evasionBuffIntry;
+    [SerializeField]
+    private GameObject speedBuffIntry;
+    [SerializeField]
+    private GameObject poisonousBuffIntry;
+    [SerializeField]
+    private GameObject noBlockBuffIntry;
+    [SerializeField]
     private float buffDuration = 10f;
 
     public Buffs playerBuff;
     private List<GameObject> buffList;
     move playerMove;
 
+    private CookingManager cookingManager;
 
     void Start()
     {
         playerMove = GetComponent<move>();
         playerBuff = GetComponent<Buffs>();
-        buffList = new List<GameObject> { atkBuff, evasionBuff, speedBuff, poisonousBuff, noBlockBuff };
+        buffList = new List<GameObject> { atkBuff, evasionBuff, speedBuff, poisonousBuff, noBlockBuff, atkBuffIntry, evasionBuffIntry, speedBuffIntry, poisonousBuffIntry, noBlockBuffIntry };
         playerBuff.InitializeBuffIcons(buffList);
+        
+        cookingManager = FindObjectOfType<CookingManager>();
     }
 
     void Update()
@@ -188,6 +201,7 @@ public class Inventory : MonoBehaviour
 
                 // Add the buff icon to the container list
                 playerBuff.AddBuffIcon(atkBuff, buffDuration);
+                playerBuff.AddBuffIcon(atkBuffIntry, buffDuration);
 
                 yield return new WaitForSeconds(buffDuration);
 
@@ -207,6 +221,7 @@ public class Inventory : MonoBehaviour
                 GetComponent<PlayerStats>().AddBuffs(1);
                 // Add the buff icon to the container list
                 playerBuff.AddBuffIcon(speedBuff, buffDuration);
+                playerBuff.AddBuffIcon(speedBuffIntry, buffDuration);
 
                 yield return new WaitForSeconds(buffDuration);
 
@@ -219,6 +234,7 @@ public class Inventory : MonoBehaviour
                 GetComponent<PlayerStats>().AddBuffs(2);
                 // Add the buff icon to the container list
                 playerBuff.AddBuffIcon(evasionBuff, buffDuration);
+                playerBuff.AddBuffIcon(evasionBuffIntry, buffDuration);
 
                 yield return new WaitForSeconds(buffDuration);
 
@@ -230,6 +246,7 @@ public class Inventory : MonoBehaviour
                 gameObject.GetComponent<move>().SetAnimation("Magic", animTime);
                 GetComponent<PlayerStats>().AddBuffs(3);
                 playerBuff.AddBuffIcon(poisonousBuff, buffDuration - 3f); // the travel speed for the poison ball is 3s
+                playerBuff.AddBuffIcon(poisonousBuffIntry, buffDuration - 3f);
                 yield return new WaitForSeconds(buffDuration);
 
                 GetComponent<PlayerStats>().RemoveBuffs(3);
@@ -239,9 +256,43 @@ public class Inventory : MonoBehaviour
                 Debug.Log("Used  xjdmg");
                 GetComponent<PlayerStats>().AddBuffs(4);
                 playerBuff.AddBuffIcon(noBlockBuff, buffDuration);
+                playerBuff.AddBuffIcon(noBlockBuffIntry, buffDuration);
                 yield return new WaitForSeconds(buffDuration);
                 GetComponent<PlayerStats>().RemoveBuffs(4);
                 break;
         }
+    }
+
+    public void UnequipDish(int slotNum)
+    {
+        if (slots.Count <= slotNum) return;
+        
+        ITEM type = slots[slotUsed];
+        
+        switch (type)
+        {
+            case ITEM.bakKutTeh:            
+                cookingManager.bakKutTehCount += 1;
+                cookingManager.bakKutTehText.text = "x " + cookingManager.bakKutTehCount.ToString();
+                break;
+            case ITEM.oyakodon:
+                cookingManager.oyakodonCount += 1;
+                cookingManager.oyakodonText.text = "x " + cookingManager.oyakodonCount.ToString();
+                break;
+            case ITEM.rabbitOmelet:
+                cookingManager.rabbitOmeletCount += 1;
+                cookingManager.rabbitOmeletText.text = "x " + cookingManager.rabbitOmeletCount.ToString();
+                break;
+            case ITEM.succulentFeet:
+                cookingManager.succulentFeetCount += 1;
+                cookingManager.succulentFeetText.text = "x " + cookingManager.succulentFeetCount.ToString();
+                break;
+            case ITEM.xiaoJiDunMoGu:
+                cookingManager.xiaoJiDunMoGuCount += 1;
+                cookingManager.xiaoJiDunMoGuText.text = "x " + cookingManager.xiaoJiDunMoGuCount.ToString();
+                break;
+        }        
+
+        slots.RemoveAt(slotUsed);
     }
 }

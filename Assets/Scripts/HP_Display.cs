@@ -14,10 +14,11 @@ public class HP_Display : MonoBehaviour
     private List<Image> hearts;
 
     [SerializeField]
-    private int maxHP = 5; //start with 5 hearts
+    public int maxHP = 5; //start with 5 hearts
     private int hp = 0; // displayed HP
     [SerializeField]
-    private int targetHp = 5;//for winding down hp
+    public int targetHp = 5;//for winding down hp
+    public float heartSpace;
 
 
     // Start is called before the first frame update
@@ -92,7 +93,7 @@ public class HP_Display : MonoBehaviour
                 //Instantiate Heart
                 GameObject g = Instantiate<GameObject>(HeartPrefab.gameObject);
                 g.GetComponent<RectTransform>().SetParent(this.GetComponent<RectTransform>());
-                g.GetComponent<RectTransform>().localPosition = new Vector2(11.5f * i , 0);
+                g.GetComponent<RectTransform>().localPosition = new Vector2(heartSpace * i , 0);
                 g.GetComponent<RectTransform>().localScale = Vector2.one;
                 hearts.Add(g.GetComponent<Image>());
             }

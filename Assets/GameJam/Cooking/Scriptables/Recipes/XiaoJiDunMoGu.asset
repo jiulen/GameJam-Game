@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 470ce05c29dbe2643a64446006abd13a, type: 2}
   - {fileID: 11400000, guid: c48c56fbd87354fe8aa3cefc34ed960f, type: 2}
   outputDishName: XiaoJiDunMoGu
-  outputDishSprite: {fileID: 21300000, guid: 06e77b7ab7ecc436685a20a7b72b0f87, type: 3}
+  outputDishSprite: {fileID: 21300000, guid: 01f401205b24d48368989d50c393df73, type: 3}

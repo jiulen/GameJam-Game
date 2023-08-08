@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5df119fae6764139b3b2a9eb2fcaaf6, type: 2}
   - {fileID: 11400000, guid: 76268477624ab4dc0ab3e206f41ac288, type: 2}
   outputDishName: SucculentFeet
-  outputDishSprite: {fileID: 21300000, guid: 4b7d35b1d4cda483889acb32fdaaae86, type: 3}
+  outputDishSprite: {fileID: 21300000, guid: 57e99c5064ba94b9497cd9ba3d775b8b, type: 3}
