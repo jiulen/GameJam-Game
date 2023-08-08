@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76268477624ab4dc0ab3e206f41ac288, type: 2}
   - {fileID: 11400000, guid: 054ae5ffd39c91b44b0aed0e0cb50d38, type: 2}
   outputDishName: RabbitOmelet
-  outputDishSprite: {fileID: 21300000, guid: e32c15b13834a4c8baa1fa2275c2829e, type: 3}
+  outputDishSprite: {fileID: 21300000, guid: ae1ae6bf8d35344b187f282f836ad760, type: 3}
