@@ -390,13 +390,19 @@ public class move : MonoBehaviour
     {
         if (bagIsOpen == true)
         {
-            bagUI.SetActive(false);
-            bagIsOpen = false;
+            if (bagUI != null)
+            {
+                bagUI.SetActive(false);
+                bagIsOpen = false;
+            }
         }
         else
         {
-            bagUI.SetActive(true);
-            bagIsOpen = true;
+            if (bagUI != null)
+            {
+                bagUI.SetActive(true);
+                bagIsOpen = true;
+            }
         }
     }
 
