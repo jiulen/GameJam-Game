@@ -26,7 +26,7 @@ public class TalkingToNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && playerMove.gameIsPaused == false)
+        if (Input.GetKeyDown(KeyCode.F) && playerMove.gameIsPaused == false && playerMove.bagIsOpen == false)
         {
             ToggleDialogue();
         }
@@ -67,7 +67,7 @@ public class TalkingToNPC : MonoBehaviour
                 enemyTip.text = "Kaboom";
                 enemyImage.sprite = enemySprite[4];
             }
-            if(Input.GetMouseButtonDown(0) && playerMove.gameIsPaused == false)
+            if (Input.GetMouseButtonDown(0) && playerMove.gameIsPaused == false && playerMove.bagIsOpen == false)
         {
                 NextTip();
             }

@@ -52,7 +52,7 @@ public class PlayerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<move>().mode == "Dead" || GetComponent<move>().gameIsPaused)
+        if (GetComponent<move>().mode == "Dead" || GetComponent<move>().gameIsPaused || GetComponent<move>().bagIsOpen)
         { 
             return; 
         }
@@ -63,7 +63,7 @@ public class PlayerTest : MonoBehaviour
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
         
-        if (playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && canShoot)
+        if (playerMove.bagIsOpen == false && playerMove.gameIsPaused == false && playerMove.isMelee == false && Input.GetMouseButtonDown(0) && canShoot)
         {
             GameObject instantiatedObject = Instantiate(projectile[0]);
             instantiatedObject.transform.position = shootPoint.transform.position;

@@ -81,7 +81,7 @@ public class Inventory : MonoBehaviour
             return;
         }
 
-        if (playerMove.gameIsPaused == false && slots.Count > 0 && (gameObject.GetComponent<move>().Mode == "Idle" || gameObject.GetComponent<move>().Mode == "Walk"))
+        if (playerMove.gameIsPaused == false && playerMove.bagIsOpen == false && slots.Count > 0 && (gameObject.GetComponent<move>().Mode == "Idle" || gameObject.GetComponent<move>().Mode == "Walk"))
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4))
             {

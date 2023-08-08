@@ -22,7 +22,7 @@ public class FirepointScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerMove.gameIsPaused || playerMove.mode == "Dead")
+        if (playerMove.gameIsPaused || playerMove.mode == "Dead" || playerMove.bagIsOpen)
         {
             return;
         }

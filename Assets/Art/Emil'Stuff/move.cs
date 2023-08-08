@@ -29,7 +29,7 @@ public class move : MonoBehaviour
     private PlayerStats stats;
 
     public GameObject bagUI;
-    private bool bagIsOpen = false;
+    public bool bagIsOpen = false;
     [SerializeField]
     private GameObject statsPage, cookingPage;
     [SerializeField]
@@ -84,6 +84,8 @@ public class move : MonoBehaviour
     AudioSource audioSource;
     public AudioClip toggleGun;
     public AudioClip togglePan;
+    public GameObject tutorialScreen1;
+    public GameObject tutorialScreen2;
 
 
 
@@ -290,7 +292,7 @@ public class move : MonoBehaviour
                 }*/
 
         //WALK
-        if (gameIsPaused == false && !isAttackingOrUsingMagic && mode != "Hurt")
+        if (bagIsOpen == false && gameIsPaused == false && !isAttackingOrUsingMagic && mode != "Hurt")
         {
             // Code for walking
             if (isWalking)
@@ -305,7 +307,7 @@ public class move : MonoBehaviour
                 animator.Play("Mlafi_" + mode + "_" + direction);
             }
         }
-        else if (gameIsPaused == false && isAttackingOrUsingMagic)
+        else if (bagIsOpen == false && gameIsPaused == false && isAttackingOrUsingMagic)
         {
             // Code for attacking or using magic
             if (isMelee == true && mode != "Hurt")
@@ -345,14 +347,14 @@ public class move : MonoBehaviour
             mode = "Idle";
         }
 
-        if (gameIsPaused == false && mode != "Hurt")
+        if (bagIsOpen == false && gameIsPaused == false && mode != "Hurt")
         {
             rb.velocity = new Vector2(x, y).normalized * speed;
         }
 
         //animator.Play("Mlafi_" + mode + "_" + direction);
 
-        if (gameIsPaused == false && Input.GetMouseButtonDown(1))
+        if (bagIsOpen == false && gameIsPaused == false && Input.GetMouseButtonDown(1))
         {
             ToggleWeapon();
         }
@@ -432,6 +434,33 @@ public class move : MonoBehaviour
         }
     }
 
+    public void ToggleTutorial() 
+    {
+        if (!tutorialScreen1.activeSelf && !tutorialScreen2.activeSelf)
+        {
+            tutorialScreen1.SetActive(true);
+        }
+        else
+        {
+            tutorialScreen1.SetActive(false);
+            tutorialScreen2.SetActive(false);
+        }
+    }
+
+    public void NextTutorial()
+    {
+        if (tutorialScreen1.activeSelf)
+        {
+            tutorialScreen1.SetActive(false);
+            tutorialScreen2.SetActive(true);
+        }
+        else
+        {
+            tutorialScreen1.SetActive(true);
+            tutorialScreen2.SetActive(false);
+        }
+    }
+
     private void changeDirection() {
         // Determine the direction based on mouse position
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -448,13 +477,13 @@ public class move : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        if (gameIsPaused == false && x > 0)
+        if (bagIsOpen == false && gameIsPaused == false && x > 0)
         {
             x = 1;
         }
 
 
-        if (gameIsPaused == false && y != 0)
+        if (bagIsOpen == false && gameIsPaused == false && y != 0)
         {
             if (direction == "Side" && x != 0)
             {
@@ -470,7 +499,7 @@ public class move : MonoBehaviour
             direction = "Front";
             transform.localScale = new Vector3(1, 1, 1);
         }*/
-        else if (gameIsPaused == false && x != 0)
+        else if (bagIsOpen == false && gameIsPaused == false && x != 0)
         {
             direction = "Side";
         }
