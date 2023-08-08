@@ -87,7 +87,9 @@ public class move : MonoBehaviour
     public GameObject tutorialScreen1;
     public GameObject tutorialScreen2;
 
-
+    public Text upgradeEffectName;
+    public Text upgradeEffectDesc;
+    public GameObject meleeBuffIcon;
 
     public string Direction {
         get { return direction; }
@@ -112,7 +114,7 @@ public class move : MonoBehaviour
         weaponArea = GameObject.Find("WeaponArea");
         weaponName = weaponArea.transform.Find("WeaponName").GetComponent<Text>();
         weapon = weaponArea.transform.Find("Weapon").GetComponent<Image>();
-        weaponBuff = weaponArea.transform.Find("WeaponBuff").GetComponent<Image>();
+        weaponBuff = weaponArea.transform.Find("WeaponBuff (Ranged)").GetComponent<Image>();
 
         weaponName.text = "Frying Pan";
         weapon.sprite = panSprite;
@@ -364,6 +366,10 @@ public class move : MonoBehaviour
     {
         if (isMelee == true)
         {
+            upgradeEffectName.enabled = true;
+            upgradeEffectDesc.enabled = true;
+            if (meleeBuffIcon != null) meleeBuffIcon.SetActive(false);
+
             weaponName.text = "Kitchen Gun";
             weapon.sprite = gunSprite;
             weaponBuff.sprite = upgradeBuffSprite;
@@ -375,6 +381,10 @@ public class move : MonoBehaviour
         }
         else
         {
+            upgradeEffectName.enabled = false;
+            upgradeEffectDesc.enabled = false;
+            if (meleeBuffIcon != null) meleeBuffIcon.SetActive(true);
+
             weaponName.text = "Frying Pan";
             weapon.sprite = panSprite;
             weaponBuff.sprite = noEleSprite;
@@ -604,6 +614,13 @@ public class move : MonoBehaviour
         if (collision.gameObject.name == "UnlockFire(Clone)")
         {
             playerTest.projectile[0] = playerTest.projectile[1];
+            upgradeEffectName.text = "Fire";
+            upgradeEffectDesc.text = "Explodes enemies";
+
+            upgradeEffectName.enabled = !isMelee;
+            upgradeEffectDesc.enabled = !isMelee;
+            if (meleeBuffIcon != null) meleeBuffIcon.SetActive(isMelee);
+
             upgradeBuffSprite = fireGunSprite;
             weaponBuffAnim.Play("FireIcon");
             collision.gameObject.name += " - deleting";
@@ -612,6 +629,13 @@ public class move : MonoBehaviour
         if (collision.gameObject.name == "UnlockIce(Clone)")
         {
             playerTest.projectile[0] = playerTest.projectile[2];
+            upgradeEffectName.text = "Ice";
+            upgradeEffectDesc.text = "Slows enemies";
+
+            upgradeEffectName.enabled = !isMelee;
+            upgradeEffectDesc.enabled = !isMelee;
+            if (meleeBuffIcon != null) meleeBuffIcon.SetActive(isMelee);
+
             upgradeBuffSprite = freezeGunSprite;
             weaponBuffAnim.Play("IceIcon");
             collision.gameObject.name += " - deleting";
@@ -620,6 +644,13 @@ public class move : MonoBehaviour
         if (collision.gameObject.name == "UnlockPoison(Clone)")
         {
             playerTest.projectile[0] = playerTest.projectile[3];
+            upgradeEffectName.text = "Poison";
+            upgradeEffectDesc.text = "Poisons enemies";
+
+            upgradeEffectName.enabled = !isMelee;
+            upgradeEffectDesc.enabled = !isMelee;
+            if (meleeBuffIcon != null) meleeBuffIcon.SetActive(isMelee);
+
             upgradeBuffSprite = poisonGunSprite;
             weaponBuffAnim.Play("PoisonIcon");
             collision.gameObject.name += " - deleting";

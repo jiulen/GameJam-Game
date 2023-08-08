@@ -354,6 +354,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1509868364}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: iceIcon
       value: 
       objectReference: {fileID: 0}
@@ -422,6 +426,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 48736333}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: weaponBuff
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: attackSlash
       value: 
       objectReference: {fileID: 6226327759341696037, guid: 13cca96aa05659e42ac0c698b1ca60f7, type: 3}
@@ -449,6 +457,10 @@ PrefabInstance:
       propertyPath: fireGunSprite
       value: 
       objectReference: {fileID: 21300000, guid: ad92e871c79eb384da98390d7fdf91b8, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: meleeBuffIcon
+      value: 
+      objectReference: {fileID: 436435052}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: panBuffSprite
       value: 
@@ -513,6 +525,14 @@ PrefabInstance:
       propertyPath: upgradeBuffSprite
       value: 
       objectReference: {fileID: 21300000, guid: 731ee268362c64f058e14a05d6db9d9f, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: upgradeEffectDesc
+      value: 
+      objectReference: {fileID: 1895720279}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: upgradeEffectName
+      value: 
+      objectReference: {fileID: 800437730}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: gunShot.Array.size
       value: 3
@@ -658,6 +678,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &436435052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5817417192716230811, guid: 854c868ef70b307459e74f3b96119994, type: 3}
+  m_PrefabInstance: {fileID: 2034200289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &536880628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1730,6 +1755,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &800437730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1145103468, guid: 854c868ef70b307459e74f3b96119994, type: 3}
+  m_PrefabInstance: {fileID: 2034200289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &822369580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,6 +2594,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5284855687351705958, guid: 854c868ef70b307459e74f3b96119994, type: 3}
   m_PrefabInstance: {fileID: 2034200289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1895720279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2037622416, guid: 854c868ef70b307459e74f3b96119994, type: 3}
+  m_PrefabInstance: {fileID: 2034200289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1906405589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,10 +2722,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1231618923}
-    - target: {fileID: 723571659, guid: 854c868ef70b307459e74f3b96119994, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 991026222, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: playerStats
       value: 
