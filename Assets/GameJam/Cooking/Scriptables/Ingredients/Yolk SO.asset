@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Yolk SO
   m_EditorClassIdentifier: 
   ingredientName: Yolk
-  ingredientSprite: {fileID: 21300000, guid: 10a37cf551e5d40548fd7d7cc028ce38, type: 3}
+  ingredientSprite: {fileID: 21300000, guid: a76a256b5996a438d95070b623482a14, type: 3}

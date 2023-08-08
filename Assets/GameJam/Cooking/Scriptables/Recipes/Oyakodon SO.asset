@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c48c56fbd87354fe8aa3cefc34ed960f, type: 2}
   - {fileID: 11400000, guid: 054ae5ffd39c91b44b0aed0e0cb50d38, type: 2}
   outputDishName: Oyakodon
-  outputDishSprite: {fileID: 21300000, guid: 0056078dc86f347b0b37609c00fa4abf, type: 3}
+  outputDishSprite: {fileID: 21300000, guid: 24c1b953fd11e431b90b3d42d09e0712, type: 3}

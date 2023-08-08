@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ChickenFeet SO
   m_EditorClassIdentifier: 
   ingredientName: ChickenFeet
-  ingredientSprite: {fileID: 21300000, guid: 046d6e59bec0a466c990697064ad6f22, type: 3}
+  ingredientSprite: {fileID: 21300000, guid: 54fd8627752734cd7af3609a9980f9ce, type: 3}
