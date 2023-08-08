@@ -52,6 +52,7 @@ public class Inventory : MonoBehaviour
     private List<GameObject> buffList;
     move playerMove;
 
+    private CookingManager cookingManager;
 
     void Start()
     {
@@ -59,6 +60,8 @@ public class Inventory : MonoBehaviour
         playerBuff = GetComponent<Buffs>();
         buffList = new List<GameObject> { atkBuff, evasionBuff, speedBuff, poisonousBuff, noBlockBuff };
         playerBuff.InitializeBuffIcons(buffList);
+        
+        cookingManager = FindObjectOfType<CookingManager>();
     }
 
     void Update()
@@ -241,6 +244,38 @@ public class Inventory : MonoBehaviour
                 playerBuff.AddBuffIcon(noBlockBuff, buffDuration);
                 yield return new WaitForSeconds(buffDuration);
                 GetComponent<PlayerStats>().RemoveBuffs(4);
+                break;
+        }
+    }
+
+    public void UnequipDish(int slotNum)
+    {
+        if (slots.Count <= slotNum) return;
+
+        slots.RemoveAt(slotUsed);
+        ITEM type = slots[slotUsed];
+        
+        switch (type)
+        {
+            case ITEM.bakKutTeh:            
+                cookingManager.bakKutTehCount += 1;
+                cookingManager.bakKutTehText.text = cookingManager.bakKutTehCount.ToString();
+                break;
+            case ITEM.oyakodon:
+                cookingManager.oyakodonCount += 1;
+                cookingManager.oyakodonText.text = cookingManager.oyakodonCount.ToString();
+                break;
+            case ITEM.rabbitOmelet:
+                cookingManager.rabbitOmeletCount += 1;
+                cookingManager.rabbitOmeletText.text = cookingManager.rabbitOmeletCount.ToString();
+                break;
+            case ITEM.succulentFeet:
+                cookingManager.succulentFeetCount += 1;
+                cookingManager.succulentFeetText.text = cookingManager.succulentFeetCount.ToString();
+                break;
+            case ITEM.xiaoJiDunMoGu:
+                cookingManager.xiaoJiDunMoGuCount += 1;
+                cookingManager.xiaoJiDunMoGuText.text = cookingManager.xiaoJiDunMoGuCount.ToString();
                 break;
         }
     }

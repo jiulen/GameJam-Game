@@ -305,31 +305,31 @@ public class CookingManager : MonoBehaviour
             case "BakKutTeh":
                 //Add BakKutTeh here
                 bakKutTehCount += 1;
-                bakKutTehText.text = "Bak Kut Teh: " + bakKutTehCount;
+                bakKutTehText.text = bakKutTehCount.ToString();
                 Debug.Log("Added BKT");
                 break;
             case "XiaoJiDunMoGu":
                 //Add XiaoJiDunMoGu here
                 xiaoJiDunMoGuCount += 1;
-                xiaoJiDunMoGuText.text = "Xiao Ji Dun Mo Gu: " + xiaoJiDunMoGuCount;
+                xiaoJiDunMoGuText.text = xiaoJiDunMoGuCount.ToString();
                 Debug.Log("Added XJDMG");
                 break;
             case "Oyakodon":
                 //Add Oyakodon here
                 oyakodonCount += 1;
-                oyakodonText.text = "Oyakodon: " + oyakodonCount;
+                oyakodonText.text = oyakodonCount.ToString();
                 Debug.Log("Added Oyakodon");
                 break;
             case "RabbitOmelet":
                 //Add RabbitOmelet here
                 rabbitOmeletCount += 1;
-                rabbitOmeletText.text = "Rabbit Omelet: " + rabbitOmeletCount;
+                rabbitOmeletText.text = rabbitOmeletCount.ToString();
                 Debug.Log("Added RO");
                 break;
             case "SucculentFeet":
                 //Add SucculentFeet here
                 succulentFeetCount += 1;
-                succulentFeetText.text = "Glazing Succulent Feet: " + succulentFeetCount;
+                succulentFeetText.text = succulentFeetCount.ToString();
                 Debug.Log("Added SF");
                 break;
         }
