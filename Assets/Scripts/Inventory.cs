@@ -266,8 +266,7 @@ public class Inventory : MonoBehaviour
     public void UnequipDish(int slotNum)
     {
         if (slots.Count <= slotNum) return;
-
-        slots.RemoveAt(slotUsed);
+        
         ITEM type = slots[slotUsed];
         
         switch (type)
@@ -292,6 +291,8 @@ public class Inventory : MonoBehaviour
                 cookingManager.xiaoJiDunMoGuCount += 1;
                 cookingManager.xiaoJiDunMoGuText.text = "x " + cookingManager.xiaoJiDunMoGuCount.ToString();
                 break;
-        }
+        }        
+
+        slots.RemoveAt(slotUsed);
     }
 }
