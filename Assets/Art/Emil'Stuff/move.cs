@@ -570,6 +570,7 @@ public class move : MonoBehaviour
         }
         if (collision.gameObject.name == "UnlockFire(Clone)")
         {
+            playerTest.projectile[0] = playerTest.projectile[1];
             upgradeBuffSprite = fireGunSprite;
             weaponBuffAnim.Play("FireIcon");
             collision.gameObject.name += " - deleting";
@@ -577,6 +578,7 @@ public class move : MonoBehaviour
         }
         if (collision.gameObject.name == "UnlockIce(Clone)")
         {
+            playerTest.projectile[0] = playerTest.projectile[2];
             upgradeBuffSprite = freezeGunSprite;
             weaponBuffAnim.Play("IceIcon");
             collision.gameObject.name += " - deleting";
@@ -584,6 +586,7 @@ public class move : MonoBehaviour
         }
         if (collision.gameObject.name == "UnlockPoison(Clone)")
         {
+            playerTest.projectile[0] = playerTest.projectile[3];
             upgradeBuffSprite = poisonGunSprite;
             weaponBuffAnim.Play("PoisonIcon");
             collision.gameObject.name += " - deleting";

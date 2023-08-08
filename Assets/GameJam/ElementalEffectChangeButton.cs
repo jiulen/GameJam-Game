@@ -7,7 +7,6 @@ public class ElementalEffectChangeButton : MonoBehaviour
 {
     public PlayerTest playerTest;
     public float projectileSlotNumber;
-    public GameObject projectileChooser;
     public bool isProjectileChooserActive;
     public move playerMove;
     public bool fireIsUnlocked = false;
@@ -59,19 +58,4 @@ public class ElementalEffectChangeButton : MonoBehaviour
             playerMove.weaponBuffAnim.Play("PoisonIcon");
         }
     }
-
-    public void ToggleProjectileChooser()
-    {
-        if (isProjectileChooserActive == false)
-        {
-            projectileChooser.SetActive(true);
-            isProjectileChooserActive = true;
-        }
-        else
-        {
-            projectileChooser.SetActive(false);
-            isProjectileChooserActive = false;
-        }
-    }
-
 }
