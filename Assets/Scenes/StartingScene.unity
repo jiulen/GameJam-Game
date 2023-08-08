@@ -2809,6 +2809,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238481180143097539, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 622313999508488780, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4733,6 +4737,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[4].Array.data[15].Y
       value: -90000000
       objectReference: {fileID: 0}
+    - target: {fileID: 1210448704097164683, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2195949413419642837, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4755,6 +4763,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5599584421289573653, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679082490948286480, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5705186342619356750, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
@@ -4807,6 +4819,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869275127370331894, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026696171843702159, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7457422095009165835, guid: 582423b81b5bebb45b06c7cd9da71074, type: 3}
@@ -15909,7 +15925,7 @@ GameObject:
   - component: {fileID: 1705608663}
   - component: {fileID: 1705608662}
   m_Layer: 5
-  m_Name: WeaponBuff
+  m_Name: WeaponBuff (Ranged)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17559,6 +17575,14 @@ PrefabInstance:
       propertyPath: upgradeBuffSprite
       value: 
       objectReference: {fileID: 21300000, guid: 731ee268362c64f058e14a05d6db9d9f, type: 3}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: upgradeEffectDesc
+      value: 
+      objectReference: {fileID: 813786884}
+    - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
+      propertyPath: upgradeEffectName
+      value: 
+      objectReference: {fileID: 2069992257}
     - target: {fileID: 4248948148176905318, guid: 3a27ff80ff3282b46915cda870b524ff, type: 3}
       propertyPath: gunShot.Array.size
       value: 3
