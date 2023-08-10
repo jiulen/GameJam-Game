@@ -10,15 +10,14 @@ public class MinimapRoom : MonoBehaviour
     public bool connectB, connectL, connectR, connectT = false;
     Image icon;
 
-    void Awake()
-    {
-        icon = transform.GetChild(0).GetComponent<Image>();
-    }
-
     public void SetRoom(bool roomActive)
     {
         if (room == null) room = GetComponent<Image>();
         room.enabled = roomActive;
+        if (icon == null)
+        {
+            icon = transform.GetChild(0).GetComponent<Image>();
+        }
         if (icon.sprite != null)
         {
             icon.enabled = true;
