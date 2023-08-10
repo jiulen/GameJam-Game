@@ -2722,6 +2722,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1231618923}
+    - target: {fileID: 723571659, guid: 854c868ef70b307459e74f3b96119994, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 991026222, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: playerStats
       value: 
@@ -2814,6 +2818,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1906405591}
+    - target: {fileID: 1468055545922770598, guid: 854c868ef70b307459e74f3b96119994, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1842219440819303147, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2914,6 +2922,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 33216050}
+    - target: {fileID: 5284855687351705958, guid: 854c868ef70b307459e74f3b96119994, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5500561251753460350, guid: 854c868ef70b307459e74f3b96119994, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
