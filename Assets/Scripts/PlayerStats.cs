@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
         move = GetComponent<move>();
         playerLayerNum = LayerMask.NameToLayer(playerLayerName);
         wallsLayerNum = LayerMask.NameToLayer(wallsLayerName);
-        levelUpCost = 10 * currentLevel + 10;
+        levelUpCost = 15 * currentLevel + 10;
         upgradeDescriptions = new List<(string, string)>();
     }
 
@@ -96,7 +96,7 @@ public class PlayerStats : MonoBehaviour
             healthManager.heal(1);
             unusedStatPoints++;
 
-            levelUpCost = 10 * currentLevel + 10;
+            levelUpCost = 15 * currentLevel + 10;
 
             if (LevelUpEffect != null)
             {

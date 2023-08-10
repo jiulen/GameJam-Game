@@ -30,6 +30,16 @@ public class HoverBehaviour : MonoBehaviour
     void Update()
     {
         CheckPos();
+
+        if (!gameObject.activeInHierarchy)
+        {
+            hoverText.text = "";
+
+            isEnabled = false;
+
+            hoverBg.enabled = false;
+            hoverText.enabled = false;
+        }
     }
 
     void CheckPos()
