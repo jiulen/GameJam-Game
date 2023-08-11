@@ -3225,13 +3225,21 @@ PrefabInstance:
       value: Sound Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3067405613798184625, guid: a38a194fb7df01f499f167e53738b8b4, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067405613798184625, guid: a38a194fb7df01f499f167e53738b8b4, type: 3}
       propertyPath: m_Volume
       value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 3067405613798184625, guid: a38a194fb7df01f499f167e53738b8b4, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: e24e0548c9ae60e45a937a70f829de47, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067405613798184625, guid: a38a194fb7df01f499f167e53738b8b4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3067405613798184626, guid: a38a194fb7df01f499f167e53738b8b4, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3278,6 +3286,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a38a194fb7df01f499f167e53738b8b4, type: 3}
+--- !u!1 &3067405613661974685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3067405613798184624, guid: a38a194fb7df01f499f167e53738b8b4, type: 3}
+  m_PrefabInstance: {fileID: 3067405613661974684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3067405613661974686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067405613661974685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613b138a66080dc4589f691678a15ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 8300000, guid: 7476037893034784ab4c21d856d74604, type: 3}
+  - {fileID: 8300000, guid: 91251e114414d6944bc319cf562a77aa, type: 3}
+  - {fileID: 8300000, guid: fcb61a7576d90384f9ee4e5a5668c0a8, type: 3}
+  - {fileID: 8300000, guid: a6fd820b04364e947b1018f68314d465, type: 3}
+  - {fileID: 8300000, guid: ff4e1df2951eddf4c99ed1953fe4c463, type: 3}
+  - {fileID: 8300000, guid: 9d6d769dc22655a429f3fb5f80e0489c, type: 3}
+  - {fileID: 8300000, guid: bc3e943c1acfcdd4a9ec39198c9a5951, type: 3}
+  - {fileID: 8300000, guid: 83dba850c1ec40f4d94cb3b6b5223c5d, type: 3}
 --- !u!1001 &3921454215924318561
 PrefabInstance:
   m_ObjectHideFlags: 0
